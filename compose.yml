@@ -1,0 +1,5 @@
+services:
+  showbuddy:
+    build: .
+    ports:
+      - "5019:5019"
