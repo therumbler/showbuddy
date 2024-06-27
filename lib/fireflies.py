@@ -8,7 +8,9 @@ logger = logging.getLogger(__name__)
 
 
 class Fireflies:
-    """Fireflies class"""
+    """Fireflies class
+    https://docs.fireflies.ai/examples/overview
+    """
 
     def __init__(self, api_key):
         self.api_requests_count = 0
