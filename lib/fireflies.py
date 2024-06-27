@@ -14,6 +14,7 @@ class Fireflies:
         self._api_key = api_key
         self._user = self.fetch_user()
         logger.info("_user: %r", self._user)
+        self._user_id = self._user["data"]["users"][0]["user_id"]
 
     def _fetch(self, data):
         url = "https://api.fireflies.ai/graphql"
@@ -36,17 +37,40 @@ class Fireflies:
         data = {"query": query}
         return self._fetch(data)
 
-    def upload_audio(self, audio_url):
+    def fetch_transcript(self, transcript_id):
+        data = {
+            "query": """query Transcript($transcriptId: String!) { 
+                transcript(id: $transcriptId) 
+                { 
+                    title 
+                    id 
+                    sentences { 
+                        text speaker_name start_time end_time 
+                    }
+                }
+                }""",
+            "variables": {"transcriptId": transcript_id},
+        }
+        return self._fetch(data)
+
+    def fetch_transcripts(self):
+        data = {
+            "query": "query Transcripts($userId: String) { transcripts(user_id: $userId) { title id } }",
+            "variables": {"userId": self._user_id},
+        }
+        return self._fetch(data)
+
+    def upload_audio(self, audio_url, audio_title):
         logger.info('fireflies.upload_audio("%s")', audio_url)
-        file_name = os.path.basename(audio_url)
+
         input = {
             # "webhook": "https://your_webhook_url",
             "url": audio_url,
-            "title": file_name,
+            "title": audio_title,
             "attendees": [
                 {
                     "displayName": "attendee_name",
-                    "email": "attendee_email",
+                    "email": "attendee1@example.com",
                     "phoneNumber": "attendee_phone",
                 },
             ],
@@ -60,9 +84,25 @@ class Fireflies:
                 }
             }
             """,
-            "variables": input,
+            "variables": {"input": input},
         }
 
+        return self._fetch(data)
+
+    def delete_transcript(self, transcript_id):
+        data = {
+            "query": """
+        mutation($transcriptId: String!) {
+          deleteTranscript(id: $transcriptId) {
+            title
+            date
+            duration
+            organizer_email
+          }
+        }
+    """,
+            "variables": {"transcriptId": transcript_id},
+        }
         return self._fetch(data)
 
 

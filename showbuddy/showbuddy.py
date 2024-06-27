@@ -1,5 +1,7 @@
 import logging
 import os
+import time
+from uuid import uuid4
 
 from .uploader import Uploader
 from lib.fireflies import Fireflies
@@ -31,20 +33,50 @@ class ShowBuddy:
         logger.info("s3_response %r", s3_response)
         return s3_response
 
-    def process(self, audio_filepath, business_card_filepaths):
+    def _fetch_transcripts(self):
+        transcripts = []
+        while not transcripts:
+            resp = self._fireflies.fetch_transcripts()
+            transcripts = resp["data"]["transcripts"]
+            logger.info("transcripts %r", transcripts)
+            time.sleep(5)
+        return resp
+
+    def _fetch_transcript(self, transcript_id):
+        sentences = []
+        while not sentences:
+            transcript = self._fireflies.fetch_transcript(transcript_id)
+            logger.info("transcript %r", transcript)
+            sentences = transcript["data"]["transcript"]["sentences"]
+        logger.info("sentences %r", sentences)
+        return transcript
+
+    def fetch_transcription_by_title(self, title):
+        transcripts = self._fireflies.fetch_transcripts()
+        for transcript in transcripts["data"]["transcripts"]:
+            if transcript["title"] == title:
+                return self._fetch_transcript(transcript["id"])
+
+    def process(self, audio_filepath, business_card_filepaths, audio_title):
         audio_url = self._process_audio(audio_filepath)
         logger.info("got audo_url %s", audio_url)
 
         # call fireflies api with s3 url
-        resp = self._fireflies.upload_audio(audio_url)
+        # audio_title = str(uuid4())
+        resp = self._fireflies.upload_audio(audio_url, audio_title=audio_title)
         logger.info("fireflies response %r", resp)
         # get transcript
-        # tag timestamp
-        #
-        return resp
+        transcripts = self._fetch_transcripts()
+        transcript_id = transcripts["data"]["transcripts"][-1]["id"]
+        transcript = self._fireflies.fetch_transcript(transcript_id)
+        logger.info("transcript %r", transcript)
+        return transcript
 
     def delete_file(self, audio_filepath):
         return self._uploader.delete_file(audio_filepath)
+
+    def delete_transcript(self, transcript_id):
+        return self._fireflies.delete_transcript(transcript_id)
 
 
 def test():
