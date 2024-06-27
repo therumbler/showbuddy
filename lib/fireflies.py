@@ -11,6 +11,7 @@ class Fireflies:
     """Fireflies class"""
 
     def __init__(self, api_key):
+        self.api_requests_count = 0
         self._api_key = api_key
         self._user = self.fetch_user()
         logger.info("_user: %r", self._user)
@@ -26,6 +27,7 @@ class Fireflies:
         req = Request(url, data=json.dumps(data).encode(), headers=headers)
         logger.info("Fetching %s data: %s", url, json.dumps(data, indent=2))
         try:
+            self.api_requests_count += 1
             with urlopen(req) as response:
                 return json.load(response)
         except HTTPError as ex:
@@ -103,6 +105,7 @@ class Fireflies:
     """,
             "variables": {"transcriptId": transcript_id},
         }
+        logger.warning("⚠️ deleting transcript_id %s", transcript_id)
         return self._fetch(data)
 
 
@@ -110,9 +113,11 @@ def main():
     """let's kick this off"""
     import os
 
+    logging.basicConfig(level=logging.DEBUG)
     api_key = os.environ["FIREFLIES_API_KEY"]
     fireflies = Fireflies(api_key)
-    print(fireflies.fetch_user())
+    transcripts = fireflies.fetch_transcripts()
+    logger.info("count of transcripts: %d", len(transcripts["data"]["transcripts"]))
 
 
 if __name__ == "__main__":

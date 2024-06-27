@@ -39,7 +39,8 @@ class ShowBuddy:
             resp = self._fireflies.fetch_transcripts()
             transcripts = resp["data"]["transcripts"]
             logger.info("transcripts %r", transcripts)
-            time.sleep(5)
+            if not transcripts:
+                time.sleep(5)
         return resp
 
     def _fetch_transcript(self, transcript_id):
@@ -52,10 +53,15 @@ class ShowBuddy:
         return transcript
 
     def fetch_transcription_by_title(self, title):
-        transcripts = self._fireflies.fetch_transcripts()
-        for transcript in transcripts["data"]["transcripts"]:
-            if transcript["title"] == title:
-                return self._fetch_transcript(transcript["id"])
+        transcript = None
+        while not transcript:
+            transcripts = self._fireflies.fetch_transcripts()
+            for t in transcripts["data"]["transcripts"]:
+                if t["title"] == title:
+                    transcript = self._fetch_transcript(t["id"])
+            if not transcript:
+                time.sleep(5)
+        return transcript
 
     def process(self, audio_filepath, business_card_filepaths, audio_title):
         audio_url = self._process_audio(audio_filepath)
@@ -66,8 +72,9 @@ class ShowBuddy:
         resp = self._fireflies.upload_audio(audio_url, audio_title=audio_title)
         logger.info("fireflies response %r", resp)
         # get transcript
-        transcripts = self._fetch_transcripts()
-        transcript_id = transcripts["data"]["transcripts"][-1]["id"]
+        # transcripts = self._fetch_transcripts()
+        transcript = self.fetch_transcription_by_title(audio_title)
+        transcript_id = transcript["data"]["transcript"]["id"]
         transcript = self._fireflies.fetch_transcript(transcript_id)
         logger.info("transcript %r", transcript)
         return transcript
@@ -75,8 +82,9 @@ class ShowBuddy:
     def delete_file(self, audio_filepath):
         return self._uploader.delete_file(audio_filepath)
 
-    def delete_transcript(self, transcript_id):
-        return self._fireflies.delete_transcript(transcript_id)
+    def delete_transcript_by_title(self, title):
+        transcript = self.fetch_transcription_by_title(title)
+        return self._fireflies.delete_transcript(transcript["data"]["transcript"]["id"])
 
 
 def test():
