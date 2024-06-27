@@ -20,14 +20,14 @@ class Uploader:
 
     def upload_file(self, audio_filepath) -> str:
         file_name = os.path.basename(audio_filepath)
-        logger.info("Uploading %s to s3", file_name)
+        logger.debug("Uploading %s to s3", file_name)
         response = self._s3.upload_file(audio_filepath, self._s3_bucket_name, file_name)
-        logger.info("s3 response: %r", response)
+
         return self._get_full_url_for_file(file_name)
 
     def delete_file(self, audio_filepath) -> str:
         file_name = os.path.basename(audio_filepath)
-        logger.info("Deleting %s from s3", file_name)
+        logger.warning("⚠️ Deleting %s from s3", file_name)
         response = self._s3.delete_object(Bucket=self._s3_bucket_name, Key=file_name)
-        logger.info("s3 response: %r", response)
+        logger.debug("s3 response: %r", response)
         return response

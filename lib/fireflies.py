@@ -14,7 +14,6 @@ class Fireflies:
         self.api_requests_count = 0
         self._api_key = api_key
         self._user = self.fetch_user()
-        logger.info("_user: %r", self._user)
         self._user_id = self._user["data"]["users"][0]["user_id"]
 
     def _fetch(self, data):
@@ -25,7 +24,7 @@ class Fireflies:
             "Authorization": f"Bearer {self._api_key}",
         }
         req = Request(url, data=json.dumps(data).encode(), headers=headers)
-        logger.info("Fetching %s data: %s", url, json.dumps(data, indent=2))
+        logger.debug("Fetching %s data: %s", url, json.dumps(data, indent=2))
         try:
             self.api_requests_count += 1
             with urlopen(req) as response:
