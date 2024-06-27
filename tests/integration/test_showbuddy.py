@@ -16,10 +16,9 @@ class TestShowBuddy(unittest.TestCase):
         cls._showbuddy = ShowBuddy()
 
     def test_showbuddy(self):
-
         resp = self._showbuddy.process(AUDIO_FILEPATH, [])
-        print(resp)
-        # assert False  # TODO: implement your test here
+        logger.info("process response: %r", resp)
+        assert "errors" not in resp
 
     @classmethod
     def tearDownClass(cls):
