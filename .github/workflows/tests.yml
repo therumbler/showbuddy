@@ -6,7 +6,11 @@ jobs:
   test:
     name: Run Python Tests
     runs-on: ubuntu-latest
-
+    env:
+      AWS_ENDPOINT_URL: ${{ secrets.AWS_ENDPOINT_URL }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      FIREFLIES_API_KEY: ${{ secrets.FIREFLIES_API_KEY }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
