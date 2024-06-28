@@ -19,7 +19,9 @@ class TestSpreadly(unittest.TestCase):
 
     def test_spreadly(self):
         logger.info("starting test_spreadly with CARD_FILEPATH: %s", CARD_FILEPATH)
-        resp = self._spreadly.scan_card(CARD_FILEPATH)
+        with open(CARD_FILEPATH, "rb") as f:
+            resp = self._spreadly.scan_card(f)
+        # resp = self._spreadly.scan_card(CARD_FILEPATH)
         logger.info("scan_card response: %r", resp)
 
         assert "errors" not in resp

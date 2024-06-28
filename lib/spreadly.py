@@ -32,18 +32,18 @@ class Spreadly:
         resp.raise_for_status()
         return resp.json()
 
-    def scan_card(self, card_filepath):
+    def scan_card(self, card_file):
         endpoint = "business-card-scans"
-        with open(card_filepath, "rb") as f:
-            filename = f"{str(uuid4())}.jpg"
-            files = {
-                "front": (
-                    filename,
-                    f,
-                ),
-            }
 
-            return self._fetch(endpoint, files)
+        filename = f"{str(uuid4())}.jpg"
+        files = {
+            "front": (
+                filename,
+                card_file,
+            ),
+        }
+
+        return self._fetch(endpoint, files)
 
     def delete_scan(self, scan_id):
         logger.warning("delete_scan not yet implemented")

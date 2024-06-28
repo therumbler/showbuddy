@@ -22,11 +22,9 @@ class TestShowBuddy(TestCase):
 
     @skip("Skipping test_showbuddy")
     def test_showbuddy(self):
-
-        resp = self._showbuddy.process(
-            AUDIO_FILEPATH, [], TestShowBuddy._transcript_title
-        )
-        logger.info("process response: %r", resp)
+        with open(AUDIO_FILEPATH, "rb") as f:
+            resp = self._showbuddy.process(f, [], TestShowBuddy._transcript_title)
+            logger.info("process response: %r", resp)
 
         assert "errors" not in resp
         text = "Let's hope this file is larger than 500 kb"
