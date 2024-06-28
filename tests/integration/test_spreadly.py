@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 CARD_FILEPATH = "./tests/integration/files/tsepo_montsi.zo.ca_business_card.jpg"
 
 
-class TestSpreedly(unittest.TestCase):
+class TestSpreadly(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         logging.basicConfig(level=logging.DEBUG)
