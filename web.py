@@ -29,7 +29,7 @@ def make_app():
     async def process(image: UploadFile = File(...), audio: UploadFile = File(...)):
         logger.info("image: %s", image.filename)
         logger.info("audio: %s", audio.filename)
-        resp = showbuddy.process(audio, [image], audio.filename)
+        resp = await showbuddy.process(audio, [image], audio.filename)
         return resp
 
     return app

@@ -1,5 +1,6 @@
 """Main module for ShowBuddy"""
 
+import asyncio
 import logging
 import os
 import time
@@ -21,12 +22,15 @@ class ShowBuddy:
         self._spreadly = Spreadly(os.environ["SPREADLY_API_KEY"])
         logger.info("ShowBuddy initialized")
 
-    def _process_business_card(self, business_card_fileobj):
-        return self._spreadly.scan_card(business_card_fileobj)
+    async def _process_business_card(self, business_card_fileobj):
+        return await self._spreadly.scan_card(business_card_fileobj.file)
 
-    def _process_business_cards(self, business_card_fileobjs):
+    async def _process_business_cards(self, business_card_fileobjs):
         # return []
-        return list(map(self._process_business_card, business_card_fileobjs))
+
+        tasks = [self._process_business_card(bco) for bco in business_card_fileobjs]
+        logger.debug("awaiting %d business card tasks", len(tasks))
+        return await asyncio.gather(*tasks)
 
     def _process_audio(self, audio_fileobj, audio_title):
         logger.warning('skipping audio processing "%s"', audio_title)
@@ -88,10 +92,10 @@ class ShowBuddy:
                 time.sleep(12)
         return transcript
 
-    def process(self, audio_fileobj, business_card_fileobjs, audio_title):
+    async def process(self, audio_fileobj, business_card_fileobjs, audio_title):
         """Trigger the processing of an audio file and business cards"""
 
-        business_card_resp = self._process_business_cards(business_card_fileobjs)
+        business_card_resp = await self._process_business_cards(business_card_fileobjs)
 
         logger.info("got business card resp %s", business_card_resp)
         # return

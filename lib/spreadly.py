@@ -4,6 +4,7 @@ import logging
 
 from uuid import uuid4
 import requests
+import httpx
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +18,7 @@ class Spreadly:
         self.api_requests_count = 0
         self._api_key = api_key
 
-    def _fetch(self, endpoint, files):
+    async def _fetch(self, endpoint, files):
         url = f"https://spreadly.app/api/v1/{endpoint}"
 
         headers = {
@@ -25,12 +26,13 @@ class Spreadly:
             "accept": "application/json",
         }
         logger.debug("Fetching url: %s", url)
-        resp = requests.post(url, files=files, headers=headers, timeout=30)
-        self.api_requests_count += 1
-        resp.raise_for_status()
-        return resp.json()
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, files=files, headers=headers, timeout=30)
+            self.api_requests_count += 1
+            resp.raise_for_status()
+            return resp.json()
 
-    def scan_card(self, card_file):
+    async def scan_card(self, card_file):
         """scan a business card image file and return the data"""
         endpoint = "business-card-scans"
 
@@ -42,25 +44,27 @@ class Spreadly:
             ),
         }
 
-        return self._fetch(endpoint, files)
+        return await self._fetch(endpoint, files)
 
     def delete_scan(self, _):
         """delete a scan by ID"""
         logger.warning("delete_scan not yet implemented")
 
 
-def main():
+async def main():
     """let's kick this off"""
     import os  # pylint: disable=import-outside-toplevel
 
     logging.basicConfig(level=logging.DEBUG)
     api_key = os.environ["SPREADLY_API_KEY"]
     spreadly = Spreadly(api_key)
-    card_filepath = "../tests/integration/tsepo_montsi.zo.ca_business_card.HEIC"
+    card_filepath = "./tests/integration/files/tsepo_montsi.zo.ca_business_card.jpg"
     with open(card_filepath, "rb") as f:
-        resp = spreadly.scan_card(f)
+        resp = await spreadly.scan_card(f)
     logger.info("resp: %r", resp)
 
 
 if __name__ == "__main__":
-    main()
+    import asyncio
+
+    asyncio.run(main())
