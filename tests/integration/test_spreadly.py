@@ -1,5 +1,8 @@
+"""Integration tests for the Spreadly API"""
+
+import asyncio
 import logging
-import unittest
+from unittest import TestCase
 
 import os
 
@@ -10,24 +13,26 @@ logger = logging.getLogger(__name__)
 CARD_FILEPATH = "./tests/integration/files/tsepo_montsi.zo.ca_business_card.jpg"
 
 
-class TestSpreadly(unittest.TestCase):
+class TestSpreadly(TestCase):
+    """Integration tests for the Spreadly API"""
+
     @classmethod
     def setUpClass(cls):
         logging.basicConfig(level=logging.DEBUG)
 
         cls._spreadly = Spreadly(os.environ["SPREADLY_API_KEY"])
+        with open(CARD_FILEPATH, "rb") as f:
+            logger.info("starting scan_card with CARD_FILEPATH: %s", CARD_FILEPATH)
+            resp = asyncio.run(cls._spreadly.scan_card(f))
+            cls._resp = resp
+            logger.info("scan_card response: %r", resp)
 
     def test_spreadly(self):
-        logger.info("starting test_spreadly with CARD_FILEPATH: %s", CARD_FILEPATH)
-        with open(CARD_FILEPATH, "rb") as f:
-            resp = self._spreadly.scan_card(f)
-
-        logger.info("scan_card response: %r", resp)
-
-        assert "errors" not in resp
-        assert resp["given_name"] == "Tsepo"
-        assert resp["family_name"] == "Montsi"
-        assert "http://www.montsi.co.za" in resp["websites"]
+        """simple test to check if the response is as expected"""
+        assert "errors" not in self._resp
+        assert self._resp["given_name"] == "Tsepo"
+        assert self._resp["family_name"] == "Montsi"
+        assert "http://www.montsi.co.za" in self._resp["websites"]
 
     @classmethod
     def tearDownClass(cls):
