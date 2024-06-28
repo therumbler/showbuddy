@@ -1,6 +1,7 @@
+"""Module for interacting with Fireflies API"""
+
 import json
 import logging
-import os
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -36,11 +37,13 @@ class Fireflies:
             return json.load(ex)
 
     def fetch_user(self):
+        """Fetch the user from the Fireflies API for the current API key"""
         query = "{ users { name user_id } }"
         data = {"query": query}
         return self._fetch(data)
 
     def fetch_transcript(self, transcript_id):
+        """fetch a Fireflies transcript by ID"""
         data = {
             "query": """query Transcript($transcriptId: String!) { 
                 transcript(id: $transcriptId) 
@@ -57,26 +60,32 @@ class Fireflies:
         return self._fetch(data)
 
     def fetch_transcripts(self):
+        """Fetch all transcripts for the current user"""
         data = {
-            "query": "query Transcripts($userId: String) { transcripts(user_id: $userId) { title id } }",
+            "query": """query Transcripts($userId: String) { 
+                transcripts(user_id: $userId) { title id } 
+            }""",
             "variables": {"userId": self._user_id},
         }
         return self._fetch(data)
 
     def upload_audio(self, audio_url, audio_title):
+        """Upload an audio file to Fireflies for transcription"""
         logger.info('fireflies.upload_audio("%s")', audio_url)
 
-        input = {
-            # "webhook": "https://your_webhook_url",
-            "url": audio_url,
-            "title": audio_title,
-            "attendees": [
-                {
-                    "displayName": "attendee_name",
-                    "email": "attendee1@example.com",
-                    "phoneNumber": "attendee_phone",
-                },
-            ],
+        variables = {
+            "input": {
+                # "webhook": "https://your_webhook_url",
+                "url": audio_url,
+                "title": audio_title,
+                "attendees": [
+                    {
+                        "displayName": "attendee_name",
+                        "email": "attendee1@example.com",
+                        "phoneNumber": "attendee_phone",
+                    },
+                ],
+            }
         }
         data = {
             "query": """mutation($input: AudioUploadInput) {
@@ -87,12 +96,13 @@ class Fireflies:
                 }
             }
             """,
-            "variables": {"input": input},
+            "variables": variables,
         }
 
         return self._fetch(data)
 
     def delete_transcript(self, transcript_id):
+        """Delete a Fireflies transcript by ID"""
         data = {
             "query": """
         mutation($transcriptId: String!) {
@@ -112,7 +122,7 @@ class Fireflies:
 
 def main():
     """let's kick this off"""
-    import os
+    import os  # pylint: disable=import-outside-toplevel
 
     logging.basicConfig(level=logging.DEBUG)
     api_key = os.environ["FIREFLIES_API_KEY"]

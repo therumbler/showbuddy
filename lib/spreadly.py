@@ -1,11 +1,9 @@
+"""Module for interacting with Spreadly API"""
+
 import logging
-import os
 
 from uuid import uuid4
 import requests
-
-
-# from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 logger = logging.getLogger(__name__)
 
@@ -27,12 +25,13 @@ class Spreadly:
             "accept": "application/json",
         }
         logger.debug("Fetching url: %s", url)
-        resp = requests.post(url, files=files, headers=headers)
+        resp = requests.post(url, files=files, headers=headers, timeout=30)
         self.api_requests_count += 1
         resp.raise_for_status()
         return resp.json()
 
     def scan_card(self, card_file):
+        """scan a business card image file and return the data"""
         endpoint = "business-card-scans"
 
         filename = f"{str(uuid4())}.jpg"
@@ -45,19 +44,21 @@ class Spreadly:
 
         return self._fetch(endpoint, files)
 
-    def delete_scan(self, scan_id):
+    def delete_scan(self, _):
+        """delete a scan by ID"""
         logger.warning("delete_scan not yet implemented")
 
 
 def main():
     """let's kick this off"""
-    import os
+    import os  # pylint: disable=import-outside-toplevel
 
     logging.basicConfig(level=logging.DEBUG)
     api_key = os.environ["SPREADLY_API_KEY"]
     spreadly = Spreadly(api_key)
     card_filepath = "../tests/integration/tsepo_montsi.zo.ca_business_card.HEIC"
-    resp = spreadly.scan_card(card_filepath=card_filepath)
+    with open(card_filepath, "rb") as f:
+        resp = spreadly.scan_card(f)
     logger.info("resp: %r", resp)
 
 

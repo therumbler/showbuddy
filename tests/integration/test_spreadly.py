@@ -21,7 +21,7 @@ class TestSpreadly(unittest.TestCase):
         logger.info("starting test_spreadly with CARD_FILEPATH: %s", CARD_FILEPATH)
         with open(CARD_FILEPATH, "rb") as f:
             resp = self._spreadly.scan_card(f)
-        # resp = self._spreadly.scan_card(CARD_FILEPATH)
+
         logger.info("scan_card response: %r", resp)
 
         assert "errors" not in resp
@@ -31,7 +31,7 @@ class TestSpreadly(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        logger.info("Tear down! deleting file and transcript")
+        logger.info("Tear down! deleting scan")
         cls._spreadly.delete_scan(CARD_FILEPATH)
         requests = cls._spreadly.api_requests_count
         logger.info("Spreadly API requests count: %d", requests)

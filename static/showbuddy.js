@@ -62,18 +62,6 @@
         return formData;
     }
     async function uploadFiles() {
-        const fileInput = document.getElementById('fileInput');
-        const file1 = fileInput.files[0];
-        const file2 = fileInput.files[1];
-
-        if (!file1 || !file2) {
-            alert('Please select a file.');
-            return;
-        }
-
-        // const formData = new FormData();
-        // formData.append('file1', file1);
-        // formData.append('file2', file2);
         const formData = createFormData(fileInput.files);
 
         let response = await fetch('/api/process', {
