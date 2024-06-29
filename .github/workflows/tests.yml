@@ -13,6 +13,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       FIREFLIES_API_KEY: ${{ secrets.FIREFLIES_API_KEY }}
       ASSEMBLYAI_API_KEY: ${{ secrets.ASSEMBLYAI_API_KEY }}
+      SPREADLY_API_KEY: ${{ secrets.SPREADLY_API_KEY }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
