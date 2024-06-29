@@ -3,7 +3,6 @@
 import logging
 
 from uuid import uuid4
-import requests
 import httpx
 
 logger = logging.getLogger(__name__)

@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from unittest import TestCase, skip
 from uuid import uuid4
@@ -19,16 +20,26 @@ class TestShowBuddy(TestCase):
         logging.basicConfig(level=logging.INFO)
         cls._showbuddy = ShowBuddy()
         cls._transcript_title = str(uuid4())
+        with open(BUSINESS_CARD_FILEPATH, "rb") as business_card_file:
+            with open(AUDIO_FILEPATH, "rb") as audio_file:
+                cls.resp = asyncio.run(
+                    cls._showbuddy.process(
+                        audio_file,
+                        [business_card_file],
+                        TestShowBuddy._transcript_title,
+                    )
+                )
+                logger.info("process response: %r", cls.resp)
 
-    def _check_for_text_in_sentences(self, text, sentences):
-        return any([text in s["text"] for s in sentences])
+    def _check_for_text_in_sentences(self, text_to_check, text_resp):
+        return text_to_check in text_resp
 
     def _test_transcript_response(self, resp):
         assert resp is not None
-        assert "errors" not in resp
-        text = "Let's hope this file is larger than 500 kb"
-        sentences = resp["data"]["transcript"]["sentences"]
-        assert self._check_for_text_in_sentences(text, sentences)
+        assert "error" not in resp
+        text_to_check = "Let's hope this file is larger than 500 kb"
+        text_resp = resp["text"]
+        assert self._check_for_text_in_sentences(text_to_check, text_resp)
 
     def _test_business_card_response(self, resp):
         card0 = resp[0]
@@ -39,23 +50,16 @@ class TestShowBuddy(TestCase):
 
     # @skip("Skipping test_showbuddy")
     def test_showbuddy(self):
-        resp = None
-        with open(BUSINESS_CARD_FILEPATH, "rb") as business_card_file:
-            with open(AUDIO_FILEPATH, "rb") as audio_file:
-                resp = self._showbuddy.process(
-                    audio_file, [business_card_file], TestShowBuddy._transcript_title
-                )
-                logger.info("process response: %r", resp)
 
-        self._test_business_card_response(resp["business_card_resp"])
-        # self._test_transcript_response(resp["transcript"])
+        self._test_business_card_response(self.resp["business_card_resp"])
+        self._test_transcript_response(self.resp["transcript"])
 
     @classmethod
     def tearDownClass(cls):
         logger.info("Tear down! deleting file and transcript")
         cls._showbuddy.delete_file(AUDIO_FILEPATH)
-        # cls._showbuddy.delete_transcript_by_title(cls._transcript_title)
+        asyncio.run(cls._showbuddy.delete_transcript(cls.resp["transcript"]["id"]))
         logger.info(
-            "Fireflies api requests count: %d",
-            cls._showbuddy._fireflies.api_requests_count,
+            "AssemblyAI API requests count: %d",
+            cls._showbuddy._assemblyai.api_requests_count,
         )
