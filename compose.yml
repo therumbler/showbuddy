@@ -1,13 +1,23 @@
 services:
-  showbuddy:
+  # showbuddy-landing:
+  #   build: .
+  #   volumes:
+  #     - ./static:/app/static
+  #   ports:
+  #     - "5019:5019"
+
+  showbuddy-app:
     build: .
+    volumes:
+      - ./static:/app/static
     ports:
       - "5019:5019"
-    env_file:
-      - .env
     environment:
+      - APP_MODE=app
+      - ASSEMBLYAI_API_KEY
       - AWS_ENDPOINT_URL=${AWS_ENDPOINT_URL}
-      - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-      - FIREFLIES_API_KEY=$FIREFLIES_API_KEY
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - FIREFLIES_API_KEY=${FIREFLIES_API_KEY}
+      - SPREADLY_API_KEY
 

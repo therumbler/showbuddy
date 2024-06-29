@@ -33,7 +33,7 @@ class ShowBuddy:
     async def _process_audio(self, audio_fileobj, audio_title):
         logger.warning('skipping audio processing "%s"', audio_title)
 
-        audio_url = self._uploader.upload_file(audio_fileobj, audio_title)
+        audio_url = self._uploader.upload_file(audio_fileobj.file, audio_title)
         logger.debug("audio_url %s", audio_url)
 
         resp = await self._assemblyai.start_transcript(audio_url)
