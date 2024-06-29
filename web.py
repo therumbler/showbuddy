@@ -23,12 +23,14 @@ def make_app():
     app.mount("/static", StaticFiles(directory="static"), name="static")
 
     if APP_MODE == "landing":
+        logger.info("running in landing mode")
 
         @app.get("/")
         async def index_static():
             return FileResponse("static/index.html")
 
     if APP_MODE == "app":
+        logger.info("running in app mode")
         showbuddy = ShowBuddy()
 
         @app.get("/")
@@ -39,7 +41,7 @@ def make_app():
         async def process(image: UploadFile = File(...), audio: UploadFile = File(...)):
             logger.info("image: %s", image.filename)
             logger.info("audio: %s", audio.filename)
-            resp = await showbuddy.process(audio, [image], audio.filename)
+            resp = await showbuddy.process(audio, [image.file], audio.filename)
             return resp
 
     return app

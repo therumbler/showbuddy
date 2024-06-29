@@ -1,4 +1,4 @@
-.PHONY: setup-python test test-unit test-integration
+.PHONY: setup-python run-docker test test-unit test-integration
 
 VENV := .venv
 
@@ -7,6 +7,9 @@ setup-python:
 	@. $(VENV)/bin/activate && echo "Virtual environment activated."
 	python3 -m pip install --upgrade pip
 	python3 -m pip install -r requirements.txt
+
+run-docker:
+	docker compose up --build --force-recreate
 
 test-integration:
 	python3 -m unittest tests/integration/*.py
