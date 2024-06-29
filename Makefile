@@ -9,7 +9,7 @@ setup-python:
 	python3 -m pip install -r requirements.txt
 
 run-docker:
-	docker-compose up --build --force-recreate
+	docker compose up --build --force-recreate
 
 test-integration:
 	python3 -m unittest tests/integration/*.py
