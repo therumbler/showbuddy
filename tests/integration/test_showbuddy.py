@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 from unittest import TestCase, skip
 from uuid import uuid4
 
@@ -26,7 +27,6 @@ class TestShowBuddy(TestCase):
                     cls._showbuddy.process(
                         audio_file,
                         [business_card_file],
-                        TestShowBuddy._transcript_title,
                     )
                 )
                 logger.info("process response: %r", cls.resp)
@@ -57,7 +57,8 @@ class TestShowBuddy(TestCase):
     @classmethod
     def tearDownClass(cls):
         logger.info("Tear down! deleting file and transcript")
-        cls._showbuddy.delete_file(AUDIO_FILEPATH)
+        filename = os.path.basename(AUDIO_FILEPATH)
+        cls._showbuddy.delete_file(filename)
         asyncio.run(cls._showbuddy.delete_transcript(cls.resp["transcript"]["id"]))
         logger.info(
             "AssemblyAI API requests count: %d",

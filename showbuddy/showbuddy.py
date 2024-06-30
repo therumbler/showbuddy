@@ -34,7 +34,7 @@ class ShowBuddy:
         """Trigger the processing of an audio file"""
         audio_title = f"{str(uuid4())}.webm"
 
-        audio_url = self._uploader.upload_file(audio_fileobj, audio_title)
+        audio_url = self._uploader.upload_fileobj(audio_fileobj, audio_title)
         logger.debug("audio_url %s", audio_url)
 
         resp = await self._assemblyai.start_transcript(audio_url)
@@ -67,9 +67,9 @@ class ShowBuddy:
 
         return await self._spreadly.scan_card(image_fileobj)
 
-    def delete_file(self, audio_fileobj):
+    def delete_file(self, filename):
         """used by integration tests to clean up after themselves"""
-        return self._uploader.delete_file(audio_fileobj)
+        return self._uploader.delete_file(filename)
 
     async def delete_transcript(self, transcript_id):
         """used by integration tests to clean up after themselves"""

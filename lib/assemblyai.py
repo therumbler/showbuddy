@@ -18,7 +18,6 @@ class AssemblyAI:
 
     async def _fetch(self, endpoint, data=None, method="POST"):
         url = f"https://api.assemblyai.com/v2/{endpoint}"
-
         headers = {
             "Authorization": f"Bearer {self._api_key}",
             "accept": "application/json",
@@ -34,11 +33,9 @@ class AssemblyAI:
             return data
 
     async def start_transcript(self, audio_url):
-        """scan a business card image file and return the data"""
+        """start a transcription job with AssemblyAI"""
         endpoint = "transcript"
-
-        data = {"audio_url": audio_url}
-
+        data = {"audio_url": audio_url, "speaker_labels": True}
         return await self._fetch(endpoint, data)
 
     async def fetch_transcript(self, transcript_id):
@@ -47,8 +44,8 @@ class AssemblyAI:
         return await self._fetch(endpoint, method="GET")
 
     async def delete_transcript(self, transcript_id):
-        """delete a scan by ID"""
-        logger.warning("delete_scan not yet implemented")
+        """delete a transcription by ID"""
+        logger.warning("⚠️ deleting AssemblyAI transcript %s", transcript_id)
         endpoint = f"transcript/{transcript_id}"
         return await self._fetch(endpoint, data={}, method="DELETE")
 
@@ -56,14 +53,21 @@ class AssemblyAI:
 async def main():
     """let's kick this off"""
     import os  # pylint: disable=import-outside-toplevel
+    import json  # pylint: disable=import-outside-toplevel
 
     logging.basicConfig(level=logging.DEBUG)
     api_key = os.environ["ASSEMBLYAI_API_KEY"]
     assemblyai = AssemblyAI(api_key)
-    # card_filepath = "./tests/integration/files/tsepo_montsi.zo.ca_business_card.jpg"
-    audio_filepath = "./tests/integration/files/test_audio_1a.m4a"
-    resp = await assemblyai.fetch_transcript(audio_filepath)
-    logger.info("resp: %r", resp)
+
+    # audio_url = "https://showbuddy.s3.us-west-002.backblazeb2.com/586cd004-2256-4975-89c1-ac287a44a741.webm"
+    # resp = await assemblyai.start_transcript(audio_url)
+    # transcript_id = resp["id"]
+    # logger.info("transcript_id: %s", transcript_id)
+    # await asyncio.sleep(10)
+    transcript_id = "96f2ed0c-3a62-4c4b-89b0-646c83d15d4b"
+    resp = await assemblyai.fetch_transcript(transcript_id)
+    with open("transcript.json", "w", encoding="utf-8") as f:
+        f.write(json.dumps(resp, indent=2))
 
 
 if __name__ == "__main__":
