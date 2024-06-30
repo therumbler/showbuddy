@@ -40,9 +40,9 @@ class ShowBuddy:
         resp = await self._assemblyai.start_transcript(audio_url)
         transcript_id = resp["id"]
         attempts = 0
-        while resp["status"] == "queued":
+        while resp["status"] != "completed":
             resp = await self._assemblyai.fetch_transcript(transcript_id)
-            if not resp["status"] == "queued":
+            if resp["status"] == "completed":
                 break
             attempts += 1
             if attempts > 5:
