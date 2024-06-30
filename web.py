@@ -41,7 +41,7 @@ def make_app():
         async def process(image: UploadFile = File(...), audio: UploadFile = File(...)):
             logger.info("image: %s", image.filename)
             logger.info("audio: %s", audio.filename)
-            resp = await showbuddy.process(audio, [image.file], audio.filename)
+            resp = await showbuddy.process(audio, [image.file])
             return resp
 
         @app.post("/api/audio")
@@ -52,8 +52,7 @@ def make_app():
 
         @app.post("/api/image")
         async def process_image(image: UploadFile = File(...)):
-            logger.info("image: %s", image.filename)
-            resp = await showbuddy.process_image(image.file, image.filename)
+            resp = await showbuddy.process_image(image.file)
             return resp
 
     return app
