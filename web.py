@@ -4,7 +4,7 @@ import logging
 import os
 import sys
 
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Request, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
@@ -54,5 +54,23 @@ def make_app():
         async def process_image(image: UploadFile = File(...)):
             resp = await showbuddy.process_image(image.file)
             return resp
+
+        @app.post("/api/callback")
+        async def process_callback(request: Request):
+            data = await request.json()
+            return await showbuddy.process_callback(data)
+
+        @app.websocket("/api/ws")
+        async def websocket_endpoint(websocket: WebSocket):
+            logger.info("websocket connection")
+            await websocket.accept()
+            await showbuddy.add_websocket(websocket)
+            while True:
+                try:
+                    data = await websocket.receive_text()
+                    logger.info("received text websocket_endpoint %s", data)
+                    await showbuddy.process_websocket_data(data)
+                except WebSocketDisconnect:
+                    await showbuddy.remove_websocket(websocket)
 
     return app

@@ -9,7 +9,7 @@ from uuid import uuid4
 from lib.assemblyai import AssemblyAI
 from lib.spreadly import Spreadly
 from .uploader import Uploader
-
+from .showbuddysessions import ShowBuddySessions
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +21,7 @@ class ShowBuddy:
         self._uploader = Uploader()
         self._assemblyai = AssemblyAI(os.environ["ASSEMBLYAI_API_KEY"])
         self._spreadly = Spreadly(os.environ["SPREADLY_API_KEY"])
+        self._sessions = ShowBuddySessions(showbuddy=self)
 
     async def _process_business_card(self, business_card_fileobj):
         return await self._spreadly.scan_card(business_card_fileobj)
@@ -74,3 +75,22 @@ class ShowBuddy:
     async def delete_transcript(self, transcript_id):
         """used by integration tests to clean up after themselves"""
         return await self._assemblyai.delete_transcript(transcript_id)
+
+    async def add_websocket(self, websocket):
+        """process data from a websocket connection"""
+        logger.info("ShowBuddy add_websocket")
+        await self._sessions.add_websocket(websocket)
+
+    async def remove_websocket(self, websocket):
+        """remove a websocket connection"""
+        logger.info("ShowBuddy remove_websocket")
+        self._sessions.remove_websocket(websocket)
+
+    async def process_websocket_data(self, data):
+        await self._sessions.process_websocket_data(data)
+
+    async def process_callback(self, data):
+        """process a callback from a webhook"""
+        logger.info("got callback data %s", data)
+        await self._sessions.process_callback(data)
+        return {"status": "ok"}
