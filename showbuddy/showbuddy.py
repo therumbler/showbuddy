@@ -21,7 +21,6 @@ class ShowBuddy:
         self._uploader = Uploader()
         self._assemblyai = AssemblyAI(os.environ["ASSEMBLYAI_API_KEY"])
         self._spreadly = Spreadly(os.environ["SPREADLY_API_KEY"])
-        logger.info("ShowBuddy initialized")
 
     async def _process_business_card(self, business_card_fileobj):
         return await self._spreadly.scan_card(business_card_fileobj)
@@ -34,9 +33,7 @@ class ShowBuddy:
     async def process_audio(self, audio_fileobj):
         """Trigger the processing of an audio file"""
         audio_title = f"{str(uuid4())}.webm"
-        # with open(f"/data/{audio_title}", "wb") as f:
-        #     f.write(audio_fileobj.read())
-        # return {"url": f"/data/{audio_title}"}
+
         audio_url = self._uploader.upload_file(audio_fileobj, audio_title)
         logger.debug("audio_url %s", audio_url)
 
@@ -44,28 +41,28 @@ class ShowBuddy:
         transcript_id = resp["id"]
         attempts = 0
         while resp["status"] == "queued":
+            resp = await self._assemblyai.fetch_transcript(transcript_id)
+            if not resp["status"] == "queued":
+                break
             attempts += 1
             if attempts > 5:
                 logger.error('max attempts reached for "%s"', audio_title)
                 break
-            await asyncio.sleep(5)
-            resp = await self._assemblyai.fetch_transcript(transcript_id)
 
+            await asyncio.sleep(5)
         return resp
 
-    async def process(self, audio_fileobj, business_card_fileobjs, audio_title):
+    async def process(self, audio_fileobj, business_card_fileobjs):
         """Trigger the processing of an audio file and business cards"""
-
         business_card_resp = await self._process_business_cards(business_card_fileobjs)
-
         logger.info("got business card resp %s", business_card_resp)
-        # return
-        transcript = await self.process_audio(audio_fileobj, audio_title)
+
+        transcript = await self.process_audio(audio_fileobj)
         logger.info("got transcript resp %r", transcript)
 
         return {"business_card_resp": business_card_resp, "transcript": transcript}
 
-    async def process_image(self, image_fileobj, image_title):
+    async def process_image(self, image_fileobj):
         """Trigger the processing of an image file"""
 
         return await self._spreadly.scan_card(image_fileobj)
