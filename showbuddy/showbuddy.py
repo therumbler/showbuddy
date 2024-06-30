@@ -3,6 +3,7 @@
 import asyncio
 import logging
 import os
+from uuid import uuid4
 
 # from lib.fireflies import Fireflies
 from lib.assemblyai import AssemblyAI
@@ -30,10 +31,13 @@ class ShowBuddy:
         logger.debug("awaiting %d business card tasks", len(tasks))
         return await asyncio.gather(*tasks)
 
-    async def _process_audio(self, audio_fileobj, audio_title):
-        logger.warning('skipping audio processing "%s"', audio_title)
-
-        audio_url = self._uploader.upload_file(audio_fileobj.file, audio_title)
+    async def process_audio(self, audio_fileobj):
+        """Trigger the processing of an audio file"""
+        audio_title = f"{str(uuid4())}.webm"
+        # with open(f"/data/{audio_title}", "wb") as f:
+        #     f.write(audio_fileobj.read())
+        # return {"url": f"/data/{audio_title}"}
+        audio_url = self._uploader.upload_file(audio_fileobj, audio_title)
         logger.debug("audio_url %s", audio_url)
 
         resp = await self._assemblyai.start_transcript(audio_url)
@@ -56,10 +60,15 @@ class ShowBuddy:
 
         logger.info("got business card resp %s", business_card_resp)
         # return
-        transcript = await self._process_audio(audio_fileobj, audio_title)
+        transcript = await self.process_audio(audio_fileobj, audio_title)
         logger.info("got transcript resp %r", transcript)
 
         return {"business_card_resp": business_card_resp, "transcript": transcript}
+
+    async def process_image(self, image_fileobj, image_title):
+        """Trigger the processing of an image file"""
+
+        return await self._spreadly.scan_card(image_fileobj)
 
     def delete_file(self, audio_fileobj):
         """used by integration tests to clean up after themselves"""
