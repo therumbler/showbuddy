@@ -72,5 +72,6 @@ def make_app():
                     await showbuddy.process_websocket_data(data)
                 except WebSocketDisconnect:
                     await showbuddy.remove_websocket(websocket)
+                    break
 
     return app
