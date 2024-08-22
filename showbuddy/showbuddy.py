@@ -30,6 +30,22 @@ class ShowBuddy:
         logger.debug("awaiting %d business card tasks", len(tasks))
         return await asyncio.gather(*tasks)
 
+    def extract_dialog_assemblyai(self, transcript):
+        """Extract the transcript from the response"""
+        paragraphs = []
+        for utterance in transcript['utterances']:
+            speaker_label = utterance['speaker']
+            text = utterance['text']
+            paragraphs.append(f"Speaker {speaker_label}: {text}")
+
+        # Join paragraphs into the final formatted text
+        formatted_text = "\n\n".join(paragraphs)
+
+        # Output the formatted text
+        print(formatted_text)
+        return formatted_text
+    
+
     async def process_audio(self, audio_fileobj):
         """Trigger the processing of an audio file"""
         audio_title = f"{str(uuid4())}.webm"
@@ -43,6 +59,7 @@ class ShowBuddy:
         while resp["status"] != "completed":
             resp = await self._assemblyai.fetch_transcript(transcript_id)
             if resp["status"] == "completed":
+                dialog = self.extract_dialog_assemblyai(resp)
                 break
             attempts += 1
             if attempts > 5:

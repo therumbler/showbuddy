@@ -3,6 +3,7 @@
 from io import BytesIO
 import logging
 import os
+import json
 from unittest import IsolatedAsyncioTestCase
 from unittest.mock import patch, MagicMock, AsyncMock
 from showbuddy import ShowBuddy
@@ -11,7 +12,7 @@ from showbuddy import ShowBuddy
 logger = logging.getLogger(__name__)
 mocked_upload_file = MagicMock(return_value="http://example.com/file.mp3")
 mocked_start_transcript = AsyncMock(return_value={"id": "fake", "status": "queued"})
-mocked_fetch_transcript = AsyncMock(return_value={"id": "fake", "status": "completed"})
+mocked_fetch_transcript = AsyncMock(return_value={"id": "fake", "status": "completed", "utterances": []})
 mocked_scan_card = AsyncMock(return_value={"status": "completed"})
 
 
@@ -49,3 +50,56 @@ class TestShowBuddy(IsolatedAsyncioTestCase):
         resp = await self.showbuddy.process_image(image_fileobj)
 
         assert resp is not None
+
+    def test_extract_dialog_assemblyai(self):
+        assembyai_response = {
+    "utterances": [
+        {
+            "speaker": "B",
+            "text": "Hello. My name is Tepo. What's your name?"
+        },
+        {
+            "speaker": "A",
+            "text": "Hey, I'm Benjamin. I work at Manatee."
+        },
+        {
+            "speaker": "B",
+            "text": "Hey, Benjamin. Great to meet you. I've heard great things about this Monati company."
+        },
+        {
+            "speaker": "A",
+            "text": "Yeah, we make iced teas from basically out of paper."
+        },
+        {
+            "speaker": "B",
+            "text": "Thank you. It's great doing business with you. All the best."
+        },
+        {
+            "speaker": "A",
+            "text": "Yeah, you, too. Have a good day."
+        },
+        {
+            "speaker": "B",
+            "text": "Good day."
+        }
+    ]
+}
+
+        expected = """
+
+Speaker B: Hello. My name is Tepo. What's your name?
+
+Speaker A: Hey, I'm Benjamin. I work at Manatee.
+
+Speaker B: Hey, Benjamin. Great to meet you. I've heard great things about this Monati company.
+
+Speaker A: Yeah, we make iced teas from basically out of paper.
+
+Speaker B: Thank you. It's great doing business with you. All the best.
+
+Speaker A: Yeah, you, too. Have a good day.
+
+Speaker B: Good day.
+"""
+        dialog = self.showbuddy.extract_dialog_assemblyai(assembyai_response)
+        assert dialog == expected
