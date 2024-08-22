@@ -19,3 +19,6 @@ test-unit:
 
 test: test-unit test-integration
 
+test-unit-docker:
+	docker build -t ${USER}/showbuddy-test .
+	docker run ${USER}/showbuddy-test python3 -m unittest tests/unit/*.py

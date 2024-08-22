@@ -30,7 +30,7 @@ class TestShowBuddy(IsolatedAsyncioTestCase):
         """ensure the ShowBuddy instance is created"""
         assert self.showbuddy is not None
 
-    @patch("showbuddy.showbuddy.Uploader.upload_file", mocked_upload_file)
+    @patch("showbuddy.showbuddy.Uploader.upload_fileobj", mocked_upload_file)
     @patch("showbuddy.showbuddy.AssemblyAI.start_transcript", mocked_start_transcript)
     @patch("showbuddy.showbuddy.AssemblyAI.fetch_transcript", mocked_fetch_transcript)
     async def test_process_audio(self):
@@ -47,4 +47,5 @@ class TestShowBuddy(IsolatedAsyncioTestCase):
         image_fileobj = BytesIO(b"fake image data")
 
         resp = await self.showbuddy.process_image(image_fileobj)
+
         assert resp is not None

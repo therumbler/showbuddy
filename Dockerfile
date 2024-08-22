@@ -10,4 +10,4 @@ COPY . .
 
 # RUN python3 -m unittest tests/*/test_*.py
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+CMD [ "./entrypoint.sh" ]
