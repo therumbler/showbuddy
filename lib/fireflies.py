@@ -80,8 +80,13 @@ class Fireflies:
                 "title": audio_title,
                 "attendees": [
                     {
-                        "displayName": "attendee_name",
+                        "displayName": "Attendee One",
                         "email": "attendee1@example.com",
+                        "phoneNumber": "attendee_phone",
+                    },
+                    {
+                        "displayName": "Attendee Two",
+                        "email": "attendee2@example.com",
                         "phoneNumber": "attendee_phone",
                     },
                 ],
@@ -126,9 +131,20 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG)
     api_key = os.environ["FIREFLIES_API_KEY"]
+
+    audio_url = "https://showbuddy.s3.us-west-002.backblazeb2.com/586cd004-2256-4975-89c1-ac287a44a741.webm"
+    audio_filename = "586cd004-2256-4975-89c1-ac287a44a741a.webm"
     fireflies = Fireflies(api_key)
-    transcripts = fireflies.fetch_transcripts()
-    logger.info("count of transcripts: %d", len(transcripts["data"]["transcripts"]))
+    # resp = fireflies.upload_audio(audio_url, audio_filename)
+    # logger.info("fireflies.upload_audio resp: %r", resp)
+    # transcripts = fireflies.fetch_transcripts()
+    # logger.info("transcripts: %r", transcripts)
+    # transcript_id = "gGemAwnYU3VEthM1"
+    transcript_id = "v0KZ7JbCapvDL63A"
+    transcript = fireflies.fetch_transcript(transcript_id)
+    with open("fireflies_transcript2.json", "w") as f:
+        json.dump(transcript, f, indent=2)
+    # logger.info("count of transcripts: %d", len(transcripts["data"]["transcripts"]))
 
 
 if __name__ == "__main__":

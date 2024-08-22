@@ -84,7 +84,7 @@ class ShowBuddy:
     async def remove_websocket(self, websocket):
         """remove a websocket connection"""
         logger.info("ShowBuddy remove_websocket")
-        self._sessions.remove_websocket(websocket)
+        await self._sessions.remove_websocket(websocket)
 
     async def process_websocket_data(self, data):
         await self._sessions.process_websocket_data(data)

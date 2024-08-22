@@ -53,6 +53,7 @@ class Spreadly:
 async def main():
     """let's kick this off"""
     import os  # pylint: disable=import-outside-toplevel
+    import json
 
     logging.basicConfig(level=logging.DEBUG)
     api_key = os.environ["SPREADLY_API_KEY"]
@@ -60,6 +61,8 @@ async def main():
     card_filepath = "./tests/integration/files/tsepo_montsi.zo.ca_business_card.jpg"
     with open(card_filepath, "rb") as f:
         resp = await spreadly.scan_card(f)
+    with open("spreadly.json", "w") as f:
+        f.write(json.dumps(resp, indent=2))
     logger.info("resp: %r", resp)
 
 

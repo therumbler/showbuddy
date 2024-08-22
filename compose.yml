@@ -10,6 +10,7 @@ services:
     build: .
     volumes:
       - ./static:/app/static
+      - ./data:/data
     ports:
       - "5019:5019"
     environment:
