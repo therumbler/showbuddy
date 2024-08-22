@@ -33,18 +33,17 @@ class ShowBuddy:
     def extract_dialog_assemblyai(self, transcript):
         """Extract the transcript from the response"""
         paragraphs = []
-        for utterance in transcript['utterances']:
-            speaker_label = utterance['speaker']
-            text = utterance['text']
+        for utterance in transcript["utterances"]:
+            speaker_label = utterance["speaker"]
+            text = utterance["text"]
             paragraphs.append(f"Speaker {speaker_label}: {text}")
 
         # Join paragraphs into the final formatted text
         formatted_text = "\n\n".join(paragraphs)
 
         # Output the formatted text
-        print(formatted_text)
+        logger.info("formatted_text %s", formatted_text)
         return formatted_text
-    
 
     async def process_audio(self, audio_fileobj):
         """Trigger the processing of an audio file"""
