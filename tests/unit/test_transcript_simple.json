@@ -1,0 +1,32 @@
+{
+    "utterances": [
+        {
+            "speaker": "B",
+            "text": "Hello. My name is Tepo. What's your name?"
+        },
+        {
+            "speaker": "A",
+            "text": "Hey, I'm Benjamin. I work at Manatee."
+        },
+        {
+            "speaker": "B",
+            "text": "Hey, Benjamin. Great to meet you. I've heard great things about this Monati company."
+        },
+        {
+            "speaker": "A",
+            "text": "Yeah, we make iced teas from basically out of paper."
+        },
+        {
+            "speaker": "B",
+            "text": "Thank you. It's great doing business with you. All the best."
+        },
+        {
+            "speaker": "A",
+            "text": "Yeah, you, too. Have a good day."
+        },
+        {
+            "speaker": "B",
+            "text": "Good day."
+        }
+    ]
+}

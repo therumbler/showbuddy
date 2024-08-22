@@ -85,9 +85,7 @@ class TestShowBuddy(IsolatedAsyncioTestCase):
     ]
 }
 
-        expected = """
-
-Speaker B: Hello. My name is Tepo. What's your name?
+        expected = """Speaker B: Hello. My name is Tepo. What's your name?
 
 Speaker A: Hey, I'm Benjamin. I work at Manatee.
 
@@ -99,7 +97,6 @@ Speaker B: Thank you. It's great doing business with you. All the best.
 
 Speaker A: Yeah, you, too. Have a good day.
 
-Speaker B: Good day.
-"""
+Speaker B: Good day."""
         dialog = self.showbuddy.extract_dialog_assemblyai(assembyai_response)
         assert dialog == expected
