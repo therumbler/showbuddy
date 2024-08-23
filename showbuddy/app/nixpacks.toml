@@ -1,5 +1,8 @@
+[phases.install]
+cmds = ['npm install', 'cd .wasp/build/server && npm install' ]
+
 [phases.build]
-cmds = [ 'wasp build' ]
+cmds = [ 'cd .wasp/build/server && npm run bundle' ]
 
 [start]
-cmd = 'wasp start'
+cmd = 'npm run start-production'
