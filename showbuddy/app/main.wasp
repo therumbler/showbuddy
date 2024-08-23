@@ -3,7 +3,7 @@ app OpenSaaS {
     version: "^0.14.0"
   },
 
-  title: "My Open SaaS App",
+  title: "Show Buddy",
 
   head: [
         "<meta property='og:type' content='website' />",
@@ -81,11 +81,11 @@ app OpenSaaS {
     // NOTE: "Dummy" provider is just for local development purposes.
     //   Make sure to check the server logs for the email confirmation url (it will not be sent to an address)!
     //   Once you are ready for production, switch to e.g. "SendGrid" or "Mailgun" providers. Check out https://docs.opensaas.sh/guides/email-sending/ .
-    provider: Dummy,
+    provider: SendGrid,
     defaultFrom: {
-      name: "Open SaaS App",
+      name: "Show Buddy",
       // When using a real provider, e.g. SendGrid, you must use the same email address that you configured your account to send out emails with!
-      email: "me@example.com"
+      email: "therumbler@gmail.com"
     },
   },
 }
