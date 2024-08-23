@@ -6,9 +6,15 @@ on:
   
 jobs:
   build:
+    env:
+      IMAGE_TAG: https://northamerica-northeast1-docker.pkg.dev/therumbler/xxx/showbuddy:$GITHUB_SHA
     runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
+    
+    - name: Run wasp build
       run: cd showbuddy/app && /home/brumble/.local/bin/wasp build
+
+    - name: build docker image
+      run: docker build .wasp/build -t $IMAGE_TAG
