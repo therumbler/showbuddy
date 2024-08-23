@@ -5,11 +5,10 @@ import logging
 import os
 from uuid import uuid4
 
-# from lib.fireflies import Fireflies
+from lib.openai import OpenAI
 from lib.assemblyai import AssemblyAI
 from lib.spreadly import Spreadly
 from .uploader import Uploader
-
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +20,11 @@ class ShowBuddy:
         self._uploader = Uploader()
         self._assemblyai = AssemblyAI(os.environ["ASSEMBLYAI_API_KEY"])
         self._spreadly = Spreadly(os.environ["SPREADLY_API_KEY"])
+        self._openai = OpenAI(
+            organization=os.environ["OPENAI_ORGANIZATION_ID"],
+            project=os.environ["OPENAI_PROJECT_ID"],
+            api_key=os.environ["OPENAI_API_KEY"],
+        )
 
     async def _process_business_card(self, business_card_fileobj):
         return await self._spreadly.scan_card(business_card_fileobj)
@@ -45,20 +49,14 @@ class ShowBuddy:
         logger.info("formatted_text %s", formatted_text)
         return formatted_text
 
-    async def process_audio(self, audio_fileobj):
-        """Trigger the processing of an audio file"""
-        audio_title = f"{str(uuid4())}.webm"
-
-        audio_url = self._uploader.upload_fileobj(audio_fileobj, audio_title)
-        logger.debug("audio_url %s", audio_url)
-
+    async def _fetch_transcript(self, audio_url, audio_title):
+        """Fetch a transcript from AssemblyAI"""
         resp = await self._assemblyai.start_transcript(audio_url)
         transcript_id = resp["id"]
         attempts = 0
         while resp["status"] != "completed":
             resp = await self._assemblyai.fetch_transcript(transcript_id)
             if resp["status"] == "completed":
-                dialog = self.extract_dialog_assemblyai(resp)
                 break
             attempts += 1
             if attempts > 5:
@@ -67,6 +65,23 @@ class ShowBuddy:
 
             await asyncio.sleep(5)
         return resp
+
+    async def _fetch_llm_response(self, content):
+        """Fetch a response from the Open AI Chat GPT"""
+        logger.info("_fetch_llm_response content %s", content)
+        return await self._openai.fetch_completions(content)
+
+    async def process_audio(self, audio_fileobj):
+        """Trigger the processing of an audio file"""
+        audio_title = f"{str(uuid4())}.webm"
+
+        audio_url = self._uploader.upload_fileobj(audio_fileobj, audio_title)
+        logger.debug("audio_url %s", audio_url)
+        transcript = await self._fetch_transcript(audio_url, audio_title)
+        dialog = self.extract_dialog_assemblyai(transcript)
+        content = f"give a brief summary of the following dialogue:\n\n{dialog}"
+        llm_resp = await self._fetch_llm_response(content)
+        return {"text": llm_resp["choices"][0]["message"]["content"]}
 
     async def process(self, audio_fileobj, business_card_fileobjs):
         """Trigger the processing of an audio file and business cards"""

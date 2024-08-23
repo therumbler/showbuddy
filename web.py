@@ -17,7 +17,7 @@ APP_MODE = os.getenv("APP_MODE", "landing")
 
 def make_app():
     """create a FastAPI ASGI app"""
-    logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
+    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
     app = FastAPI()
     app.mount("/static", StaticFiles(directory="static"), name="static")

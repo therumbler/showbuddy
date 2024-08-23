@@ -41,9 +41,11 @@ class OpenAI:
         data = {
             "model": "gpt-4o-mini",
             "messages": [{"role": "user", "content": content}],
-            "temperature": 0.7,
+            "temperature": 0.3,
         }
-        return await self._fetch(endpoint, data)
+        resp = await self._fetch(endpoint, data)
+        logger.info("resp: %r", resp)
+        return resp
 
 
 async def _test():
@@ -59,6 +61,7 @@ async def _test():
     content = "Hello, how are you?"
     expected_response = "I'm good, how are you?"
     resp = await openai.fetch_completions(content)
+    logger.info("resp: %r", resp)
     assert resp == expected_response
 
 
