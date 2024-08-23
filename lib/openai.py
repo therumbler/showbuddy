@@ -46,26 +46,3 @@ class OpenAI:
         resp = await self._fetch(endpoint, data)
         logger.info("resp: %r", resp)
         return resp
-
-
-async def _test():
-    """Test the OpenAI class"""
-    import os
-
-    logging.basicConfig(level=logging.DEBUG)
-    openai = OpenAI(
-        organization=os.environ["OPENAI_ORGANIZATION_ID"],
-        project=os.environ["OPENAI_PROJECT_ID"],
-        api_key=os.environ["OPENAI_API_KEY"],
-    )
-    content = "Hello, how are you?"
-    expected_response = "I'm good, how are you?"
-    resp = await openai.fetch_completions(content)
-    logger.info("resp: %r", resp)
-    assert resp == expected_response
-
-
-if __name__ == "__main__":
-    import asyncio
-
-    asyncio.run(_test())
