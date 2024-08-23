@@ -16,8 +16,20 @@ jobs:
     - name: Run wasp build
       run: cd showbuddy/app && /home/brumble/.local/bin/wasp build
 
-    - name: build docker image
+    - name: Build Server Docker Image
       run: cd showbuddy/app && docker build ./.wasp/build -t $IMAGE-server:$GITHUB_SHA
 
-    - name: push docker image
+    - name: Build Frontend HTML
+      run: cd showbuddy/app/.wasp/build/web-app && npm install && REACT_APP_API_URL=https://showbuddy-backend.rmbldc.com npm run build 
+    
+    - name: Create Frontend Dockerfile
+      run: echo "FROM nginx:latest\n\nCOPY showbuddy/app/.wasp/build/web-app/build /usr/share/nginx/html" > Dockerfile-frontend
+
+    - name: Build Frontend Docker Image
+      run: docker build . -t $IMAGE-frontend:$GITHUB_SHA -f Dockerfile-frontend
+
+    - name: Push Server Docker Image
+      run: docker push $IMAGE-server:$GITHUB_SHA
+    
+    - name: Push Frontend Docker Image
       run: docker push $IMAGE-server:$GITHUB_SHA
