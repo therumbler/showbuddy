@@ -20,4 +20,4 @@ jobs:
       run: ls -la
 
     - name: build docker image
-      run: docker build ./.wasp/build -t $IMAGE:$GITHUB_SHA
+      run: cd showbuddy/app && docker build ./.wasp/build -t $IMAGE:$GITHUB_SHA
