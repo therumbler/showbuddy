@@ -11,9 +11,13 @@ from showbuddy import ShowBuddy
 
 logger = logging.getLogger(__name__)
 mocked_upload_file = MagicMock(return_value="http://example.com/file.mp3")
-mocked_start_transcript = AsyncMock(return_value={"id": "fake", "status": "queued"})
-mocked_fetch_transcript = AsyncMock(return_value={"id": "fake", "status": "completed", "utterances": []})
+mocked_start_transcript = AsyncMock(
+    return_value={"id": "fake", "status": "queued"})
+mocked_fetch_transcript = AsyncMock(
+    return_value={"id": "fake", "status": "completed", "utterances": []})
 mocked_scan_card = AsyncMock(return_value={"status": "completed"})
+mock_fetch_completions = AsyncMock(
+    return_value={"choices": [{"message": {"content": "Summarized text"}}]})
 
 
 class TestShowBuddy(IsolatedAsyncioTestCase):
@@ -34,13 +38,14 @@ class TestShowBuddy(IsolatedAsyncioTestCase):
     @patch("showbuddy.showbuddy.Uploader.upload_fileobj", mocked_upload_file)
     @patch("showbuddy.showbuddy.AssemblyAI.start_transcript", mocked_start_transcript)
     @patch("showbuddy.showbuddy.AssemblyAI.fetch_transcript", mocked_fetch_transcript)
+    @patch("showbuddy.showbuddy.OpenAI.fetch_completions", mock_fetch_completions)
     async def test_process_audio(self):
         """Test processing an audio file"""
         audio_fileobj = BytesIO(b"fake audio data")
 
         resp = await self.showbuddy.process_audio(audio_fileobj)
         assert resp is not None
-        assert resp["status"] == "completed"
+        assert resp["text"] == "Summarized text"
 
     @patch("showbuddy.showbuddy.Spreadly.scan_card", mocked_scan_card)
     async def test_process_image(self):
@@ -53,37 +58,37 @@ class TestShowBuddy(IsolatedAsyncioTestCase):
 
     def test_extract_dialog_assemblyai(self):
         assembyai_response = {
-    "utterances": [
-        {
-            "speaker": "B",
-            "text": "Hello. My name is Tepo. What's your name?"
-        },
-        {
-            "speaker": "A",
-            "text": "Hey, I'm Benjamin. I work at Manatee."
-        },
-        {
-            "speaker": "B",
-            "text": "Hey, Benjamin. Great to meet you. I've heard great things about this Monati company."
-        },
-        {
-            "speaker": "A",
-            "text": "Yeah, we make iced teas from basically out of paper."
-        },
-        {
-            "speaker": "B",
-            "text": "Thank you. It's great doing business with you. All the best."
-        },
-        {
-            "speaker": "A",
-            "text": "Yeah, you, too. Have a good day."
-        },
-        {
-            "speaker": "B",
-            "text": "Good day."
+            "utterances": [
+                {
+                    "speaker": "B",
+                    "text": "Hello. My name is Tepo. What's your name?"
+                },
+                {
+                    "speaker": "A",
+                    "text": "Hey, I'm Benjamin. I work at Manatee."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Hey, Benjamin. Great to meet you. I've heard great things about this Monati company."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Yeah, we make iced teas from basically out of paper."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Thank you. It's great doing business with you. All the best."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Yeah, you, too. Have a good day."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Good day."
+                }
+            ]
         }
-    ]
-}
 
         expected = """Speaker B: Hello. My name is Tepo. What's your name?
 
