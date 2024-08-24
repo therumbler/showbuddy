@@ -8,6 +8,7 @@ jobs:
   build:
     env:
       IMAGE: northamerica-northeast1-docker.pkg.dev/therumbler/xxx/showbuddy
+      COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
     runs-on: self-hosted
 
     steps:
@@ -28,9 +29,6 @@ jobs:
     - name: Create Frontend Dockerfile
       run: printf "FROM nginx:latest\n\nCOPY showbuddy/app/.wasp/build/web-app/build /usr/share/nginx/html\n" > Dockerfile-frontend
 
-    - name: cat Dockerfile-frontend
-      run: cat Dockerfile-frontend
-
     - name: Build Frontend Docker Image
       run: docker build . -t $IMAGE-frontend:$GITHUB_SHA -f Dockerfile-frontend
 
@@ -39,3 +37,6 @@ jobs:
     
     - name: Push Frontend Docker Image
       run: docker push $IMAGE-frontend:$GITHUB_SHA
+
+    - name: Deploy to Coolify
+      run: ./scripts/deploy.sh $GITHUB_SHA
