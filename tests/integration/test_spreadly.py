@@ -2,7 +2,7 @@
 
 import asyncio
 import logging
-from unittest import TestCase
+from unittest import TestCase, skip
 
 import os
 
@@ -26,7 +26,7 @@ class TestSpreadly(TestCase):
             resp = asyncio.run(cls._spreadly.scan_card(f))
             cls._resp = resp
             logger.info("scan_card response: %r", resp)
-
+  
     def test_spreadly(self):
         """simple test to check if the response is as expected"""
         assert "errors" not in self._resp

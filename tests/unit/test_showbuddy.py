@@ -97,3 +97,8 @@ Speaker A: Yeah, you, too. Have a good day.
 Speaker B: Good day."""
         dialog = self.showbuddy.extract_dialog_assemblyai(assembyai_response)
         assert dialog == expected
+
+    def test_open_webui(self):
+        ollama_prompt = "return no text except for the second and fifth word from this list, in lowercase: temp hooray begin frontage freak plop"
+        self.showbuddy._fetch_ollama_response(ollama_prompt)
+        

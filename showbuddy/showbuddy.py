@@ -8,6 +8,7 @@ from uuid import uuid4
 from lib.openai import OpenAI
 from lib.assemblyai import AssemblyAI
 from lib.spreadly import Spreadly
+from lib.openwebui import OpenWebUI
 from .uploader import Uploader
 
 logger = logging.getLogger(__name__)
@@ -24,6 +25,10 @@ class ShowBuddy:
             organization=os.environ["OPENAI_ORGANIZATION_ID"],
             project=os.environ["OPENAI_PROJECT_ID"],
             api_key=os.environ["OPENAI_API_KEY"],
+        )
+        self._openwebui = OpenWebUI(
+            url=os.environ["OPENWEBUI_URL"], 
+            api_key=os.environ["OPENWEBUI_API_KEY"],
         )
 
     async def _process_business_card(self, business_card_fileobj):
@@ -70,6 +75,11 @@ class ShowBuddy:
         """Fetch a response from the Open AI Chat GPT"""
         logger.info("_fetch_llm_response content %s", content)
         return await self._openai.fetch_completions(content)
+    
+    async def _fetch_ollama_response(self, prompt):
+        """Fetch a response from the Ollama API"""
+        logger.info("_fetch_ollama_response prompt %s", prompt)
+        return await self._openwebui.ollama_prompt(prompt)
 
     async def process_audio(self, audio_fileobj):
         """Trigger the processing of an audio file"""

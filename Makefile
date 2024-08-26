@@ -19,6 +19,15 @@ test-unit:
 
 test: test-unit test-integration
 
+test-integration-docker:
+	docker build -t ${USER}/showbuddy-test .
+	docker run --env-file ./.env ${USER}/showbuddy-test python3 -m unittest tests/integration/*.py
+
+test-integration-docker-openwebui:
+	docker build -t ${USER}/showbuddy-test .
+	docker run --env-file ./.env ${USER}/showbuddy-test python3 -m unittest tests/integration/test_openwebui.py
+
 test-unit-docker:
 	docker build -t ${USER}/showbuddy-test .
 	docker run ${USER}/showbuddy-test python3 -m unittest tests/unit/*.py
+
