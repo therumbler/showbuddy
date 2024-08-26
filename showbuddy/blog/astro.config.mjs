@@ -10,12 +10,12 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     starlight({
-      title: 'Your SaaS',
+      title: 'Show Buddy',
       customCss: ['./src/styles/tailwind.css'],
       description: 'Documentation for your SaaS.',
       logo: {
         src: '/src/assets/logo.png',
-        alt: 'Your SaaS',
+        alt: 'Show Buddy',
       },
       head: [
         // Add your script tags here. Below is an example for Google analytics, etc.

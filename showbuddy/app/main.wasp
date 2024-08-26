@@ -1,4 +1,4 @@
-app OpenSaaS {
+app ShowBuddy {
   wasp: {
     version: "^0.14.0"
   },
@@ -7,8 +7,8 @@ app OpenSaaS {
 
   head: [
         "<meta property='og:type' content='website' />",
-        "<meta property='og:title' content='My Open SaaS App' />",
-        "<meta property='og:url' content='https://opensaas.sh' />",
+        "<meta property='og:title' content='Show Buddy' />",
+        "<meta property='og:url' content='https://showbuddy.rmbldc.com' />",
         "<meta property='og:description' content='I made a SaaS App. Buy my stuff.' />",
         "<meta property='og:image' content='https://opensaas.sh/public-banner.png' />",
         "<meta name='twitter:image' content='https://opensaas.sh/public-banner.png' />",
@@ -193,6 +193,13 @@ route CheckoutRoute { path: "/checkout", to: CheckoutPage }
 page CheckoutPage {
   authRequired: true,
   component: import Checkout from "@src/payment/CheckoutPage"
+}
+
+//#region ShowBuddy
+route ShowBuddyPageRoute { path: "/showbuddy", to: ShowBuddyPage }
+page ShowBuddyPage {
+  authRequired: true,
+  component: import ShowBuddyPage from "@src/showbuddy/ShowBuddyPage"
 }
 
 action generateStripeCheckoutSession {
