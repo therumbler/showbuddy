@@ -1,5 +1,5 @@
 import AssemblyAI from "./assemblyai";
-
+import { type File } from 'wasp/entities';
 
 type ShowBuddyResponse = {
     status: string;

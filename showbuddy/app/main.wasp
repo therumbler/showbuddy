@@ -228,7 +228,7 @@ page FileUploadPage {
 }
 
 action createFile {
-  fn: import { createFile } from "@src/file-upload/operations",
+  fn: import { createFile } from "@src/showbuddy/operations",
   entities: [User, File]
 }
 
