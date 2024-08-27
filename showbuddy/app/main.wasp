@@ -8,7 +8,7 @@ app ShowBuddy {
   head: [
         "<meta property='og:type' content='website' />",
         "<meta property='og:title' content='Show Buddy' />",
-ui        "<meta property='og:url' content='https://showbuddy.rmbldc.com' />",
+        "<meta property='og:url' content='https://showbuddy.rmbldc.com' />",
         "<meta property='og:description' content='I made a SaaS App. Buy my stuff.' />",
         "<meta property='og:image' content='https://opensaas.sh/public-banner.png' />",
         "<meta name='twitter:image' content='https://opensaas.sh/public-banner.png' />",
