@@ -204,7 +204,7 @@ page ShowBuddyAppPage {
 
 action processAudioFile {
   fn: import { processAudioFile } from "@src/showbuddy/operations",
-  entities: [User, ShowBuddyTranscription]
+  entities: [User, File]
 }
 
 action generateStripeCheckoutSession {
