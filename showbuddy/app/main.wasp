@@ -196,10 +196,15 @@ page CheckoutPage {
 }
 
 //#region ShowBuddy
-route ShowBuddyPageRoute { path: "/showbuddy", to: ShowBuddyPage }
-page ShowBuddyPage {
-  authRequired: true,
-  component: import ShowBuddyPage from "@src/showbuddy/ShowBuddyPage"
+// route ShowBuddyPageRoute { path: "/showbuddy", to: ShowBuddyPage }
+// page ShowBuddyPage {
+//   authRequired: true,
+//   component: import ShowBuddyPage from "@src/showbuddy/ShowBuddyPage"
+// }
+
+action processAudioFile {
+  fn: import { processAudioFile } from "@src/showbuddy/operations",
+  entities: [User, File]
 }
 
 action generateStripeCheckoutSession {
