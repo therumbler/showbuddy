@@ -10,7 +10,7 @@ const s3Client = new S3Client({
     accessKeyId: process.env.AWS_S3_IAM_ACCESS_KEY!,
     secretAccessKey: process.env.AWS_S3_IAM_SECRET_KEY!,
   },
-  forcePathStyle: true // Backblaze uses path-style URLs
+  // forcePathStyle: true // Backblaze uses path-style URLs
 });
 
 type S3Upload = {
