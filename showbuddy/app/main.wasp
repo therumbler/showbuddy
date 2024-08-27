@@ -196,11 +196,11 @@ page CheckoutPage {
 }
 
 //#region ShowBuddy
-// route ShowBuddyPageRoute { path: "/showbuddy", to: ShowBuddyPage }
-// page ShowBuddyPage {
-//   authRequired: true,
-//   component: import ShowBuddyPage from "@src/showbuddy/ShowBuddyPage"
-// }
+route ShowBuddyAppPageRoute { path: "/app", to: ShowBuddyAppPage }
+page ShowBuddyAppPage {
+  authRequired: true,
+  component: import ShowBuddyAppPage from "@src/showbuddy/ShowBuddyAppPage"
+}
 
 action processAudioFile {
   fn: import { processAudioFile } from "@src/showbuddy/operations",

@@ -8,15 +8,17 @@ import { HiBars3 } from 'react-icons/hi2';
 import logo from '../static/logo.png';
 import DropdownUser from '../../user/DropdownUser';
 import { UserMenuItems } from '../../user/UserMenuItems';
-import { DocsUrl, BlogUrl } from '../../shared/common';
+// import { DocsUrl, BlogUrl } from '../../shared/common';
 import DarkModeSwitcher from './DarkModeSwitcher';
 
 const navigation = [
-  { name: 'AI Scheduler (Demo App)', href: routes.DemoAppRoute.build() },
-  { name: 'File Upload (AWS S3)', href: routes.FileUploadRoute.build() },
+  { name: "App", href: routes.ShowBuddyAppPageRoute.build() },
+  // { name: 'AI Scheduler (Demo App)', href: routes.DemoAppRoute.build() },
+  // { name: 'File Upload (AWS S3)', href: routes.FileUploadRoute.build() },
   { name: 'Pricing', href: routes.PricingPageRoute.build() },
-  { name: 'Documentation', href: DocsUrl },
-  { name: 'Blog', href: BlogUrl },
+  // { name: 'Documentation', href: DocsUrl },
+  // { name: 'Blog', href: BlogUrl },
+  
 ];
 
 const NavLogo = () => <img className='h-8 w-8' src={logo} alt='Show Buddy' />;
