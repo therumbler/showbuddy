@@ -3,7 +3,11 @@ import ShowBuddy from './showbuddy';
 import { ShowBuddyResponse } from './showbuddy';
 import { type File } from 'wasp/entities';
 
-import { type ProcessAudioFile, type CreateFile, type getDownloadFileSignedURL } from 'wasp/server/operations';
+import { 
+    type ProcessAudioFile, 
+    type CreateFile,
+    type getDownloadFileSignedURL 
+} from 'wasp/server/operations';
 
 import {
     getUploadFileSignedURLFromS3,
@@ -11,7 +15,7 @@ import {
   } from './s3Utils';
 
 type showBuddyInput = {
-    file: File,
+    audioUrl: string;
 };
 
 type FileDescription = {
@@ -19,30 +23,17 @@ type FileDescription = {
     name: string;
   };
 
-export const processAudioFile: ProcessAudioFile<showBuddyInput, ShowBuddyResponse> = async ({ file }, context) => {
-// export const processAudioFile: ProcessAudioFile<ShowBuddyResponse> = async ({file} , context) => {
+export const processAudioFile: ProcessAudioFile<showBuddyInput, ShowBuddyResponse> = async ({ audioUrl }, context) => {
     if (!context.user) {
         throw new HttpError(401);
     }
-    console.log('file', file);
+    
+    console.log('audioUrl', audioUrl);
     const userInfo = context.user.id;
     const showBuddy = new ShowBuddy(process.env.ASSEMBLY_AI_API_KEY);
-    const resp =  await showBuddy.processAudio(file);
-    return {
-        "status"    : "success",
-         "text": "Hello World"
-    };
-    // const { uploadUrl, key } = await getUploadFileSignedURLFromS3({ fileType, userInfo });
-    
-    // return await context.entities.File.create({
-    //     data: {
-    //     name,
-    //     key,
-    //     uploadUrl,
-    //     type: fileType,
-    //     user: { connect: { id: context.user.id } },
-    //     },
-    // });
+    console.log('showBuddy instance', showBuddy);
+    const resp =  await showBuddy.processAudio(audioUrl);
+    return resp;
 };
 
 

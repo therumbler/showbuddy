@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { createFile} from 'wasp/client/operations';
+import { createFile, processAudioFile} from 'wasp/client/operations';
 import axios from 'axios';
 
 export default function ShowBuddyAppPage() {
@@ -34,10 +34,13 @@ export default function ShowBuddyAppPage() {
     }
     return res;
   }
+  
   const processAudio = async (file: Blob) => {
     console.log('processing audio');
     const res = await uploadAudio(file);
     console.log('upload response', res);
+    const audioUrl = res.config.url;
+    const resp = await processAudioFile({audioUrl});
     
   }
   const handleStoppedRecording = async (evt: Event) => {

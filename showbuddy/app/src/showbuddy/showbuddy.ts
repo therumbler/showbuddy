@@ -16,7 +16,8 @@ class ShowBuddy {
     this.assemblyAI = new AssemblyAI(apiKey);
   }
   
-  async processAudio(file: File): Promise<ShowBuddyResponse> {
+  async processAudio(audioUrl: string): Promise<ShowBuddyResponse> {
+    console.log('ShowBuddy class audioUrl', audioUrl);
     // const audioUrl = await this.assemblyAI.uploadAudio(file);
     // const resp = await this.assemblyAI.getTranscription(audioUrl);
     return {'text': 'Hello World', 'status': 'success'};
