@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  scanner-test:
+    build:
+      context: .
+      dockerfile: Dockerfile-ai-test
+    #volumes:
+      # This allows you to make changes to the files without rebuilding the Docker image
+      #3- ./spreadly_service.ts:/app/spreadly_service.ts
+      #- ./spreadly_test.ts:/app/spreadly_test.ts
+    # Keeps container alive if you want to go in and inspect or run manual tests
+    # Comment this out if you just want the container to run the test and exit
+    # tty: true
+    environment:
+      # Set your API keys as environment variables
+      - ASSEMBLYAI_API_KEY=${ASSEMBLYAI_API_KEY}
+      - SPREADLY_API_KEY=${SPREADLY_API_KEY}
+      - USE_MOCK_SERVICES=${USE_MOCK_SERVICES:-false}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
