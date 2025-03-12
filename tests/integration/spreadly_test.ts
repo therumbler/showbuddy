@@ -8,62 +8,66 @@ import { createSpreadlyService, BusinessCardScanResult } from './spreadly_servic
  * and demonstrates how to use the scanner module.
  */
 
-// Mock the global fetch function to avoid actual API calls
-// @ts-ignore - Ignoring type issues with global fetch mocking
-global.fetch = async (url: string, options?: any): Promise<any> => {
-    console.log(`[MOCK] Fetch called: ${url}`);
-    console.log(`[MOCK] Request headers:`, options?.headers || {});
-    console.log(`[MOCK] Request method:`, options?.method || 'GET');
+const should_mock = process.env.SPREADLY_MOCK_TEST || 'true'
+if (should_mock === 'true') {
+    // Mock the global fetch function to avoid actual API calls
+    // @ts-ignore - Ignoring type issues with global fetch mocking
+    global.fetch = async (url: string, options?: any): Promise<any> => {
+        console.log(`[MOCK] Fetch called: ${url}`);
+        console.log(`[MOCK] Request headers:`, options?.headers || {});
+        console.log(`[MOCK] Request method:`, options?.method || 'GET');
 
-    // Mock response based on the endpoint called
-    if (url.includes('/uploads')) {
-        console.log('[MOCK] Handling image upload request');
+        // Mock response based on the endpoint called
+        if (url.includes('/uploads')) {
+            console.log('[MOCK] Handling image upload request');
+            return {
+                ok: true,
+                json: async () => ({
+                    id: 'mock-image-id-123',
+                    url: 'https://api.spreadly.io/mock-image-url'
+                })
+            };
+        }
+
+        if (url.includes('/business-cards/scan')) {
+            console.log('[MOCK] Handling card scanning request');
+            return {
+                ok: true,
+                json: async () => ({
+                    id: 'mock-scan-result-456',
+                    name: 'Jane Smith',
+                    title: 'Chief Marketing Officer',
+                    company: 'Acme Corp',
+                    email: 'jane.smith@acmecorp.com',
+                    phone: '+1 (555) 123-4567',
+                    mobile: '+1 (555) 987-6543',
+                    website: 'www.acmecorp.com',
+                    address: '123 Business Avenue',
+                    city: 'San Francisco',
+                    state: 'CA',
+                    zip: '94105',
+                    country: 'USA',
+                    social: {
+                        linkedin: 'linkedin.com/in/janesmith',
+                        twitter: '@janesmith'
+                    },
+                    confidence: 0.95
+                })
+            };
+        }
+
+        // Default response for unhandled endpoints
         return {
-            ok: true,
-            json: async () => ({
-                id: 'mock-image-id-123',
-                url: 'https://api.spreadly.io/mock-image-url'
-            })
+            ok: false,
+            status: 404,
+            json: async () => ({ error: 'Not Found' })
         };
-    }
-
-    if (url.includes('/business-cards/scan')) {
-        console.log('[MOCK] Handling card scanning request');
-        return {
-            ok: true,
-            json: async () => ({
-                id: 'mock-scan-result-456',
-                name: 'Jane Smith',
-                title: 'Chief Marketing Officer',
-                company: 'Acme Corp',
-                email: 'jane.smith@acmecorp.com',
-                phone: '+1 (555) 123-4567',
-                mobile: '+1 (555) 987-6543',
-                website: 'www.acmecorp.com',
-                address: '123 Business Avenue',
-                city: 'San Francisco',
-                state: 'CA',
-                zip: '94105',
-                country: 'USA',
-                social: {
-                    linkedin: 'linkedin.com/in/janesmith',
-                    twitter: '@janesmith'
-                },
-                confidence: 0.95
-            })
-        };
-    }
-
-    // Default response for unhandled endpoints
-    return {
-        ok: false,
-        status: 404,
-        json: async () => ({ error: 'Not Found' })
     };
 };
 
 // Mock FormData for Node.js environment if needed
 if (typeof FormData === 'undefined') {
+    console.log("I am here, or whatever you want")
     // @ts-ignore
     global.FormData = class FormData {
         append(key: string, value: any, filename?: string) {
@@ -79,11 +83,11 @@ async function runTest() {
     console.log('-'.repeat(50));
     console.log('TESTING BUSINESS CARD SCANNER MODULE');
     console.log('-'.repeat(50));
-
+    
     try {
         // Create the scanner with mock API key
         const scanner = createSpreadlyService({
-            apiKey: process.env.SPREADLY_API_KEY,
+            apiKey: process.env.SPREADLY_API_KEY || 'mock-api-key',
             apiEndpoint: 'https://api.spreadly.io/v1'
         });
 
@@ -92,7 +96,7 @@ async function runTest() {
         // Test processing a single image
         console.log('\nTesting single image processing...');
         const singleResult = await scanner.processImage(
-            'business_card_0.jpg',
+            'business_card_0.png',
             'test-session-001'
         );
 
@@ -103,8 +107,8 @@ async function runTest() {
         // Test processing multiple images
         console.log('\nTesting multiple image processing...');
         const imageUris = [
-            'business_card_0.jpg',
-            'business_card_0.jpg'
+            'business_card_0.png',
+            'business_card_1.png'
         ];
 
         const multiResults = await scanner.processMultipleImages(
