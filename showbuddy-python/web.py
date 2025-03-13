@@ -1,10 +1,9 @@
 """creates an ASGI app for Uvicorn to run"""
 
 import logging
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 from lib.spreadly_service import SpreadlyService
 
-from schemas.carduploadrequest import CardUploadRequest
 import config
 
 
@@ -21,11 +20,10 @@ def make_web_app():
     async def read_root():
         return {"Hello": "World"}
 
-    @app.post("/api/cards")
-    async def upload_card(request: CardUploadRequest):
-        card_data = await business_card_service.upload_card(
-            request.session_id, request.image_path
-        )
+    @app.post("/api/sessions/{session_id}/cards")
+    async def upload_card(session_id: str, image_file: UploadFile = File(...)):
+        image_data = await image_file.read()
+        card_data = await business_card_service.upload_card(session_id, image_data)
         return card_data
 
     return app
