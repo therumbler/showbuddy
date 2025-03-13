@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  scanner-test:
+  showbuddy-python:
     build:
-      context: .
-      dockerfile: Dockerfile-ai-test
+      context: ./showbuddy-python
+      
     #volumes:
       # This allows you to make changes to the files without rebuilding the Docker image
       #- ./spreadly_service.ts:/app/spreadly_service.ts
@@ -12,6 +12,8 @@ services:
     # Keeps container alive if you want to go in and inspect or run manual tests
     # Comment this out if you just want the container to run the test and exit
     # tty: true
+    ports:
+      - "8000:8000"
     environment:
       # Set your API keys as environment variables
       - ASSEMBLYAI_API_KEY=${ASSEMBLYAI_API_KEY}
