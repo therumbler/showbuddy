@@ -1,0 +1,18 @@
+---
+services:
+  showbuddy-python:
+    build:
+      context: ./showbuddy-python
+    
+    # Keeps container alive if you want to go in and inspect or run manual tests
+    # Comment this out if you just want the container to run the test and exit
+    # tty: true
+    ports:
+      - "8000:8000"
+    environment:
+      # Set your API keys as environment variables
+      - ASSEMBLYAI_API_KEY=${ASSEMBLYAI_API_KEY}
+      - SPREADLY_API_KEY=${SPREADLY_API_KEY}
+      - SPREADLY_MOCK_TEST=${SPREADLY_MOCK_TEST:-true}
+      - USE_MOCK_SERVICES=${USE_MOCK_SERVICES:-false}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
