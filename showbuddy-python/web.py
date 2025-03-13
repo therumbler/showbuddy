@@ -9,6 +9,7 @@ import os
 logger = logging.getLogger(__name__)    
 
 def make_web_app():
+    logging.basicConfig(level=logging.DEBUG)
     app = FastAPI()
     business_card_service = SpreadlyService(config.SPREADLY_API_KEY)
 

@@ -15,8 +15,8 @@ class SpreadlyService:
 
         # Process card in background
         # asyncio.run(self._process_card(session_id, image_path))
-        task = await asyncio.create_task(self._process_card(session_id, image_path))
-        return {"status": "card_uploaded", "file_path": image_path}
+        card_data = await self._process_card(session_id, image_path)
+        return card_data
 
     async def _process_card(self, session_id: str, image_path: str):
         """Process business card using Spreadly.io"""
