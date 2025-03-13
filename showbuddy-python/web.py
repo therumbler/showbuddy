@@ -23,7 +23,7 @@ def make_web_app():
     @app.post("/api/sessions/{session_id}/cards")
     async def upload_card(session_id: str, image_file: UploadFile = File(...)):
         image_data = await image_file.read()
-        card_data = await business_card_service.upload_card(session_id, image_data)
+        card_data = await business_card_service.process_card(session_id, image_data)
         return card_data
 
     return app
