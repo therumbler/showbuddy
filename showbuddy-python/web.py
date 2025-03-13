@@ -4,7 +4,9 @@ import logging
 from fastapi import FastAPI
 from lib.spreadly_service import SpreadlyService
 
+from schemas.carduploadrequest import CardUploadRequest
 import config
+
 
 logger = logging.getLogger(__name__)
 
@@ -19,10 +21,11 @@ def make_web_app():
     async def read_root():
         return {"Hello": "World"}
 
-    @app.post("/api/sessions/{session_id}/cards")
-    async def upload_card(session_id: str, image_path: str):
-        print(f"Processing card for session {session_id}...")
-        card_data = await business_card_service.upload_card(session_id, image_path)
+    @app.post("/api/cards")
+    async def upload_card(request: CardUploadRequest):
+        card_data = await business_card_service.upload_card(
+            request.session_id, request.image_path
+        )
         return card_data
 
     return app
