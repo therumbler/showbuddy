@@ -1,4 +1,3 @@
-import base64
 import httpx
 import logging
 import asyncio
@@ -71,7 +70,6 @@ class SpreadlyService:
             logger.exception(f"Error processing card: {str(e)}")
 
 async def main():
-    api_key = "2440|XghCSF0H9yq7wEratzvDHMt94J48pfBFktJuBsOG432b5a85"
     session_id = "your_session_id_here"
     image_path0 = "/Users/tsepomontsi/scratch/showbuddy/tests/integration/files/business_card_0.png"
     image_path1 = "/Users/tsepomontsi/scratch/showbuddy/tests/integration/files/business_card_1.png"
