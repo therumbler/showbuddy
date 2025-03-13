@@ -3,6 +3,7 @@
 import logging
 from fastapi import FastAPI, UploadFile, File
 from lib.spreadly_service import SpreadlyService
+from lib.assemblyai_service import AssemblyAIService
 
 import config
 
@@ -15,6 +16,7 @@ def make_web_app():
     logging.basicConfig(level=logging.DEBUG)
     app = FastAPI()
     business_card_service = SpreadlyService(config.SPREADLY_API_KEY)
+    transcription_service = AssemblyAIService(config.ASSEMBLYAI_API_KEY)
 
     @app.get("/")
     async def read_root():
@@ -26,4 +28,10 @@ def make_web_app():
         card_data = await business_card_service.process_card(session_id, image_data)
         return card_data
 
+    @app.post("/api/sessions/{session_id}/audio")
+    async def process_audio(session_id: str, audio_file: UploadFile = File(...)):
+        audio_data = await audio_file.read()
+        transcription_data = await transcription_service.process(session_id, audio_data)
+        return transcription_data
+    
     return app
