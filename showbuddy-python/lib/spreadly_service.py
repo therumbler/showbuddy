@@ -57,7 +57,7 @@ class SpreadlyService:
                 return
             
             file_creation_time = datetime.fromtimestamp(os.stat(image_path).st_mtime).isoformat()
-            card_data["reseponse_type"] = "card_data"
+            card_data["response_type"] = "card_data"
             card_data["file_creation_time"] = file_creation_time
             card_data["image_path"] = image_path
             card_data["session_id"] = session_id
