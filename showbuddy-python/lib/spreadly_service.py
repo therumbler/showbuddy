@@ -17,13 +17,10 @@ class SpreadlyService:
     def __init__(self, api_key: str):
         self.api_key = api_key
 
-    async def upload_card(self, session_id: str, image_data: bytes):
-        """Upload a business card image"""
 
-        card_data = await self._process_card(session_id, image_data)
-        return card_data
 
-    async def _process_card(self, session_id: str, image_data: bytes):
+
+    async def process_card(self, session_id: str, image_data: bytes):
         """Process business card using Spreadly.io"""
         logger.info("Processing card for session %s...", session_id)
 
@@ -83,8 +80,9 @@ async def main():
         with open(image_path1, "rb") as image2:
 
             results = await asyncio.gather(
-                spreadly_service.upload_card(session_id, image1.read()),
-                # spreadly_service.upload_card(session_id, image2.read()),
+                spreadly_service.process_card(session_id, image1.read()),
+                spreadly_service.process_card(session_id, image2.read()),
+                            
             )
 
     # print(results)
