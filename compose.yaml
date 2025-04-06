@@ -6,7 +6,9 @@ services:
     
     # Keeps container alive if you want to go in and inspect or run manual tests
     # Comment this out if you just want the container to run the test and exit
-    # tty: true
+    tty: true
+    volumes:
+      - ./showbuddy-data:/app/showbuddy-data
     ports:
       - "8000:8000"
     environment:
