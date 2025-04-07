@@ -185,83 +185,18 @@ class ShowbuddyDB:
         self.storage_dir = storage_dir
         
         # Create MongoDB-like collections
-        self.sessions = Collection(self, "sessions")
         self.cards = Collection(self, "cards")
         self.transcripts = Collection(self, "transcripts")
-        self.participants = Collection(self, "participants")
+        self.reports = Collection(self, "reports")
         
         # Create managers that provide the required API
         self.card = CardManager(self)
         self.transcript = TranscriptManager(self)
-        self.participant = ParticipantManager(self)
+        self.report = ReportManager(self)
         
         # Create storage directory if it doesn't exist
         if not os.path.exists(storage_dir):
             os.makedirs(storage_dir)
-
-
-class SessionManager:
-    """Manager for session data."""
-
-    def __init__(self, db: ShowbuddyDB):
-        """Initialize with reference to main database.
-
-        Args:
-            db: Reference to the main ShowbuddyDB instance
-        """
-        self.db = db
-
-    def create_session(self) -> None:
-        """Create a new session in the database.
-
-        Args:
-            session_id: Unique ID for the recording session
-        """
-
-        session_id = str(uuid.uuid4())
-        # Check if session already exists
-        existing = self.db.sessions.find_one({"_id": session_id})
-        if existing:
-            raise ValueError(f"Session with ID {session_id} already exists.")
-
-        # Create a new session document
-        session_data = {
-            "_id": session_id,
-            "created_at": datetime.now().isoformat(),
-            "updated_at": datetime.now().isoformat(),
-            "status": "new"
-        }
-
-        # Insert the session into the sessions collection
-        self.db.sessions.insert_one(session_data)
-
-        return session_id
-    
-    def set_status_recording(self, session_id: str) -> None:
-        """Set the status of a session to 'transcribing'.
-
-        Args:
-            session_id: Unique ID for the recording session
-        """
-        # Update the session status
-        self.db.sessions.update_one(
-            {"_id": session_id},
-            {"$set": {"status": "transcribing"}}
-        )
-    def set_status_completed(self, session_id: str) -> None:
-        """Set the status of a session to 'completed'.
-
-        Args:
-            session_id: Unique ID for the recording session
-        """
-        # Update the session status
-        self.db.sessions.update_one(
-            {"_id": session_id},
-            {"$set": {"status": "completed"}}
-        )
-
-
-        
 
 
 
@@ -383,8 +318,9 @@ class TranscriptManager:
         return ""
 
 
-class ParticipantManager:
-    """Manager for participant data."""
+class ReportManager:
+    """Manager for report data."""
+
 
     def __init__(self, db: ShowbuddyDB):
         """Initialize with reference to main database.
@@ -394,21 +330,16 @@ class ParticipantManager:
         """
         self.db = db
 
-    def add(self, session_id: str, participant_data: Dict[str, Any]) -> None:
+    def add(self, session_id: str, report_data: Dict[str, Any]) -> None:
         """Add a participant to the database.
 
         Args:
             session_id: Unique ID for the recording session
-            participant_data: Dictionary containing participant information
+            report_data: Dictionary containing report information
         """
-        # Ensure participant has an ID
-        if "participant_id" not in participant_data:
-            raise ValueError("Participant data must include a participant_id")
-        
-        participant_id = participant_data["participant_id"]
-        
+
         # Add session_id to participant data
-        participant_data["session_id"] = session_id
+        report_data["session_id"] = session_id
         
         # Check if participant already exists
         existing = self.db.participants.find_one({
@@ -425,73 +356,6 @@ class ParticipantManager:
         else:
             # Insert new participant
             self.db.participants.insert_one(participant_data)
-
-    def update_feedback(self, session_id: str, participant_id: str, feedback: Dict[str, Any]) -> None:
-        """Update feedback for a participant.
-
-        Args:
-            session_id: Unique ID for the recording session
-            participant_id: Unique ID for the participant
-            feedback: Dictionary containing feedback information
-        """
-        # Find the participant
-        participant = self.db.participants.find_one({
-            "session_id": session_id,
-            "participant_id": participant_id
-        })
-        
-        # Check if participant exists
-        if not participant:
-            raise ValueError(f"Participant with ID {participant_id} not found in session {session_id}")
-        
-        # Prepare feedback update with timestamp
-        feedback_update = feedback.copy()
-        feedback_update["last_updated"] = datetime.now().isoformat()
-        
-        # Update participant with feedback
-        self.db.participants.update_one(
-            {"_id": participant["_id"]},
-            {"$set": {"feedback": feedback_update}}
-        )
-
-    def get_feedback(self, session_id: str, participant_id: str) -> Dict[str, Any]:
-        """Get feedback for a participant.
-
-        Args:
-            session_id: Unique ID for the recording session
-            participant_id: Unique ID for the participant
-
-        Returns:
-            Dictionary containing feedback information
-        """
-        # Find the participant
-        participant = self.db.participants.find_one({
-            "session_id": session_id,
-            "participant_id": participant_id
-        })
-        
-        # Check if participant exists
-        if not participant:
-            raise ValueError(f"Participant with ID {participant_id} not found in session {session_id}")
-        
-        # Return feedback if it exists, otherwise empty dict
-        return participant.get("feedback", {})
-
-    def get_ids(self, session_id: str) -> List[str]:
-        """Get all participant IDs for a session.
-
-        Args:
-            session_id: Unique ID for the recording session
-
-        Returns:
-            List of participant IDs
-        """
-        # Find all participants for the session
-        participants = self.db.participants.find({"session_id": session_id})
-        
-        # Extract participant_id from each participant
-        return [p["participant_id"] for p in participants]
-
 
 # Create a global instance for easy imports
 db = ShowbuddyDB()
@@ -523,13 +387,13 @@ class MongoDBAdapter:
             # Create collections
             self.cards = self.db["cards"]
             self.transcripts = self.db["transcripts"]
-            self.participants = self.db["participants"]
-            self.sessions = self.db["sessions"]
+            self.reports = self.db["reports"]
+
             
             # Create indexes
             self.cards.create_index([("session_id", 1)])
             self.transcripts.create_index([("session_id", 1)], unique=True)
-            self.participants.create_index([("session_id", 1), ("participant_id", 1)], unique=True)
+            self.reports.create_index([("session_id", 1), ("report_id", 1)], unique=True)
             
         except ImportError:
             print("PyMongo not available. Using file-based database simulation.")

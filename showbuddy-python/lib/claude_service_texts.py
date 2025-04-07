@@ -1,82 +1,72 @@
-def claude_prompt(context):
+def get_speaker_details_prompt(transcript : dict, cards : dict):
     return f"""You are an AI assistant specialized in analyzing trade show conversations for sales and marketing professionals. Your task is to create detailed, insightful engagement reports that help sales teams follow up effectively with leads.
 
-    I'll provide you with a transcript of a conversation at a trade show booth and any available business card information.
+    I'll provide you with a transcript of a conversation at a trade show booth and any available business cards.
 
-    Please analyze this information carefully and generate a comprehensive report with the following elements:
+    The first step is to analyse the transcript and identify the speakers. 
 
-    1. SUMMARY (4-6 sentences):
-    - The overall nature of the conversation
-    - Key interests or pain points expressed by the visitor
-    - Level of engagement/interest shown
-    - Potential opportunity size or qualification assessment
-    - Any immediate next steps agreed upon
+    Then try and match available business cards to the identified speakers. Ensure that in the next step, you replace any transcribed information with information from the business cards, as this takes preference.
 
-    2. KEY TOPICS (4-7 specific topics):
-    - Product features discussed in detail
-    - Specific use cases or applications mentioned
-    - Competitive products/companies referenced
-    - Budget/pricing discussions
-    - Implementation or timeline considerations
-    - Technical requirements mentioned
+    In order to generate the report for each of the speakers in the transcript and to extract specific details about each. Please provide the following details about this speaker:
+    - Speaker ID
+    - First Name
+    - Family Name
+    - Company
+    - Email
+    - Phone number
+    - Their role
+    - Their contribution to the conversation
+    - Follow-up actions this participant is expecting
+    - Follow-up actions this participant is responsible for
+    - Any personal details mentioned for relationship building 
+    - A sample follow-up email to this participant
 
-    3. FOR EACH PARTICIPANT:
-    - Professional assessment of their role in the buying process (decision maker, influencer, etc.)
-    - Their specific interests and concerns
-    - Areas where they showed most engagement
-    - 3-5 personalized, specific follow-up actions with clear value propositions
-    - Recommended timing for follow-up (urgent, within week, etc.)
-    - Any personal details mentioned that could help build rapport
+    If any of these details are not explicitly mentioned, indicate them as "Unknown" or leave them blank for contact details.
+
+    Please use the attached business cards to replace any missing information and to correct any mistranscribed data. 
+    
+    Once the business card has been assigned to a speaker, the data from the business card takes preference, therefore, please ensure that any references to names, companies and gathered information in the report is replaced with the correct information from the business card. If a business card is not available for a speaker, please indicate that as well.
 
     Here is the information to analyze:
 
-    {context}
+    {transcript}
 
-    Please respond with a JSON object in this format:
-    ```json
-    {{
-    "summary": "Detailed, specific summary of the engagement including qualification assessment and overall opportunity",
-    "topic_tags": ["Specific Feature X", "Integration with Y", "Pricing Tier Z", "Technical Requirement A", "Use Case B"],
-    "participants": [
-        {{
-        "name": "Person's name",
-        "company": "Company name",
-        "role": "Job title",
-        "buying_role": "Assessment of their role in purchasing decision",
-        "contact": {{
-            "email": "email address",
-            "phone": "phone number"
-        }},
-        "contribution": "Detailed assessment of their part in conversation, interests, and concerns",
-        "engagement_level": "High/Medium/Low with specific indicators",
-        "follow_up_actions": [
-            "Specific action 1 with clear value proposition",
-            "Specific action 2 tailored to their expressed needs",
-            "Specific action 3 with recommended timing"
-        ],
-        "personal_notes": "Any personal details mentioned for relationship building (optional)"
-        }}
-    ],
-    "opportunity_assessment": "Overall assessment of the sales opportunity, including suggested next steps and priority level"
+    Here are the business cards if any:
+
+    {cards}
+
+    Please respond with a list of JSON objects (one for each speaker) in this format:
+    ```json{{
+            "speaker_details": {{
+            "Speaker ID": "Speaker's ID in the transcript",
+            "first name": "Speaker's name",
+            "family name": "Speaker's family name",
+            "company": "Speaker's company",
+            "title": "Job title",
+            "role": "Assesment of their roll in buying decisions,
+            "contact": {{
+                "email": "Speaker's email",
+                "phone": "Speaker's phone number"
+            }},
+            "contribution": "Detailed assessment of their part in conversation, interests, and concerns",
+            "engagement_level": "High/Medium/Low with specific indicators",
+            "follow_up_actions": [
+                "Specific action 1 with clear value proposition",
+                "Specific action 2 tailored to their expressed needs",
+                "Specific action 3 with recommended timing"
+            ],
+            "follow_up_expectations": [
+                "Specific action 1 with clear value proposition",
+                "Specific action 2 tailored to their expressed needs",
+                "Specific action 3 with recommended timing"
+            ],
+            "personal_notes": "Any personal details mentioned for relationship building (optional)",
+            "sample_email": {{
+                "subject": "Subject of the email",
+                "body": "Body of the email"
+            }}
+        }}    
     }}
-    ```
 
     Be specific, actionable, and detailed in your analysis. Focus on information that would be valuable for sales follow-up.
     """
-        
-default_participant = {
-                "name": "Trade Show Visitor",
-                "company": "Unknown Company",
-                "role": "Unknown Title",
-                "buying_role": "Initial contact - needs qualification",
-                "contact": {"email": "", "phone": ""},
-                "contribution": "Engaged in a general discussion about our product offerings. Showed particular interest in cost savings aspects and quick implementation options.",
-                "engagement_level": "Medium - asked good questions but didn't share specific project details",
-                "follow_up_actions": [
-                    "Send introductory product brochure highlighting ROI calculator",
-                    "Connect on LinkedIn within 24 hours while conversation is fresh",
-                    "Invite to upcoming webinar on implementation best practices",
-                    "Follow up by email in 3 days to qualify their interest and timeline"
-                ],
-                "personal_notes": ""
-            }

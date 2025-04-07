@@ -1,40 +1,41 @@
 import re
-import lib.claude_service_texts
+import lib.claude_service_texts as claude_service_texts
 import json
+import httpx
+import os
+import logging
+import asyncio
+
+
+# Configure the logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 
 class ClaudeService:
     """
     Service for using Anthropic's Claude AI for summary generation and analysis
     """
 
-    async def generate_report(transcript: Dict[str, Any], cards: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Generate engagement report using Claude"""
-        print("Generating report using Claude...")
-        
-        # Check if API key is set
-        if not ANTHROPIC_API_KEY or ANTHROPIC_API_KEY == "your_anthropic_api_key":
-            print("Anthropic API key not set, using mock report")
-            return ClaudeService.generate_mock_report(transcript, cards)
-            
+    def __init__(self, ANTHROPIC_API_KEY):
+        self.api_key = ANTHROPIC_API_KEY
+
+    async def prompt_claude(self, prompt):
+        """Prompt Claude"""
+        logger.info(f"Prompting Claude...")
         try:
-            # Prepare the context for Claude
-            context = ClaudeService._prepare_context(transcript, cards)
-            
-            # Prepare the prompt for Claude
-            prompt = ClaudeService._create_prompt(context)
-            
             # Call Claude API
             async with httpx.AsyncClient(timeout=60.0) as client:
                 response = await client.post(
                     "https://api.anthropic.com/v1/messages",
                     headers={
-                        "x-api-key": ANTHROPIC_API_KEY,
+                        "x-api-key": self.api_key,
                         "anthropic-version": "2023-06-01",
                         "content-type": "application/json"
                     },
                     json={
                         "model": "claude-3-haiku-20240307",
-                        "max_tokens": 1024,
+                        "max_tokens": 2048,
                         "messages": [
                             {"role": "user", "content": prompt}
                         ],
@@ -43,12 +44,12 @@ class ClaudeService:
                 )
                 
                 if response.status_code != 200:
-                    print(f"Error from Claude API: {response.text}")
-                    return ClaudeService.generate_mock_report(transcript, cards)
+                    logger.error(f"Error from Claude API: {response.text}")
+                    return None
                 
                 claude_response = response.json()
                 content = claude_response["content"][0]["text"]
-                
+                print (content)
                 # Parse the JSON response from Claude
                 try:
                     # Try to extract JSON from the response
@@ -58,212 +59,75 @@ class ClaudeService:
                         json_str = json_match.group(1)
                     else:
                         # If no markdown JSON block, try to extract the whole content as JSON
+                        logger.warning("No JSON block found in Claude response, trying to parse the whole content as JSON.")
                         json_str = content
                         
                     report_data = json.loads(json_str)
-                    return report_data
+                    return {"Report Data" : report_data}
                 except (json.JSONDecodeError, AttributeError) as e:
-                    print(f"Failed to parse Claude response as JSON: {e}")
-                    # Extract information using regex as fallback
-                    return ClaudeService._extract_report_from_text(content, transcript, cards)
-                    
+                    logger.error(f"Failed to parse Claude response as JSON: {e}")
         except Exception as e:
-            print(f"Error generating report with Claude: {str(e)}")
-            return ClaudeService.generate_mock_report(transcript, cards)
+            logger.error(f"Error generating report with Claude: {str(e)}")
+            return None
+
+
+    def extract_simple_transcript(self, transcript):
+        """
+        Extracts a simplified transcript from the detailed JSON transcript.
+        The simplified transcript contains a list of utterances with speaker and text.
+        """
+        logger.info(f"Simplifying Transcript")
+        try:
+            simplified_transcript = []
+            for utterance in transcript.get("utterances", []):
+                simplified_transcript.append({
+                "speaker": utterance.get("speaker", "unknown"),
+                "text": utterance.get("text", "")
+            })
+            return {"Transcript:" : simplified_transcript}
+        except Exception as e:
+            logger.error(f"Error extracting simple transcript: {str(e)}")
+            return []
+
+    async def generate_report(self, session_id, transcript, cards):
+        """Generate a report using Claude"""
+        logger.info(f"Generating Report")
+        # Prepare the prompt
+        simplified_transcript = self.extract_simple_transcript(transcript)
+        prompt = claude_service_texts.get_speaker_details_prompt(simplified_transcript, cards)
+
+        report_data = await self.prompt_claude(prompt)
+        
+        
+        # If the response is not valid, return an empty dictionary
+        if not report_data:
+            return {}
+        
+        # Process the report data
+        report_data["session_id"] = session_id
+        return report_data
     
-    def _prepare_context(transcript: Dict[str, Any], cards: List[Dict[str, Any]]) -> str:
-        """Prepare context for Claude from transcript and cards"""
-        context = "TRANSCRIPT:\n"
-        
-        # Add full transcript text if available
-        if "utterances" in transcript:
-            for utterance in transcript["utterances"]:
-                speaker = utterance.get("speaker", "Unknown")
-                text = utterance.get("text", "")
-                context += f"Speaker {speaker}: {text}\n"
-            context += "\n"
-        
-        # Add business card information
-        context += "BUSINESS CARDS:\n"
-        if cards:
-            for i, card in enumerate(cards):
-                extracted_data = card.get("extracted_data", {})
-                if "data" in extracted_data:
-                    card_data = extracted_data["data"]
-                    context += f"Card {i+1}:\n"
-                    context += f"  Name: {card_data.get('name', 'Unknown')}\n"
-                    context += f"  Company: {card_data.get('company', 'Unknown')}\n"
-                    context += f"  Title: {card_data.get('title', 'Unknown')}\n"
-                    context += f"  Email: {card_data.get('email', 'Unknown')}\n"
-                    context += f"  Phone: {card_data.get('phone', 'Unknown')}\n\n"
-        else:
-            context += "No business cards available.\n\n"
-        
-        return context
+
+
+async def main():
+    logging.basicConfig(level=logging.INFO)
+    api_key = os.environ["ANTHROPIC_API_KEY"]
+    session_id = "your_session_id_here"
     
-    @staticmethod
-    def _create_prompt(context: str) -> str:
-        """Create an enhanced prompt for Claude to generate richer reports"""
-        return claude_service_texts.claude_prompt(context)
-    
-    @staticmethod
-    def _extract_report_from_text(text: str, transcript: Dict[str, Any], cards: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Enhanced fallback method to extract report information from Claude's text response"""
-        import re
+    transcript_path = "/Users/tsepomontsi/projects/showbuddy/showbuddy-data/transcripts/829fa7d4-d829-40b3-8fe5-ad44d4e5afb8.json"
+    card_path = "/Users/tsepomontsi/projects/showbuddy/showbuddy-data/cards/b_cards.json"
+    analytics_service = ClaudeService(api_key)
+
+    with open(transcript_path, "r") as transcript_file:
+        transcript_text = transcript_file.read()
+        transcript_dict = json.loads(transcript_text)
+        with open (card_path, "r") as card_file:
+            card_text = card_file.read()
+            card_dict = json.loads(card_text)
         
-        # Try to extract summary
-        summary_match = re.search(r'summary["\s:]+([^"]+)', text, re.IGNORECASE)
-        summary = summary_match.group(1).strip() if summary_match else "Conversation at trade show booth with potential client showing interest in our solution."
-        
-        # Try to extract topics
-        topics = re.findall(r'topic[s\s]*[:"\[]([^"\],]+)', text, re.IGNORECASE)
-        if not topics:
-            topics = ["Product Features", "Pricing Options", "Implementation", "Technical Requirements", "Competitive Comparison"]
-        
-        # Try to extract opportunity assessment
-        opportunity_match = re.search(r'opportunity[_\s]*assessment["\s:]+([^"]+)', text, re.IGNORECASE)
-        opportunity = opportunity_match.group(1).strip() if opportunity_match else "Medium priority lead requiring follow-up to assess project timeline and budget."
-        
-        # Create participants from available business cards with enhanced details
-        participants = []
-        for card in cards:
-            extracted_data = card.get("extracted_data", {})
-            if "data" in extracted_data:
-                card_data = extracted_data["data"]
-                participant = {
-                    "name": card_data.get("name", "Unknown Person"),
-                    "company": card_data.get("company", "Unknown Company"),
-                    "role": card_data.get("title", ""),
-                    "buying_role": "Potential evaluator based on technical questions",
-                    "contact": {
-                        "email": card_data.get("email", ""),
-                        "phone": card_data.get("phone", "")
-                    },
-                    "contribution": "Actively participated in the conversation, asking specific questions about product capabilities and implementation.",
-                    "engagement_level": "Medium-High based on conversation duration and question specificity",
-                    "follow_up_actions": [
-                        "Send detailed product specifications and case studies",
-                        "Offer a personalized demo focusing on their industry use cases",
-                        "Connect with technical team for implementation discussion",
-                        "Follow up within 3 business days to maintain momentum"
-                    ],
-                    "personal_notes": ""
-                }
-                participants.append(participant)
-        
-        # If no participants were created from cards, create a detailed default one
-        if not participants:
-            participants = [{
-                "name": "Booth Visitor",
-                "company": "Unknown Company",
-                "role": "",
-                "buying_role": "Initial contact requiring qualification",
-                "contact": {"email": "", "phone": ""},
-                "contribution": "Engaged in discussion showing interest in core product features and potential applications.",
-                "engagement_level": "Medium - asked questions but didn't share specific project details",
-                "follow_up_actions": [
-                    "Send follow-up email with product information",
-                    "Connect on LinkedIn to maintain relationship",
-                    "Invite to upcoming webinar or product demonstration",
-                    "Call within one week to assess interest level and requirements"
-                ],
-                "personal_notes": ""
-            }]
-        
-        return {
-            "summary": summary,
-            "topic_tags": topics,
-            "participants": participants,
-            "opportunity_assessment": opportunity
-        }
-        
-    @staticmethod
-    def generate_mock_report(transcript: Dict[str, Any], cards: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Generate a richer mock report when Claude API is not available"""
-        print("Generating enhanced mock report...")
-        
-        # Get speaker IDs from the transcript
-        speaker_ids = set()
-        if "utterances" in transcript:
-            for utterance in transcript["utterances"]:
-                speaker_id = utterance.get("speaker", "")
-                if speaker_id:
-                    speaker_ids.add(speaker_id)
-        
-        # Create participants
-        participants = []
-        
-        # First, use business cards if available
-        for i, card in enumerate(cards):
-            extracted_data = card.get("extracted_data", {})
-            if "data" in extracted_data:
-                card_data = extracted_data["data"]
-                participant = {
-                    "name": card_data.get("name", f"Person {i+1}"),
-                    "company": card_data.get("company", "TechCorp Inc."),
-                    "role": card_data.get("title", "Director of Operations"),
-                    "buying_role": "Potential",
-                    "contact": {
-                        "email": card_data.get("email", ""),
-                        "phone": card_data.get("phone", "")
-                    },
-                    "contribution": "Asked detailed questions about product features, specifically the AI integration capabilities and analytics dashboard. Expressed concerns about implementation timeline and team training requirements.",
-                    "engagement_level": "High - spent significant time discussing technical specifications and requested a follow-up demo",
-                    "follow_up_actions": [
-                        "Send detailed spec sheet for the enterprise plan within 24 hours",
-                        "Schedule a technical demo focusing on the AI analytics capabilities they showed interest in",
-                        "Connect them with a current customer in their industry (manufacturing) for reference",
-                        "Prepare a custom implementation timeline addressing their 60-day rollout concern"
-                    ],
-                    "personal_notes": "Mentioned upcoming industry conference in Chicago; avid golfer; previously worked with our competitor XYZ Solutions"
-                }
-                participants.append(participant)
-        
-        # If we have more speakers than cards, add generic but detailed participants
-        if len(speaker_ids) > len(participants):
-            role_options = ["Technical Evaluator", "Financial Decision Maker", "End User", "Project Manager"]
-            for i, speaker_id in enumerate(list(speaker_ids)[len(participants):]):
-                role_idx = i % len(role_options)
-                participant = {
-                    "name": f"Speaker {speaker_id}",
-                    "company": "Unknown Company",
-                    "role": "Unknown Title",
-                    "buying_role": role_options[role_idx],
-                    "contact": {"email": "", "phone": ""},
-                    "contribution": "Asked specific questions about system requirements and API capabilities. Seemed particularly interested in mobile functionality and data export options.",
-                    "engagement_level": "Medium - engaged on technical topics but didn't discuss next steps",
-                    "follow_up_actions": [
-                        "Send API documentation highlighting the features they inquired about",
-                        "Share case study on mobile implementation success with similar company",
-                        "Offer a technical consultation call to address their integration questions",
-                        "Follow up within 5 business days as this appears to be in early evaluation stage"
-                    ],
-                    "personal_notes": ""
-                }
-                participants.append(participant)
-        
-        # If we have no participants at all, add a detailed default one
-        if not participants:
-            participants = [{
-                "name": "Trade Show Visitor",
-                "company": "Unknown Company",
-                "role": "Unknown Title",
-                "buying_role": "Initial contact - needs qualification",
-                "contact": {"email": "", "phone": ""},
-                "contribution": "Engaged in a general discussion about our product offerings. Showed particular interest in cost savings aspects and quick implementation options.",
-                "engagement_level": "Medium - asked good questions but didn't share specific project details",
-                "follow_up_actions": [
-                    "Send introductory product brochure highlighting ROI calculator",
-                    "Connect on LinkedIn within 24 hours while conversation is fresh",
-                    "Invite to upcoming webinar on implementation best practices",
-                    "Follow up by email in 3 days to qualify their interest and timeline"
-                ],
-                "personal_notes": ""
-            }]
-        
-        return {
-            "summary": "Engaging conversation with a potential enterprise client showing significant interest in our AI-powered analytics solution. The visitor asked detailed questions about implementation timeline, pricing tiers, and technical specifications, particularly around data security and API capabilities. They mentioned a current pain point with their existing solution's reporting limitations and have an active project to replace it within 60-90 days. Based on their questions and seniority, this appears to be a qualified lead with decision-making authority and a defined timeline.",
-            "topic_tags": ["AI Analytics Dashboard", "Enterprise Pricing", "API Integration", "Data Security Compliance", "Implementation Timeline", "Mobile Accessibility", "ROI Calculation"],
-            "participants": participants,
-            "opportunity_assessment": "HIGH PRIORITY - Qualified lead with active project, defined timeline (60-90 days), and budget authority. Their technical questions indicate they're in the solution evaluation phase. Key decision factors appear to be implementation speed and API flexibility. Recommend sales follow-up within 24 hours with technical team involvement."
-        }
+            results = await analytics_service.generate_report(session_id, transcript_dict, card_dict)
+        logger.info(results)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

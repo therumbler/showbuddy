@@ -4,7 +4,7 @@ import logging
 from fastapi import FastAPI, UploadFile, File
 from lib.spreadly_service import SpreadlyService
 from lib.assemblyai_service import AssemblyAIService
-#from lib.claude_service import ClaudeService
+from lib.claude_service import ClaudeService
 from lib.db import ShowbuddyDB
 
 import config
@@ -19,7 +19,8 @@ def make_web_app():
     app = FastAPI()
     business_card_service = SpreadlyService(config.SPREADLY_API_KEY)
     transcription_service = AssemblyAIService(config.ASSEMBLYAI_API_KEY)
-    #analysis_service = ClaudeService(config.CLAUDE_API_KEY)
+    analytics_service = ClaudeService(config.ANTHROPIC_API_KEY)
+    
 
     @app.get("/")
     async def read_root():
@@ -41,10 +42,11 @@ def make_web_app():
         return transcription_data
     
     @app.post("/api/sessions/{session_id}/analysis")
-    async def analyse_transcript(session_id: str, transcript_file: UploadFile = File(...)):
+    async def analyse_transcript(session_id: str, transcript_file: UploadFile = File(...), card_data: UploadFile = File(...)):
         transcript_data = await transcript_file.read()
-        analysis_data = False #ß await analysis_service.process(session_id, transcript_data)
-        
-        return analysis_data
+        card_data = await card_data.read()
+        session_report = await analytics_service.generate_report(session_id, transcript_data, card_data)
+        db.report.add(session_id, session_report)
+        return session_report
     
     return app
