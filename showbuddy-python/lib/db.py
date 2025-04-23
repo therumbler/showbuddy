@@ -7,12 +7,13 @@ Designed to be easily transitioned to MongoDB in the future.
 """
 
 import json
+import logging
 import os
 import uuid
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Union
 
-
+logger = logging.getLogger(__name__)
 
 class Collection:
     """Base collection class that emulates MongoDB collection behavior."""
@@ -197,6 +198,8 @@ class ShowbuddyDB:
         # Create storage directory if it doesn't exist
         if not os.path.exists(storage_dir):
             os.makedirs(storage_dir)
+        
+        logger.info("ShowbuddyDB initialized with storage directory: %s", storage_dir)
 
 
 
