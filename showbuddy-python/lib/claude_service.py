@@ -89,10 +89,19 @@ class ClaudeService:
             logger.error(f"Error extracting simple transcript: {str(e)}")
             return []
 
-    async def generate_report(self, session_id, transcript, cards):
+    async def generate_report(self, session_id, transcript_file, card_file):
         """Generate a report using Claude"""
         logger.info(f"Generating Report")
         # Prepare the prompt
+
+        transcript_bytes = await transcript_file.read()
+        transcript = json.loads(transcript_bytes)
+
+        cards_bytes = await card_file.read()
+        cards = json.loads(cards_bytes)
+
+
+
         simplified_transcript = self.extract_simple_transcript(transcript)
         prompt = claude_service_texts.get_speaker_details_prompt(simplified_transcript, cards)
 
@@ -115,7 +124,7 @@ async def main():
     session_id = "your_session_id_here"
     
     transcript_path = "/Users/tsepomontsi/projects/showbuddy/showbuddy-data/transcripts/829fa7d4-d829-40b3-8fe5-ad44d4e5afb8.json"
-    card_path = "/Users/tsepomontsi/projects/showbuddy/showbuddy-data/cards/b_cards.json"
+    card_path = "/Users/tsepomontsi/projects/showbuddy/tests/integration/files/b_cards.json"
     analytics_service = ClaudeService(api_key)
 
     with open(transcript_path, "r") as transcript_file:

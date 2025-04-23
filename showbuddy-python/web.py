@@ -42,10 +42,8 @@ def make_web_app():
         return transcription_data
     
     @app.post("/api/sessions/{session_id}/analysis")
-    async def analyse_transcript(session_id: str, transcript_file: UploadFile = File(...), card_data: UploadFile = File(...)):
-        transcript_data = await transcript_file.read()
-        card_data = await card_data.read()
-        session_report = await analytics_service.generate_report(session_id, transcript_data, card_data)
+    async def analyse_transcript(session_id: str, transcript_file: UploadFile = File(...), card_file: UploadFile = File(...)):
+        session_report = await analytics_service.generate_report(session_id, transcript_file, card_file)
         db.report.add(session_id, session_report)
         return session_report
     
