@@ -8,3 +8,4 @@ __pycache__
 transcript.json
 showbuddy-data
 logs
+node_modules
