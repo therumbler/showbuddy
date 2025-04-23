@@ -11,10 +11,7 @@ services:
       - ./showbuddy-data:/app/showbuddy-data
     ports:
       - "8000:8000"
-    environment:
-      # Set your API keys as environment variables
-      - ASSEMBLYAI_API_KEY=${ASSEMBLYAI_API_KEY}
-      - SPREADLY_API_KEY=${SPREADLY_API_KEY}
-      - SPREADLY_MOCK_TEST=${SPREADLY_MOCK_TEST:-true}
-      - USE_MOCK_SERVICES=${USE_MOCK_SERVICES:-false}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+
+    env_file:
+      - .env
+
