@@ -344,21 +344,10 @@ class ReportManager:
         # Add session_id to participant data
         report_data["session_id"] = session_id
         
-        # Check if participant already exists
-        existing = self.db.participants.find_one({
-            "session_id": session_id,
-            "participant_id": participant_id
-        })
+
         
-        if existing:
-            # Update existing participant
-            self.db.participants.update_one(
-                {"_id": existing["_id"]},
-                {"$set": participant_data}
-            )
-        else:
-            # Insert new participant
-            self.db.participants.insert_one(participant_data)
+
+        self.db.reports.insert_one(report_data)
 
 # Create a global instance for easy imports
 db = ShowbuddyDB()
