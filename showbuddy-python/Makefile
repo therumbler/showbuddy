@@ -4,7 +4,8 @@
 IMAGE_NAME = ${USER}/showbuddy-docker
 
 build-docker:
- 	docker rmi $(docker images --filter=reference="*IMAGE_NAME*" -q)
+	echo "building $IMAGE_NAME"
+ 	# docker rmi $(docker images --filter=reference="*IMAGE_NAME*" -q)
 	docker build -t ${IMAGE_NAME} .
 
 run-docker: build-docker
