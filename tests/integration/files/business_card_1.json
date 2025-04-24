@@ -1,0 +1,88 @@
+{
+    "faxes": [],
+    "emails": [
+        "hello@whynotsoda.com"
+    ],
+    "phones": [
+        "+351 911 780 325"
+    ],
+    "company": "Whynot Soda",
+    "mobiles": [
+        "+351 911 780 325"
+    ],
+    "position": "Co-Founder",
+    "websites": [],
+    "addresses": [
+        "Portugal"
+    ],
+    "department": null,
+    "given_name": "Nils",
+    "is_company": false,
+    "family_name": "Schwenkowski",
+    "academic_degree": null,
+    "addresses_formatted": [
+        {
+            "city": "",
+            "region": "",
+            "street": "",
+            "country": "Portugal",
+            "postal_code": "",
+            "country_code": "PT"
+        }
+    ],
+    "id": 50564,
+    "data": {
+        "faxes": [],
+        "emails": [
+            "hello@whynotsoda.com"
+        ],
+        "phones": [
+            "+351 911 780 325"
+        ],
+        "company": "Whynot Soda",
+        "mobiles": [
+            "+351 911 780 325"
+        ],
+        "position": "Co-Founder",
+        "websites": [],
+        "addresses": [
+            "Portugal"
+        ],
+        "department": null,
+        "given_name": "Nils",
+        "is_company": false,
+        "family_name": "Schwenkowski",
+        "academic_degree": null,
+        "addresses_formatted": [
+            {
+                "city": "",
+                "region": "",
+                "street": "",
+                "country": "Portugal",
+                "postal_code": "",
+                "country_code": "PT"
+            }
+        ],
+        "id": 50564
+    },
+    "meta": {
+        "id": 50564,
+        "images": {
+            "front": "https://spreadly.app/storage/image/80f95fab0ced8534a4c8f550129b4586/business-card-scans/50564/nWU0SKmMqw5jg3UrNklNBX6YRQvSUuYFKgngVhN1.png",
+            "back": null
+        },
+        "qr_codes": [],
+        "created_at": "2025-03-30T13:59:23+00:00",
+        "scans": {
+            "left": 470,
+            "used": 84,
+            "total": 554
+        },
+        "contact": {
+            "id": 232677,
+            "self": "https://spreadly.app/api/v1/contacts/232677"
+        }
+    },
+    "response_type": "card_data",
+    "session_id": "test2"
+}

@@ -6,3 +6,6 @@
 __pycache__
 .coverage
 transcript.json
+showbuddy-data
+logs
+node_modules

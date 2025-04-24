@@ -1,0 +1,4340 @@
+{
+  "id": "3880bf97-0b1d-43be-8809-34dc680e26a1",
+  "language_model": "assemblyai_default",
+  "acoustic_model": "assemblyai_default",
+  "language_code": "en_us",
+  "status": "completed",
+  "audio_url": "https://cdn.assemblyai.com/upload/0bcb361d-d87c-418e-83df-3b6b6cf591c5",
+  "text": "Hi there. I'm Teppo Munci, founder of Monati. We do cold brewed robot Rooibos and botanical infusions from the Cape Floral Kingdom. Great to meet you. Hey, Teppo. I'm Neal Schuenkowski, founder of why Not Soda. We're all about low sugar fruit forward sparkling beverages. Love the sound of your Rui Bose line. Super original. Thanks, Nils. We wanted something you can drink freely and feel good about. All natural, no preservatives, just the good stuff brewed slow and cold. Sounds like we're kindred spirits. Absolutely. We use whole fruit purees and herbs. No artificial flavors. And we keep the sugar content way down. Portugal's citrus and berries give us some amazing profiles to work with. That sounds delicious. We've had a strong response in the us Specialty retail, wellness spaces and natural grocers. I'd love to explore a collaboration. We could help open up our US route to market for you. That's really exciting. We've been eyeing the US for a while and in return, we'd be happy to help you navigate Portugal. The market's hungry for functional wellness forward beverages, and from here, the EU is just a short step. That's exactly what we're looking for. We're building momentum and ready to plunge into the right partners. Rooibos isn't well known in Europe yet. Could be a fresh addition. Agreed. Rooibos has great potential here, especially with the herbal wellness crowd. And we've already got distribution conversations going with some of the larger chains. Let's set up a follow up. I'll get you samples and maybe we can put together a joint tasting for your buyers in Lisbon. I'll also send you our company profile. Love it. I'll loop in my commercial director and we'll get it moving. Great meeting you, Chefo. Let's make something happen.",
+  "words": [
+    {
+      "text": "Hi",
+      "start": 2560,
+      "end": 2736,
+      "confidence": 0.99921,
+      "speaker": "A"
+    },
+    {
+      "text": "there.",
+      "start": 2736,
+      "end": 2976,
+      "confidence": 0.99865,
+      "speaker": "A"
+    },
+    {
+      "text": "I'm",
+      "start": 3024,
+      "end": 3304,
+      "confidence": 0.96803,
+      "speaker": "A"
+    },
+    {
+      "text": "Teppo",
+      "start": 3352,
+      "end": 3688,
+      "confidence": 0.69571,
+      "speaker": "A"
+    },
+    {
+      "text": "Munci,",
+      "start": 3704,
+      "end": 4232,
+      "confidence": 0.12136,
+      "speaker": "A"
+    },
+    {
+      "text": "founder",
+      "start": 4296,
+      "end": 4568,
+      "confidence": 0.99895,
+      "speaker": "A"
+    },
+    {
+      "text": "of",
+      "start": 4584,
+      "end": 4760,
+      "confidence": 0.99812,
+      "speaker": "A"
+    },
+    {
+      "text": "Monati.",
+      "start": 4800,
+      "end": 5576,
+      "confidence": 0.53376,
+      "speaker": "A"
+    },
+    {
+      "text": "We",
+      "start": 5688,
+      "end": 5960,
+      "confidence": 0.99938,
+      "speaker": "A"
+    },
+    {
+      "text": "do",
+      "start": 6000,
+      "end": 6152,
+      "confidence": 0.99932,
+      "speaker": "A"
+    },
+    {
+      "text": "cold",
+      "start": 6176,
+      "end": 6424,
+      "confidence": 0.96701,
+      "speaker": "A"
+    },
+    {
+      "text": "brewed",
+      "start": 6472,
+      "end": 6728,
+      "confidence": 0.98011,
+      "speaker": "A"
+    },
+    {
+      "text": "robot",
+      "start": 6744,
+      "end": 7048,
+      "confidence": 0.66578,
+      "speaker": "A"
+    },
+    {
+      "text": "Rooibos",
+      "start": 7064,
+      "end": 7592,
+      "confidence": 0.9261,
+      "speaker": "A"
+    },
+    {
+      "text": "and",
+      "start": 7656,
+      "end": 7928,
+      "confidence": 0.99765,
+      "speaker": "A"
+    },
+    {
+      "text": "botanical",
+      "start": 7984,
+      "end": 8424,
+      "confidence": 0.9994,
+      "speaker": "A"
+    },
+    {
+      "text": "infusions",
+      "start": 8472,
+      "end": 8936,
+      "confidence": 0.998,
+      "speaker": "A"
+    },
+    {
+      "text": "from",
+      "start": 8968,
+      "end": 9064,
+      "confidence": 0.9988,
+      "speaker": "A"
+    },
+    {
+      "text": "the",
+      "start": 9072,
+      "end": 9192,
+      "confidence": 0.99894,
+      "speaker": "A"
+    },
+    {
+      "text": "Cape",
+      "start": 9216,
+      "end": 9464,
+      "confidence": 0.64609,
+      "speaker": "A"
+    },
+    {
+      "text": "Floral",
+      "start": 9512,
+      "end": 9848,
+      "confidence": 0.69782,
+      "speaker": "A"
+    },
+    {
+      "text": "Kingdom.",
+      "start": 9864,
+      "end": 10280,
+      "confidence": 0.99935,
+      "speaker": "A"
+    },
+    {
+      "text": "Great",
+      "start": 10360,
+      "end": 10552,
+      "confidence": 0.99944,
+      "speaker": "A"
+    },
+    {
+      "text": "to",
+      "start": 10576,
+      "end": 10664,
+      "confidence": 0.99976,
+      "speaker": "A"
+    },
+    {
+      "text": "meet",
+      "start": 10672,
+      "end": 10840,
+      "confidence": 0.99966,
+      "speaker": "A"
+    },
+    {
+      "text": "you.",
+      "start": 10880,
+      "end": 11460,
+      "confidence": 0.99951,
+      "speaker": "A"
+    },
+    {
+      "text": "Hey,",
+      "start": 14800,
+      "end": 15176,
+      "confidence": 0.99401,
+      "speaker": "B"
+    },
+    {
+      "text": "Teppo.",
+      "start": 15208,
+      "end": 15736,
+      "confidence": 0.48144,
+      "speaker": "B"
+    },
+    {
+      "text": "I'm",
+      "start": 15768,
+      "end": 15976,
+      "confidence": 0.98564,
+      "speaker": "B"
+    },
+    {
+      "text": "Neal",
+      "start": 16008,
+      "end": 16264,
+      "confidence": 0.45957,
+      "speaker": "B"
+    },
+    {
+      "text": "Schuenkowski,",
+      "start": 16312,
+      "end": 17448,
+      "confidence": 0.16572,
+      "speaker": "B"
+    },
+    {
+      "text": "founder",
+      "start": 17544,
+      "end": 17928,
+      "confidence": 0.9996,
+      "speaker": "B"
+    },
+    {
+      "text": "of",
+      "start": 17944,
+      "end": 18072,
+      "confidence": 0.99951,
+      "speaker": "B"
+    },
+    {
+      "text": "why",
+      "start": 18096,
+      "end": 18328,
+      "confidence": 0.95336,
+      "speaker": "B"
+    },
+    {
+      "text": "Not",
+      "start": 18384,
+      "end": 18600,
+      "confidence": 0.93924,
+      "speaker": "B"
+    },
+    {
+      "text": "Soda.",
+      "start": 18640,
+      "end": 19288,
+      "confidence": 0.96825,
+      "speaker": "B"
+    },
+    {
+      "text": "We're",
+      "start": 19384,
+      "end": 19656,
+      "confidence": 0.99332,
+      "speaker": "B"
+    },
+    {
+      "text": "all",
+      "start": 19688,
+      "end": 19784,
+      "confidence": 0.99991,
+      "speaker": "B"
+    },
+    {
+      "text": "about",
+      "start": 19792,
+      "end": 20008,
+      "confidence": 0.99958,
+      "speaker": "B"
+    },
+    {
+      "text": "low",
+      "start": 20064,
+      "end": 20328,
+      "confidence": 0.99983,
+      "speaker": "B"
+    },
+    {
+      "text": "sugar",
+      "start": 20384,
+      "end": 20792,
+      "confidence": 0.99961,
+      "speaker": "B"
+    },
+    {
+      "text": "fruit",
+      "start": 20856,
+      "end": 21224,
+      "confidence": 0.9672,
+      "speaker": "B"
+    },
+    {
+      "text": "forward",
+      "start": 21272,
+      "end": 21576,
+      "confidence": 0.99334,
+      "speaker": "B"
+    },
+    {
+      "text": "sparkling",
+      "start": 21648,
+      "end": 22104,
+      "confidence": 0.99898,
+      "speaker": "B"
+    },
+    {
+      "text": "beverages.",
+      "start": 22152,
+      "end": 22940,
+      "confidence": 0.99975,
+      "speaker": "B"
+    },
+    {
+      "text": "Love",
+      "start": 23360,
+      "end": 23672,
+      "confidence": 0.99973,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 23696,
+      "end": 23832,
+      "confidence": 0.9994,
+      "speaker": "B"
+    },
+    {
+      "text": "sound",
+      "start": 23856,
+      "end": 24088,
+      "confidence": 0.99978,
+      "speaker": "B"
+    },
+    {
+      "text": "of",
+      "start": 24104,
+      "end": 24184,
+      "confidence": 0.99965,
+      "speaker": "B"
+    },
+    {
+      "text": "your",
+      "start": 24192,
+      "end": 24312,
+      "confidence": 0.99841,
+      "speaker": "B"
+    },
+    {
+      "text": "Rui",
+      "start": 24336,
+      "end": 24648,
+      "confidence": 0.23312,
+      "speaker": "B"
+    },
+    {
+      "text": "Bose",
+      "start": 24664,
+      "end": 24984,
+      "confidence": 0.56412,
+      "speaker": "B"
+    },
+    {
+      "text": "line.",
+      "start": 25032,
+      "end": 25534,
+      "confidence": 0.99738,
+      "speaker": "B"
+    },
+    {
+      "text": "Super",
+      "start": 25672,
+      "end": 26018,
+      "confidence": 0.99563,
+      "speaker": "B"
+    },
+    {
+      "text": "original.",
+      "start": 26074,
+      "end": 26870,
+      "confidence": 0.99882,
+      "speaker": "B"
+    },
+    {
+      "text": "Thanks,",
+      "start": 29050,
+      "end": 29474,
+      "confidence": 0.99718,
+      "speaker": "A"
+    },
+    {
+      "text": "Nils.",
+      "start": 29522,
+      "end": 30098,
+      "confidence": 0.86914,
+      "speaker": "A"
+    },
+    {
+      "text": "We",
+      "start": 30194,
+      "end": 30450,
+      "confidence": 0.99942,
+      "speaker": "A"
+    },
+    {
+      "text": "wanted",
+      "start": 30490,
+      "end": 30834,
+      "confidence": 0.99798,
+      "speaker": "A"
+    },
+    {
+      "text": "something",
+      "start": 30882,
+      "end": 31234,
+      "confidence": 0.99958,
+      "speaker": "A"
+    },
+    {
+      "text": "you",
+      "start": 31322,
+      "end": 31522,
+      "confidence": 0.99637,
+      "speaker": "A"
+    },
+    {
+      "text": "can",
+      "start": 31546,
+      "end": 31682,
+      "confidence": 0.99519,
+      "speaker": "A"
+    },
+    {
+      "text": "drink",
+      "start": 31706,
+      "end": 31954,
+      "confidence": 0.99939,
+      "speaker": "A"
+    },
+    {
+      "text": "freely",
+      "start": 32002,
+      "end": 32354,
+      "confidence": 0.99932,
+      "speaker": "A"
+    },
+    {
+      "text": "and",
+      "start": 32402,
+      "end": 32610,
+      "confidence": 0.99856,
+      "speaker": "A"
+    },
+    {
+      "text": "feel",
+      "start": 32650,
+      "end": 32802,
+      "confidence": 0.99982,
+      "speaker": "A"
+    },
+    {
+      "text": "good",
+      "start": 32826,
+      "end": 33010,
+      "confidence": 0.99959,
+      "speaker": "A"
+    },
+    {
+      "text": "about.",
+      "start": 33050,
+      "end": 33538,
+      "confidence": 0.99018,
+      "speaker": "A"
+    },
+    {
+      "text": "All",
+      "start": 33674,
+      "end": 33970,
+      "confidence": 0.99938,
+      "speaker": "A"
+    },
+    {
+      "text": "natural,",
+      "start": 34010,
+      "end": 34498,
+      "confidence": 0.83493,
+      "speaker": "A"
+    },
+    {
+      "text": "no",
+      "start": 34594,
+      "end": 34850,
+      "confidence": 0.99879,
+      "speaker": "A"
+    },
+    {
+      "text": "preservatives,",
+      "start": 34890,
+      "end": 35698,
+      "confidence": 0.99405,
+      "speaker": "A"
+    },
+    {
+      "text": "just",
+      "start": 35794,
+      "end": 36050,
+      "confidence": 0.99873,
+      "speaker": "A"
+    },
+    {
+      "text": "the",
+      "start": 36090,
+      "end": 36242,
+      "confidence": 0.92434,
+      "speaker": "A"
+    },
+    {
+      "text": "good",
+      "start": 36266,
+      "end": 36450,
+      "confidence": 0.99983,
+      "speaker": "A"
+    },
+    {
+      "text": "stuff",
+      "start": 36490,
+      "end": 36802,
+      "confidence": 0.99954,
+      "speaker": "A"
+    },
+    {
+      "text": "brewed",
+      "start": 36866,
+      "end": 37282,
+      "confidence": 0.51908,
+      "speaker": "A"
+    },
+    {
+      "text": "slow",
+      "start": 37346,
+      "end": 37586,
+      "confidence": 0.9996,
+      "speaker": "A"
+    },
+    {
+      "text": "and",
+      "start": 37618,
+      "end": 37810,
+      "confidence": 0.99882,
+      "speaker": "A"
+    },
+    {
+      "text": "cold.",
+      "start": 37850,
+      "end": 38402,
+      "confidence": 0.99822,
+      "speaker": "A"
+    },
+    {
+      "text": "Sounds",
+      "start": 38546,
+      "end": 38898,
+      "confidence": 0.99758,
+      "speaker": "A"
+    },
+    {
+      "text": "like",
+      "start": 38914,
+      "end": 39090,
+      "confidence": 0.99943,
+      "speaker": "A"
+    },
+    {
+      "text": "we're",
+      "start": 39130,
+      "end": 39298,
+      "confidence": 0.96539,
+      "speaker": "A"
+    },
+    {
+      "text": "kindred",
+      "start": 39314,
+      "end": 39714,
+      "confidence": 0.9997,
+      "speaker": "A"
+    },
+    {
+      "text": "spirits.",
+      "start": 39762,
+      "end": 40470,
+      "confidence": 0.99771,
+      "speaker": "A"
+    },
+    {
+      "text": "Absolutely.",
+      "start": 42330,
+      "end": 43394,
+      "confidence": 0.99499,
+      "speaker": "B"
+    },
+    {
+      "text": "We",
+      "start": 43522,
+      "end": 43810,
+      "confidence": 0.9996,
+      "speaker": "B"
+    },
+    {
+      "text": "use",
+      "start": 43850,
+      "end": 44050,
+      "confidence": 0.99947,
+      "speaker": "B"
+    },
+    {
+      "text": "whole",
+      "start": 44090,
+      "end": 44306,
+      "confidence": 0.99945,
+      "speaker": "B"
+    },
+    {
+      "text": "fruit",
+      "start": 44338,
+      "end": 44594,
+      "confidence": 0.9989,
+      "speaker": "B"
+    },
+    {
+      "text": "purees",
+      "start": 44642,
+      "end": 44994,
+      "confidence": 0.9908,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 45042,
+      "end": 45202,
+      "confidence": 0.99866,
+      "speaker": "B"
+    },
+    {
+      "text": "herbs.",
+      "start": 45226,
+      "end": 45794,
+      "confidence": 0.9994,
+      "speaker": "B"
+    },
+    {
+      "text": "No",
+      "start": 45922,
+      "end": 46162,
+      "confidence": 0.99916,
+      "speaker": "B"
+    },
+    {
+      "text": "artificial",
+      "start": 46186,
+      "end": 46754,
+      "confidence": 0.99985,
+      "speaker": "B"
+    },
+    {
+      "text": "flavors.",
+      "start": 46802,
+      "end": 47330,
+      "confidence": 0.98173,
+      "speaker": "B"
+    },
+    {
+      "text": "And",
+      "start": 47410,
+      "end": 47650,
+      "confidence": 0.98872,
+      "speaker": "B"
+    },
+    {
+      "text": "we",
+      "start": 47690,
+      "end": 47842,
+      "confidence": 0.99732,
+      "speaker": "B"
+    },
+    {
+      "text": "keep",
+      "start": 47866,
+      "end": 48002,
+      "confidence": 0.99982,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 48026,
+      "end": 48162,
+      "confidence": 0.99949,
+      "speaker": "B"
+    },
+    {
+      "text": "sugar",
+      "start": 48186,
+      "end": 48514,
+      "confidence": 0.9998,
+      "speaker": "B"
+    },
+    {
+      "text": "content",
+      "start": 48562,
+      "end": 48866,
+      "confidence": 0.99988,
+      "speaker": "B"
+    },
+    {
+      "text": "way",
+      "start": 48938,
+      "end": 49170,
+      "confidence": 0.999,
+      "speaker": "B"
+    },
+    {
+      "text": "down.",
+      "start": 49210,
+      "end": 49842,
+      "confidence": 0.99977,
+      "speaker": "B"
+    },
+    {
+      "text": "Portugal's",
+      "start": 50026,
+      "end": 50786,
+      "confidence": 0.56918,
+      "speaker": "B"
+    },
+    {
+      "text": "citrus",
+      "start": 50818,
+      "end": 51266,
+      "confidence": 0.97877,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 51298,
+      "end": 51490,
+      "confidence": 0.99832,
+      "speaker": "B"
+    },
+    {
+      "text": "berries",
+      "start": 51530,
+      "end": 51922,
+      "confidence": 0.99373,
+      "speaker": "B"
+    },
+    {
+      "text": "give",
+      "start": 51986,
+      "end": 52162,
+      "confidence": 0.99969,
+      "speaker": "B"
+    },
+    {
+      "text": "us",
+      "start": 52186,
+      "end": 52322,
+      "confidence": 0.99961,
+      "speaker": "B"
+    },
+    {
+      "text": "some",
+      "start": 52346,
+      "end": 52482,
+      "confidence": 0.99888,
+      "speaker": "B"
+    },
+    {
+      "text": "amazing",
+      "start": 52506,
+      "end": 52962,
+      "confidence": 0.99954,
+      "speaker": "B"
+    },
+    {
+      "text": "profiles",
+      "start": 53026,
+      "end": 53506,
+      "confidence": 0.9959,
+      "speaker": "B"
+    },
+    {
+      "text": "to",
+      "start": 53538,
+      "end": 53682,
+      "confidence": 0.9993,
+      "speaker": "B"
+    },
+    {
+      "text": "work",
+      "start": 53706,
+      "end": 53842,
+      "confidence": 0.99971,
+      "speaker": "B"
+    },
+    {
+      "text": "with.",
+      "start": 53866,
+      "end": 54430,
+      "confidence": 0.99594,
+      "speaker": "B"
+    },
+    {
+      "text": "That",
+      "start": 57790,
+      "end": 58150,
+      "confidence": 0.995,
+      "speaker": "A"
+    },
+    {
+      "text": "sounds",
+      "start": 58190,
+      "end": 58438,
+      "confidence": 0.99807,
+      "speaker": "A"
+    },
+    {
+      "text": "delicious.",
+      "start": 58454,
+      "end": 59126,
+      "confidence": 0.99933,
+      "speaker": "A"
+    },
+    {
+      "text": "We've",
+      "start": 59238,
+      "end": 59478,
+      "confidence": 0.96651,
+      "speaker": "A"
+    },
+    {
+      "text": "had",
+      "start": 59494,
+      "end": 59622,
+      "confidence": 0.99883,
+      "speaker": "A"
+    },
+    {
+      "text": "a",
+      "start": 59646,
+      "end": 59782,
+      "confidence": 0.99838,
+      "speaker": "A"
+    },
+    {
+      "text": "strong",
+      "start": 59806,
+      "end": 59990,
+      "confidence": 0.99935,
+      "speaker": "A"
+    },
+    {
+      "text": "response",
+      "start": 60030,
+      "end": 60326,
+      "confidence": 0.99831,
+      "speaker": "A"
+    },
+    {
+      "text": "in",
+      "start": 60358,
+      "end": 60454,
+      "confidence": 0.99657,
+      "speaker": "A"
+    },
+    {
+      "text": "the",
+      "start": 60462,
+      "end": 60582,
+      "confidence": 0.99703,
+      "speaker": "A"
+    },
+    {
+      "text": "us",
+      "start": 60606,
+      "end": 61126,
+      "confidence": 0.94577,
+      "speaker": "A"
+    },
+    {
+      "text": "Specialty",
+      "start": 61278,
+      "end": 61846,
+      "confidence": 0.98686,
+      "speaker": "A"
+    },
+    {
+      "text": "retail,",
+      "start": 61878,
+      "end": 62358,
+      "confidence": 0.99977,
+      "speaker": "A"
+    },
+    {
+      "text": "wellness",
+      "start": 62454,
+      "end": 62950,
+      "confidence": 0.77199,
+      "speaker": "A"
+    },
+    {
+      "text": "spaces",
+      "start": 63030,
+      "end": 63494,
+      "confidence": 0.98804,
+      "speaker": "A"
+    },
+    {
+      "text": "and",
+      "start": 63542,
+      "end": 63702,
+      "confidence": 0.99638,
+      "speaker": "A"
+    },
+    {
+      "text": "natural",
+      "start": 63726,
+      "end": 64054,
+      "confidence": 0.9273,
+      "speaker": "A"
+    },
+    {
+      "text": "grocers.",
+      "start": 64102,
+      "end": 64726,
+      "confidence": 0.85871,
+      "speaker": "A"
+    },
+    {
+      "text": "I'd",
+      "start": 64838,
+      "end": 65126,
+      "confidence": 0.6005,
+      "speaker": "A"
+    },
+    {
+      "text": "love",
+      "start": 65158,
+      "end": 65302,
+      "confidence": 0.99963,
+      "speaker": "A"
+    },
+    {
+      "text": "to",
+      "start": 65326,
+      "end": 65414,
+      "confidence": 0.99958,
+      "speaker": "A"
+    },
+    {
+      "text": "explore",
+      "start": 65422,
+      "end": 65654,
+      "confidence": 0.81699,
+      "speaker": "A"
+    },
+    {
+      "text": "a",
+      "start": 65702,
+      "end": 65814,
+      "confidence": 0.89793,
+      "speaker": "A"
+    },
+    {
+      "text": "collaboration.",
+      "start": 65822,
+      "end": 66518,
+      "confidence": 0.99923,
+      "speaker": "A"
+    },
+    {
+      "text": "We",
+      "start": 66614,
+      "end": 66822,
+      "confidence": 0.99755,
+      "speaker": "A"
+    },
+    {
+      "text": "could",
+      "start": 66846,
+      "end": 67030,
+      "confidence": 0.96204,
+      "speaker": "A"
+    },
+    {
+      "text": "help",
+      "start": 67070,
+      "end": 67270,
+      "confidence": 0.99412,
+      "speaker": "A"
+    },
+    {
+      "text": "open",
+      "start": 67310,
+      "end": 67510,
+      "confidence": 0.99968,
+      "speaker": "A"
+    },
+    {
+      "text": "up",
+      "start": 67550,
+      "end": 67750,
+      "confidence": 0.97573,
+      "speaker": "A"
+    },
+    {
+      "text": "our",
+      "start": 67790,
+      "end": 67990,
+      "confidence": 0.99444,
+      "speaker": "A"
+    },
+    {
+      "text": "US",
+      "start": 68030,
+      "end": 68278,
+      "confidence": 0.96469,
+      "speaker": "A"
+    },
+    {
+      "text": "route",
+      "start": 68334,
+      "end": 68518,
+      "confidence": 0.98769,
+      "speaker": "A"
+    },
+    {
+      "text": "to",
+      "start": 68534,
+      "end": 68662,
+      "confidence": 0.99726,
+      "speaker": "A"
+    },
+    {
+      "text": "market",
+      "start": 68686,
+      "end": 68918,
+      "confidence": 0.99938,
+      "speaker": "A"
+    },
+    {
+      "text": "for",
+      "start": 68974,
+      "end": 69094,
+      "confidence": 0.99793,
+      "speaker": "A"
+    },
+    {
+      "text": "you.",
+      "start": 69102,
+      "end": 69650,
+      "confidence": 0.99848,
+      "speaker": "A"
+    },
+    {
+      "text": "That's",
+      "start": 73790,
+      "end": 74246,
+      "confidence": 0.9967,
+      "speaker": "B"
+    },
+    {
+      "text": "really",
+      "start": 74278,
+      "end": 74470,
+      "confidence": 0.9986,
+      "speaker": "B"
+    },
+    {
+      "text": "exciting.",
+      "start": 74510,
+      "end": 75238,
+      "confidence": 0.99955,
+      "speaker": "B"
+    },
+    {
+      "text": "We've",
+      "start": 75414,
+      "end": 75718,
+      "confidence": 0.99363,
+      "speaker": "B"
+    },
+    {
+      "text": "been",
+      "start": 75734,
+      "end": 75910,
+      "confidence": 0.99955,
+      "speaker": "B"
+    },
+    {
+      "text": "eyeing",
+      "start": 75950,
+      "end": 76214,
+      "confidence": 0.68586,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 76262,
+      "end": 76422,
+      "confidence": 0.99942,
+      "speaker": "B"
+    },
+    {
+      "text": "US",
+      "start": 76446,
+      "end": 76726,
+      "confidence": 0.98656,
+      "speaker": "B"
+    },
+    {
+      "text": "for",
+      "start": 76798,
+      "end": 76982,
+      "confidence": 0.99943,
+      "speaker": "B"
+    },
+    {
+      "text": "a",
+      "start": 77006,
+      "end": 77142,
+      "confidence": 0.98436,
+      "speaker": "B"
+    },
+    {
+      "text": "while",
+      "start": 77166,
+      "end": 77542,
+      "confidence": 0.99992,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 77646,
+      "end": 77958,
+      "confidence": 0.81747,
+      "speaker": "B"
+    },
+    {
+      "text": "in",
+      "start": 78014,
+      "end": 78230,
+      "confidence": 0.99937,
+      "speaker": "B"
+    },
+    {
+      "text": "return,",
+      "start": 78270,
+      "end": 78614,
+      "confidence": 0.99828,
+      "speaker": "B"
+    },
+    {
+      "text": "we'd",
+      "start": 78702,
+      "end": 78918,
+      "confidence": 0.98969,
+      "speaker": "B"
+    },
+    {
+      "text": "be",
+      "start": 78934,
+      "end": 79062,
+      "confidence": 0.99897,
+      "speaker": "B"
+    },
+    {
+      "text": "happy",
+      "start": 79086,
+      "end": 79318,
+      "confidence": 0.99972,
+      "speaker": "B"
+    },
+    {
+      "text": "to",
+      "start": 79334,
+      "end": 79462,
+      "confidence": 0.99949,
+      "speaker": "B"
+    },
+    {
+      "text": "help",
+      "start": 79486,
+      "end": 79670,
+      "confidence": 0.99945,
+      "speaker": "B"
+    },
+    {
+      "text": "you",
+      "start": 79710,
+      "end": 79862,
+      "confidence": 0.99807,
+      "speaker": "B"
+    },
+    {
+      "text": "navigate",
+      "start": 79886,
+      "end": 80294,
+      "confidence": 0.99588,
+      "speaker": "B"
+    },
+    {
+      "text": "Portugal.",
+      "start": 80342,
+      "end": 81040,
+      "confidence": 0.99898,
+      "speaker": "B"
+    },
+    {
+      "text": "The",
+      "start": 81150,
+      "end": 81372,
+      "confidence": 0.98875,
+      "speaker": "B"
+    },
+    {
+      "text": "market's",
+      "start": 81396,
+      "end": 81756,
+      "confidence": 0.61124,
+      "speaker": "B"
+    },
+    {
+      "text": "hungry",
+      "start": 81788,
+      "end": 82124,
+      "confidence": 0.99982,
+      "speaker": "B"
+    },
+    {
+      "text": "for",
+      "start": 82172,
+      "end": 82380,
+      "confidence": 0.99965,
+      "speaker": "B"
+    },
+    {
+      "text": "functional",
+      "start": 82420,
+      "end": 82860,
+      "confidence": 0.5911,
+      "speaker": "B"
+    },
+    {
+      "text": "wellness",
+      "start": 82940,
+      "end": 83452,
+      "confidence": 0.99925,
+      "speaker": "B"
+    },
+    {
+      "text": "forward",
+      "start": 83516,
+      "end": 83836,
+      "confidence": 0.99886,
+      "speaker": "B"
+    },
+    {
+      "text": "beverages,",
+      "start": 83908,
+      "end": 84652,
+      "confidence": 0.99933,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 84796,
+      "end": 85100,
+      "confidence": 0.98211,
+      "speaker": "B"
+    },
+    {
+      "text": "from",
+      "start": 85140,
+      "end": 85340,
+      "confidence": 0.99948,
+      "speaker": "B"
+    },
+    {
+      "text": "here,",
+      "start": 85380,
+      "end": 85724,
+      "confidence": 0.99881,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 85812,
+      "end": 86108,
+      "confidence": 0.99859,
+      "speaker": "B"
+    },
+    {
+      "text": "EU",
+      "start": 86164,
+      "end": 86524,
+      "confidence": 0.99926,
+      "speaker": "B"
+    },
+    {
+      "text": "is",
+      "start": 86612,
+      "end": 86860,
+      "confidence": 0.99937,
+      "speaker": "B"
+    },
+    {
+      "text": "just",
+      "start": 86900,
+      "end": 87052,
+      "confidence": 0.99825,
+      "speaker": "B"
+    },
+    {
+      "text": "a",
+      "start": 87076,
+      "end": 87212,
+      "confidence": 0.99917,
+      "speaker": "B"
+    },
+    {
+      "text": "short",
+      "start": 87236,
+      "end": 87516,
+      "confidence": 0.99967,
+      "speaker": "B"
+    },
+    {
+      "text": "step.",
+      "start": 87588,
+      "end": 88200,
+      "confidence": 0.99721,
+      "speaker": "B"
+    },
+    {
+      "text": "That's",
+      "start": 92500,
+      "end": 92876,
+      "confidence": 0.87402,
+      "speaker": "A"
+    },
+    {
+      "text": "exactly",
+      "start": 92908,
+      "end": 93276,
+      "confidence": 0.72985,
+      "speaker": "A"
+    },
+    {
+      "text": "what",
+      "start": 93308,
+      "end": 93404,
+      "confidence": 0.99971,
+      "speaker": "A"
+    },
+    {
+      "text": "we're",
+      "start": 93412,
+      "end": 93596,
+      "confidence": 0.58835,
+      "speaker": "A"
+    },
+    {
+      "text": "looking",
+      "start": 93628,
+      "end": 93820,
+      "confidence": 0.99924,
+      "speaker": "A"
+    },
+    {
+      "text": "for.",
+      "start": 93860,
+      "end": 94252,
+      "confidence": 0.98517,
+      "speaker": "A"
+    },
+    {
+      "text": "We're",
+      "start": 94356,
+      "end": 94636,
+      "confidence": 0.87228,
+      "speaker": "A"
+    },
+    {
+      "text": "building",
+      "start": 94668,
+      "end": 94908,
+      "confidence": 0.99893,
+      "speaker": "A"
+    },
+    {
+      "text": "momentum",
+      "start": 94964,
+      "end": 95404,
+      "confidence": 0.99976,
+      "speaker": "A"
+    },
+    {
+      "text": "and",
+      "start": 95452,
+      "end": 95660,
+      "confidence": 0.99705,
+      "speaker": "A"
+    },
+    {
+      "text": "ready",
+      "start": 95700,
+      "end": 95868,
+      "confidence": 0.99794,
+      "speaker": "A"
+    },
+    {
+      "text": "to",
+      "start": 95884,
+      "end": 96012,
+      "confidence": 0.99954,
+      "speaker": "A"
+    },
+    {
+      "text": "plunge",
+      "start": 96036,
+      "end": 96364,
+      "confidence": 0.99822,
+      "speaker": "A"
+    },
+    {
+      "text": "into",
+      "start": 96412,
+      "end": 96620,
+      "confidence": 0.99866,
+      "speaker": "A"
+    },
+    {
+      "text": "the",
+      "start": 96660,
+      "end": 96812,
+      "confidence": 0.99808,
+      "speaker": "A"
+    },
+    {
+      "text": "right",
+      "start": 96836,
+      "end": 97068,
+      "confidence": 0.99965,
+      "speaker": "A"
+    },
+    {
+      "text": "partners.",
+      "start": 97124,
+      "end": 97916,
+      "confidence": 0.79764,
+      "speaker": "A"
+    },
+    {
+      "text": "Rooibos",
+      "start": 98108,
+      "end": 98892,
+      "confidence": 0.81569,
+      "speaker": "A"
+    },
+    {
+      "text": "isn't",
+      "start": 98956,
+      "end": 99196,
+      "confidence": 0.99217,
+      "speaker": "A"
+    },
+    {
+      "text": "well",
+      "start": 99228,
+      "end": 99372,
+      "confidence": 0.99935,
+      "speaker": "A"
+    },
+    {
+      "text": "known",
+      "start": 99396,
+      "end": 99532,
+      "confidence": 0.99902,
+      "speaker": "A"
+    },
+    {
+      "text": "in",
+      "start": 99556,
+      "end": 99692,
+      "confidence": 0.99903,
+      "speaker": "A"
+    },
+    {
+      "text": "Europe",
+      "start": 99716,
+      "end": 99948,
+      "confidence": 0.99982,
+      "speaker": "A"
+    },
+    {
+      "text": "yet.",
+      "start": 100004,
+      "end": 100460,
+      "confidence": 0.99061,
+      "speaker": "A"
+    },
+    {
+      "text": "Could",
+      "start": 100580,
+      "end": 100860,
+      "confidence": 0.99947,
+      "speaker": "A"
+    },
+    {
+      "text": "be",
+      "start": 100900,
+      "end": 101100,
+      "confidence": 0.99931,
+      "speaker": "A"
+    },
+    {
+      "text": "a",
+      "start": 101140,
+      "end": 101292,
+      "confidence": 0.99818,
+      "speaker": "A"
+    },
+    {
+      "text": "fresh",
+      "start": 101316,
+      "end": 101564,
+      "confidence": 0.99929,
+      "speaker": "A"
+    },
+    {
+      "text": "addition.",
+      "start": 101612,
+      "end": 102200,
+      "confidence": 0.94002,
+      "speaker": "A"
+    },
+    {
+      "text": "Agreed.",
+      "start": 104900,
+      "end": 105676,
+      "confidence": 0.9762,
+      "speaker": "B"
+    },
+    {
+      "text": "Rooibos",
+      "start": 105788,
+      "end": 106492,
+      "confidence": 0.84068,
+      "speaker": "B"
+    },
+    {
+      "text": "has",
+      "start": 106556,
+      "end": 106732,
+      "confidence": 0.99848,
+      "speaker": "B"
+    },
+    {
+      "text": "great",
+      "start": 106756,
+      "end": 106940,
+      "confidence": 0.99946,
+      "speaker": "B"
+    },
+    {
+      "text": "potential",
+      "start": 106980,
+      "end": 107372,
+      "confidence": 0.99988,
+      "speaker": "B"
+    },
+    {
+      "text": "here,",
+      "start": 107436,
+      "end": 107864,
+      "confidence": 0.99133,
+      "speaker": "B"
+    },
+    {
+      "text": "especially",
+      "start": 107972,
+      "end": 108336,
+      "confidence": 0.99708,
+      "speaker": "B"
+    },
+    {
+      "text": "with",
+      "start": 108408,
+      "end": 108592,
+      "confidence": 0.99886,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 108616,
+      "end": 108752,
+      "confidence": 0.99874,
+      "speaker": "B"
+    },
+    {
+      "text": "herbal",
+      "start": 108776,
+      "end": 109056,
+      "confidence": 0.99405,
+      "speaker": "B"
+    },
+    {
+      "text": "wellness",
+      "start": 109088,
+      "end": 109504,
+      "confidence": 0.99952,
+      "speaker": "B"
+    },
+    {
+      "text": "crowd.",
+      "start": 109552,
+      "end": 110144,
+      "confidence": 0.88664,
+      "speaker": "B"
+    },
+    {
+      "text": "And",
+      "start": 110272,
+      "end": 110512,
+      "confidence": 0.99087,
+      "speaker": "B"
+    },
+    {
+      "text": "we've",
+      "start": 110536,
+      "end": 110768,
+      "confidence": 0.9961,
+      "speaker": "B"
+    },
+    {
+      "text": "already",
+      "start": 110784,
+      "end": 111008,
+      "confidence": 0.99956,
+      "speaker": "B"
+    },
+    {
+      "text": "got",
+      "start": 111064,
+      "end": 111280,
+      "confidence": 0.9993,
+      "speaker": "B"
+    },
+    {
+      "text": "distribution",
+      "start": 111320,
+      "end": 111920,
+      "confidence": 0.99962,
+      "speaker": "B"
+    },
+    {
+      "text": "conversations",
+      "start": 112000,
+      "end": 112640,
+      "confidence": 0.99805,
+      "speaker": "B"
+    },
+    {
+      "text": "going",
+      "start": 112720,
+      "end": 112960,
+      "confidence": 0.99934,
+      "speaker": "B"
+    },
+    {
+      "text": "with",
+      "start": 113000,
+      "end": 113200,
+      "confidence": 0.99919,
+      "speaker": "B"
+    },
+    {
+      "text": "some",
+      "start": 113240,
+      "end": 113392,
+      "confidence": 0.99932,
+      "speaker": "B"
+    },
+    {
+      "text": "of",
+      "start": 113416,
+      "end": 113504,
+      "confidence": 0.999,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 113512,
+      "end": 113632,
+      "confidence": 0.99921,
+      "speaker": "B"
+    },
+    {
+      "text": "larger",
+      "start": 113656,
+      "end": 114016,
+      "confidence": 0.99968,
+      "speaker": "B"
+    },
+    {
+      "text": "chains.",
+      "start": 114048,
+      "end": 114740,
+      "confidence": 0.99842,
+      "speaker": "B"
+    },
+    {
+      "text": "Let's",
+      "start": 116040,
+      "end": 116368,
+      "confidence": 0.98981,
+      "speaker": "A"
+    },
+    {
+      "text": "set",
+      "start": 116384,
+      "end": 116512,
+      "confidence": 0.99802,
+      "speaker": "A"
+    },
+    {
+      "text": "up",
+      "start": 116536,
+      "end": 116624,
+      "confidence": 0.99487,
+      "speaker": "A"
+    },
+    {
+      "text": "a",
+      "start": 116632,
+      "end": 116752,
+      "confidence": 0.9988,
+      "speaker": "A"
+    },
+    {
+      "text": "follow",
+      "start": 116776,
+      "end": 116912,
+      "confidence": 0.98643,
+      "speaker": "A"
+    },
+    {
+      "text": "up.",
+      "start": 116936,
+      "end": 117312,
+      "confidence": 0.66549,
+      "speaker": "A"
+    },
+    {
+      "text": "I'll",
+      "start": 117416,
+      "end": 117696,
+      "confidence": 0.9139,
+      "speaker": "A"
+    },
+    {
+      "text": "get",
+      "start": 117728,
+      "end": 117872,
+      "confidence": 0.99786,
+      "speaker": "A"
+    },
+    {
+      "text": "you",
+      "start": 117896,
+      "end": 118080,
+      "confidence": 0.9891,
+      "speaker": "A"
+    },
+    {
+      "text": "samples",
+      "start": 118120,
+      "end": 118608,
+      "confidence": 0.9982,
+      "speaker": "A"
+    },
+    {
+      "text": "and",
+      "start": 118704,
+      "end": 118912,
+      "confidence": 0.9911,
+      "speaker": "A"
+    },
+    {
+      "text": "maybe",
+      "start": 118936,
+      "end": 119136,
+      "confidence": 0.99919,
+      "speaker": "A"
+    },
+    {
+      "text": "we",
+      "start": 119168,
+      "end": 119312,
+      "confidence": 0.99831,
+      "speaker": "A"
+    },
+    {
+      "text": "can",
+      "start": 119336,
+      "end": 119472,
+      "confidence": 0.99825,
+      "speaker": "A"
+    },
+    {
+      "text": "put",
+      "start": 119496,
+      "end": 119632,
+      "confidence": 0.99954,
+      "speaker": "A"
+    },
+    {
+      "text": "together",
+      "start": 119656,
+      "end": 119888,
+      "confidence": 0.99921,
+      "speaker": "A"
+    },
+    {
+      "text": "a",
+      "start": 119944,
+      "end": 120112,
+      "confidence": 0.99903,
+      "speaker": "A"
+    },
+    {
+      "text": "joint",
+      "start": 120136,
+      "end": 120384,
+      "confidence": 0.97888,
+      "speaker": "A"
+    },
+    {
+      "text": "tasting",
+      "start": 120432,
+      "end": 120784,
+      "confidence": 0.67816,
+      "speaker": "A"
+    },
+    {
+      "text": "for",
+      "start": 120832,
+      "end": 120992,
+      "confidence": 0.99865,
+      "speaker": "A"
+    },
+    {
+      "text": "your",
+      "start": 121016,
+      "end": 121152,
+      "confidence": 0.97196,
+      "speaker": "A"
+    },
+    {
+      "text": "buyers",
+      "start": 121176,
+      "end": 121456,
+      "confidence": 0.95485,
+      "speaker": "A"
+    },
+    {
+      "text": "in",
+      "start": 121488,
+      "end": 121584,
+      "confidence": 0.98385,
+      "speaker": "A"
+    },
+    {
+      "text": "Lisbon.",
+      "start": 121592,
+      "end": 122304,
+      "confidence": 0.99696,
+      "speaker": "A"
+    },
+    {
+      "text": "I'll",
+      "start": 122432,
+      "end": 122736,
+      "confidence": 0.96517,
+      "speaker": "A"
+    },
+    {
+      "text": "also",
+      "start": 122768,
+      "end": 123056,
+      "confidence": 0.99902,
+      "speaker": "A"
+    },
+    {
+      "text": "send",
+      "start": 123128,
+      "end": 123376,
+      "confidence": 0.99951,
+      "speaker": "A"
+    },
+    {
+      "text": "you",
+      "start": 123408,
+      "end": 123600,
+      "confidence": 0.99619,
+      "speaker": "A"
+    },
+    {
+      "text": "our",
+      "start": 123640,
+      "end": 123888,
+      "confidence": 0.99601,
+      "speaker": "A"
+    },
+    {
+      "text": "company",
+      "start": 123944,
+      "end": 124256,
+      "confidence": 0.99969,
+      "speaker": "A"
+    },
+    {
+      "text": "profile.",
+      "start": 124328,
+      "end": 125060,
+      "confidence": 0.9993,
+      "speaker": "A"
+    },
+    {
+      "text": "Love",
+      "start": 128520,
+      "end": 128880,
+      "confidence": 0.98849,
+      "speaker": "B"
+    },
+    {
+      "text": "it.",
+      "start": 128920,
+      "end": 129120,
+      "confidence": 0.99946,
+      "speaker": "B"
+    },
+    {
+      "text": "I'll",
+      "start": 129160,
+      "end": 129376,
+      "confidence": 0.97158,
+      "speaker": "B"
+    },
+    {
+      "text": "loop",
+      "start": 129408,
+      "end": 129616,
+      "confidence": 0.98599,
+      "speaker": "B"
+    },
+    {
+      "text": "in",
+      "start": 129648,
+      "end": 129744,
+      "confidence": 0.99215,
+      "speaker": "B"
+    },
+    {
+      "text": "my",
+      "start": 129752,
+      "end": 129872,
+      "confidence": 0.99849,
+      "speaker": "B"
+    },
+    {
+      "text": "commercial",
+      "start": 129896,
+      "end": 130304,
+      "confidence": 0.99857,
+      "speaker": "B"
+    },
+    {
+      "text": "director",
+      "start": 130352,
+      "end": 130656,
+      "confidence": 0.99919,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 130728,
+      "end": 130912,
+      "confidence": 0.998,
+      "speaker": "B"
+    },
+    {
+      "text": "we'll",
+      "start": 130936,
+      "end": 131136,
+      "confidence": 0.98845,
+      "speaker": "B"
+    },
+    {
+      "text": "get",
+      "start": 131168,
+      "end": 131264,
+      "confidence": 0.99982,
+      "speaker": "B"
+    },
+    {
+      "text": "it",
+      "start": 131272,
+      "end": 131392,
+      "confidence": 0.99789,
+      "speaker": "B"
+    },
+    {
+      "text": "moving.",
+      "start": 131416,
+      "end": 131904,
+      "confidence": 0.99891,
+      "speaker": "B"
+    },
+    {
+      "text": "Great",
+      "start": 132032,
+      "end": 132320,
+      "confidence": 0.99815,
+      "speaker": "B"
+    },
+    {
+      "text": "meeting",
+      "start": 132360,
+      "end": 132560,
+      "confidence": 0.99974,
+      "speaker": "B"
+    },
+    {
+      "text": "you,",
+      "start": 132600,
+      "end": 132800,
+      "confidence": 0.99638,
+      "speaker": "B"
+    },
+    {
+      "text": "Chefo.",
+      "start": 132840,
+      "end": 133488,
+      "confidence": 0.10629,
+      "speaker": "B"
+    },
+    {
+      "text": "Let's",
+      "start": 133584,
+      "end": 133888,
+      "confidence": 0.9963,
+      "speaker": "B"
+    },
+    {
+      "text": "make",
+      "start": 133904,
+      "end": 134080,
+      "confidence": 0.99962,
+      "speaker": "B"
+    },
+    {
+      "text": "something",
+      "start": 134120,
+      "end": 134368,
+      "confidence": 0.99939,
+      "speaker": "B"
+    },
+    {
+      "text": "happen.",
+      "start": 134424,
+      "end": 134520,
+      "confidence": 0.99877,
+      "speaker": "B"
+    }
+  ],
+  "utterances": [
+    {
+      "speaker": "A",
+      "text": "Hi there. I'm Teppo Munci, founder of Monati. We do cold brewed robot Rooibos and botanical infusions from the Cape Floral Kingdom. Great to meet you.",
+      "confidence": 0.8917658,
+      "start": 2560,
+      "end": 11460,
+      "words": [
+        {
+          "text": "Hi",
+          "start": 2560,
+          "end": 2736,
+          "confidence": 0.99921,
+          "speaker": "A"
+        },
+        {
+          "text": "there.",
+          "start": 2736,
+          "end": 2976,
+          "confidence": 0.99865,
+          "speaker": "A"
+        },
+        {
+          "text": "I'm",
+          "start": 3024,
+          "end": 3304,
+          "confidence": 0.96803,
+          "speaker": "A"
+        },
+        {
+          "text": "Teppo",
+          "start": 3352,
+          "end": 3688,
+          "confidence": 0.69571,
+          "speaker": "A"
+        },
+        {
+          "text": "Munci,",
+          "start": 3704,
+          "end": 4232,
+          "confidence": 0.12136,
+          "speaker": "A"
+        },
+        {
+          "text": "founder",
+          "start": 4296,
+          "end": 4568,
+          "confidence": 0.99895,
+          "speaker": "A"
+        },
+        {
+          "text": "of",
+          "start": 4584,
+          "end": 4760,
+          "confidence": 0.99812,
+          "speaker": "A"
+        },
+        {
+          "text": "Monati.",
+          "start": 4800,
+          "end": 5576,
+          "confidence": 0.53376,
+          "speaker": "A"
+        },
+        {
+          "text": "We",
+          "start": 5688,
+          "end": 5960,
+          "confidence": 0.99938,
+          "speaker": "A"
+        },
+        {
+          "text": "do",
+          "start": 6000,
+          "end": 6152,
+          "confidence": 0.99932,
+          "speaker": "A"
+        },
+        {
+          "text": "cold",
+          "start": 6176,
+          "end": 6424,
+          "confidence": 0.96701,
+          "speaker": "A"
+        },
+        {
+          "text": "brewed",
+          "start": 6472,
+          "end": 6728,
+          "confidence": 0.98011,
+          "speaker": "A"
+        },
+        {
+          "text": "robot",
+          "start": 6744,
+          "end": 7048,
+          "confidence": 0.66578,
+          "speaker": "A"
+        },
+        {
+          "text": "Rooibos",
+          "start": 7064,
+          "end": 7592,
+          "confidence": 0.9261,
+          "speaker": "A"
+        },
+        {
+          "text": "and",
+          "start": 7656,
+          "end": 7928,
+          "confidence": 0.99765,
+          "speaker": "A"
+        },
+        {
+          "text": "botanical",
+          "start": 7984,
+          "end": 8424,
+          "confidence": 0.9994,
+          "speaker": "A"
+        },
+        {
+          "text": "infusions",
+          "start": 8472,
+          "end": 8936,
+          "confidence": 0.998,
+          "speaker": "A"
+        },
+        {
+          "text": "from",
+          "start": 8968,
+          "end": 9064,
+          "confidence": 0.9988,
+          "speaker": "A"
+        },
+        {
+          "text": "the",
+          "start": 9072,
+          "end": 9192,
+          "confidence": 0.99894,
+          "speaker": "A"
+        },
+        {
+          "text": "Cape",
+          "start": 9216,
+          "end": 9464,
+          "confidence": 0.64609,
+          "speaker": "A"
+        },
+        {
+          "text": "Floral",
+          "start": 9512,
+          "end": 9848,
+          "confidence": 0.69782,
+          "speaker": "A"
+        },
+        {
+          "text": "Kingdom.",
+          "start": 9864,
+          "end": 10280,
+          "confidence": 0.99935,
+          "speaker": "A"
+        },
+        {
+          "text": "Great",
+          "start": 10360,
+          "end": 10552,
+          "confidence": 0.99944,
+          "speaker": "A"
+        },
+        {
+          "text": "to",
+          "start": 10576,
+          "end": 10664,
+          "confidence": 0.99976,
+          "speaker": "A"
+        },
+        {
+          "text": "meet",
+          "start": 10672,
+          "end": 10840,
+          "confidence": 0.99966,
+          "speaker": "A"
+        },
+        {
+          "text": "you.",
+          "start": 10880,
+          "end": 11460,
+          "confidence": 0.99951,
+          "speaker": "A"
+        }
+      ]
+    },
+    {
+      "speaker": "B",
+      "text": "Hey, Teppo. I'm Neal Schuenkowski, founder of why Not Soda. We're all about low sugar fruit forward sparkling beverages. Love the sound of your Rui Bose line. Super original.",
+      "confidence": 0.8856517,
+      "start": 14800,
+      "end": 26870,
+      "words": [
+        {
+          "text": "Hey,",
+          "start": 14800,
+          "end": 15176,
+          "confidence": 0.99401,
+          "speaker": "B"
+        },
+        {
+          "text": "Teppo.",
+          "start": 15208,
+          "end": 15736,
+          "confidence": 0.48144,
+          "speaker": "B"
+        },
+        {
+          "text": "I'm",
+          "start": 15768,
+          "end": 15976,
+          "confidence": 0.98564,
+          "speaker": "B"
+        },
+        {
+          "text": "Neal",
+          "start": 16008,
+          "end": 16264,
+          "confidence": 0.45957,
+          "speaker": "B"
+        },
+        {
+          "text": "Schuenkowski,",
+          "start": 16312,
+          "end": 17448,
+          "confidence": 0.16572,
+          "speaker": "B"
+        },
+        {
+          "text": "founder",
+          "start": 17544,
+          "end": 17928,
+          "confidence": 0.9996,
+          "speaker": "B"
+        },
+        {
+          "text": "of",
+          "start": 17944,
+          "end": 18072,
+          "confidence": 0.99951,
+          "speaker": "B"
+        },
+        {
+          "text": "why",
+          "start": 18096,
+          "end": 18328,
+          "confidence": 0.95336,
+          "speaker": "B"
+        },
+        {
+          "text": "Not",
+          "start": 18384,
+          "end": 18600,
+          "confidence": 0.93924,
+          "speaker": "B"
+        },
+        {
+          "text": "Soda.",
+          "start": 18640,
+          "end": 19288,
+          "confidence": 0.96825,
+          "speaker": "B"
+        },
+        {
+          "text": "We're",
+          "start": 19384,
+          "end": 19656,
+          "confidence": 0.99332,
+          "speaker": "B"
+        },
+        {
+          "text": "all",
+          "start": 19688,
+          "end": 19784,
+          "confidence": 0.99991,
+          "speaker": "B"
+        },
+        {
+          "text": "about",
+          "start": 19792,
+          "end": 20008,
+          "confidence": 0.99958,
+          "speaker": "B"
+        },
+        {
+          "text": "low",
+          "start": 20064,
+          "end": 20328,
+          "confidence": 0.99983,
+          "speaker": "B"
+        },
+        {
+          "text": "sugar",
+          "start": 20384,
+          "end": 20792,
+          "confidence": 0.99961,
+          "speaker": "B"
+        },
+        {
+          "text": "fruit",
+          "start": 20856,
+          "end": 21224,
+          "confidence": 0.9672,
+          "speaker": "B"
+        },
+        {
+          "text": "forward",
+          "start": 21272,
+          "end": 21576,
+          "confidence": 0.99334,
+          "speaker": "B"
+        },
+        {
+          "text": "sparkling",
+          "start": 21648,
+          "end": 22104,
+          "confidence": 0.99898,
+          "speaker": "B"
+        },
+        {
+          "text": "beverages.",
+          "start": 22152,
+          "end": 22940,
+          "confidence": 0.99975,
+          "speaker": "B"
+        },
+        {
+          "text": "Love",
+          "start": 23360,
+          "end": 23672,
+          "confidence": 0.99973,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 23696,
+          "end": 23832,
+          "confidence": 0.9994,
+          "speaker": "B"
+        },
+        {
+          "text": "sound",
+          "start": 23856,
+          "end": 24088,
+          "confidence": 0.99978,
+          "speaker": "B"
+        },
+        {
+          "text": "of",
+          "start": 24104,
+          "end": 24184,
+          "confidence": 0.99965,
+          "speaker": "B"
+        },
+        {
+          "text": "your",
+          "start": 24192,
+          "end": 24312,
+          "confidence": 0.99841,
+          "speaker": "B"
+        },
+        {
+          "text": "Rui",
+          "start": 24336,
+          "end": 24648,
+          "confidence": 0.23312,
+          "speaker": "B"
+        },
+        {
+          "text": "Bose",
+          "start": 24664,
+          "end": 24984,
+          "confidence": 0.56412,
+          "speaker": "B"
+        },
+        {
+          "text": "line.",
+          "start": 25032,
+          "end": 25534,
+          "confidence": 0.99738,
+          "speaker": "B"
+        },
+        {
+          "text": "Super",
+          "start": 25672,
+          "end": 26018,
+          "confidence": 0.99563,
+          "speaker": "B"
+        },
+        {
+          "text": "original.",
+          "start": 26074,
+          "end": 26870,
+          "confidence": 0.99882,
+          "speaker": "B"
+        }
+      ]
+    },
+    {
+      "speaker": "A",
+      "text": "Thanks, Nils. We wanted something you can drink freely and feel good about. All natural, no preservatives, just the good stuff brewed slow and cold. Sounds like we're kindred spirits.",
+      "confidence": 0.96889466,
+      "start": 29050,
+      "end": 40470,
+      "words": [
+        {
+          "text": "Thanks,",
+          "start": 29050,
+          "end": 29474,
+          "confidence": 0.99718,
+          "speaker": "A"
+        },
+        {
+          "text": "Nils.",
+          "start": 29522,
+          "end": 30098,
+          "confidence": 0.86914,
+          "speaker": "A"
+        },
+        {
+          "text": "We",
+          "start": 30194,
+          "end": 30450,
+          "confidence": 0.99942,
+          "speaker": "A"
+        },
+        {
+          "text": "wanted",
+          "start": 30490,
+          "end": 30834,
+          "confidence": 0.99798,
+          "speaker": "A"
+        },
+        {
+          "text": "something",
+          "start": 30882,
+          "end": 31234,
+          "confidence": 0.99958,
+          "speaker": "A"
+        },
+        {
+          "text": "you",
+          "start": 31322,
+          "end": 31522,
+          "confidence": 0.99637,
+          "speaker": "A"
+        },
+        {
+          "text": "can",
+          "start": 31546,
+          "end": 31682,
+          "confidence": 0.99519,
+          "speaker": "A"
+        },
+        {
+          "text": "drink",
+          "start": 31706,
+          "end": 31954,
+          "confidence": 0.99939,
+          "speaker": "A"
+        },
+        {
+          "text": "freely",
+          "start": 32002,
+          "end": 32354,
+          "confidence": 0.99932,
+          "speaker": "A"
+        },
+        {
+          "text": "and",
+          "start": 32402,
+          "end": 32610,
+          "confidence": 0.99856,
+          "speaker": "A"
+        },
+        {
+          "text": "feel",
+          "start": 32650,
+          "end": 32802,
+          "confidence": 0.99982,
+          "speaker": "A"
+        },
+        {
+          "text": "good",
+          "start": 32826,
+          "end": 33010,
+          "confidence": 0.99959,
+          "speaker": "A"
+        },
+        {
+          "text": "about.",
+          "start": 33050,
+          "end": 33538,
+          "confidence": 0.99018,
+          "speaker": "A"
+        },
+        {
+          "text": "All",
+          "start": 33674,
+          "end": 33970,
+          "confidence": 0.99938,
+          "speaker": "A"
+        },
+        {
+          "text": "natural,",
+          "start": 34010,
+          "end": 34498,
+          "confidence": 0.83493,
+          "speaker": "A"
+        },
+        {
+          "text": "no",
+          "start": 34594,
+          "end": 34850,
+          "confidence": 0.99879,
+          "speaker": "A"
+        },
+        {
+          "text": "preservatives,",
+          "start": 34890,
+          "end": 35698,
+          "confidence": 0.99405,
+          "speaker": "A"
+        },
+        {
+          "text": "just",
+          "start": 35794,
+          "end": 36050,
+          "confidence": 0.99873,
+          "speaker": "A"
+        },
+        {
+          "text": "the",
+          "start": 36090,
+          "end": 36242,
+          "confidence": 0.92434,
+          "speaker": "A"
+        },
+        {
+          "text": "good",
+          "start": 36266,
+          "end": 36450,
+          "confidence": 0.99983,
+          "speaker": "A"
+        },
+        {
+          "text": "stuff",
+          "start": 36490,
+          "end": 36802,
+          "confidence": 0.99954,
+          "speaker": "A"
+        },
+        {
+          "text": "brewed",
+          "start": 36866,
+          "end": 37282,
+          "confidence": 0.51908,
+          "speaker": "A"
+        },
+        {
+          "text": "slow",
+          "start": 37346,
+          "end": 37586,
+          "confidence": 0.9996,
+          "speaker": "A"
+        },
+        {
+          "text": "and",
+          "start": 37618,
+          "end": 37810,
+          "confidence": 0.99882,
+          "speaker": "A"
+        },
+        {
+          "text": "cold.",
+          "start": 37850,
+          "end": 38402,
+          "confidence": 0.99822,
+          "speaker": "A"
+        },
+        {
+          "text": "Sounds",
+          "start": 38546,
+          "end": 38898,
+          "confidence": 0.99758,
+          "speaker": "A"
+        },
+        {
+          "text": "like",
+          "start": 38914,
+          "end": 39090,
+          "confidence": 0.99943,
+          "speaker": "A"
+        },
+        {
+          "text": "we're",
+          "start": 39130,
+          "end": 39298,
+          "confidence": 0.96539,
+          "speaker": "A"
+        },
+        {
+          "text": "kindred",
+          "start": 39314,
+          "end": 39714,
+          "confidence": 0.9997,
+          "speaker": "A"
+        },
+        {
+          "text": "spirits.",
+          "start": 39762,
+          "end": 40470,
+          "confidence": 0.99771,
+          "speaker": "A"
+        }
+      ]
+    },
+    {
+      "speaker": "B",
+      "text": "Absolutely. We use whole fruit purees and herbs. No artificial flavors. And we keep the sugar content way down. Portugal's citrus and berries give us some amazing profiles to work with.",
+      "confidence": 0.9830445,
+      "start": 42330,
+      "end": 54430,
+      "words": [
+        {
+          "text": "Absolutely.",
+          "start": 42330,
+          "end": 43394,
+          "confidence": 0.99499,
+          "speaker": "B"
+        },
+        {
+          "text": "We",
+          "start": 43522,
+          "end": 43810,
+          "confidence": 0.9996,
+          "speaker": "B"
+        },
+        {
+          "text": "use",
+          "start": 43850,
+          "end": 44050,
+          "confidence": 0.99947,
+          "speaker": "B"
+        },
+        {
+          "text": "whole",
+          "start": 44090,
+          "end": 44306,
+          "confidence": 0.99945,
+          "speaker": "B"
+        },
+        {
+          "text": "fruit",
+          "start": 44338,
+          "end": 44594,
+          "confidence": 0.9989,
+          "speaker": "B"
+        },
+        {
+          "text": "purees",
+          "start": 44642,
+          "end": 44994,
+          "confidence": 0.9908,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 45042,
+          "end": 45202,
+          "confidence": 0.99866,
+          "speaker": "B"
+        },
+        {
+          "text": "herbs.",
+          "start": 45226,
+          "end": 45794,
+          "confidence": 0.9994,
+          "speaker": "B"
+        },
+        {
+          "text": "No",
+          "start": 45922,
+          "end": 46162,
+          "confidence": 0.99916,
+          "speaker": "B"
+        },
+        {
+          "text": "artificial",
+          "start": 46186,
+          "end": 46754,
+          "confidence": 0.99985,
+          "speaker": "B"
+        },
+        {
+          "text": "flavors.",
+          "start": 46802,
+          "end": 47330,
+          "confidence": 0.98173,
+          "speaker": "B"
+        },
+        {
+          "text": "And",
+          "start": 47410,
+          "end": 47650,
+          "confidence": 0.98872,
+          "speaker": "B"
+        },
+        {
+          "text": "we",
+          "start": 47690,
+          "end": 47842,
+          "confidence": 0.99732,
+          "speaker": "B"
+        },
+        {
+          "text": "keep",
+          "start": 47866,
+          "end": 48002,
+          "confidence": 0.99982,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 48026,
+          "end": 48162,
+          "confidence": 0.99949,
+          "speaker": "B"
+        },
+        {
+          "text": "sugar",
+          "start": 48186,
+          "end": 48514,
+          "confidence": 0.9998,
+          "speaker": "B"
+        },
+        {
+          "text": "content",
+          "start": 48562,
+          "end": 48866,
+          "confidence": 0.99988,
+          "speaker": "B"
+        },
+        {
+          "text": "way",
+          "start": 48938,
+          "end": 49170,
+          "confidence": 0.999,
+          "speaker": "B"
+        },
+        {
+          "text": "down.",
+          "start": 49210,
+          "end": 49842,
+          "confidence": 0.99977,
+          "speaker": "B"
+        },
+        {
+          "text": "Portugal's",
+          "start": 50026,
+          "end": 50786,
+          "confidence": 0.56918,
+          "speaker": "B"
+        },
+        {
+          "text": "citrus",
+          "start": 50818,
+          "end": 51266,
+          "confidence": 0.97877,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 51298,
+          "end": 51490,
+          "confidence": 0.99832,
+          "speaker": "B"
+        },
+        {
+          "text": "berries",
+          "start": 51530,
+          "end": 51922,
+          "confidence": 0.99373,
+          "speaker": "B"
+        },
+        {
+          "text": "give",
+          "start": 51986,
+          "end": 52162,
+          "confidence": 0.99969,
+          "speaker": "B"
+        },
+        {
+          "text": "us",
+          "start": 52186,
+          "end": 52322,
+          "confidence": 0.99961,
+          "speaker": "B"
+        },
+        {
+          "text": "some",
+          "start": 52346,
+          "end": 52482,
+          "confidence": 0.99888,
+          "speaker": "B"
+        },
+        {
+          "text": "amazing",
+          "start": 52506,
+          "end": 52962,
+          "confidence": 0.99954,
+          "speaker": "B"
+        },
+        {
+          "text": "profiles",
+          "start": 53026,
+          "end": 53506,
+          "confidence": 0.9959,
+          "speaker": "B"
+        },
+        {
+          "text": "to",
+          "start": 53538,
+          "end": 53682,
+          "confidence": 0.9993,
+          "speaker": "B"
+        },
+        {
+          "text": "work",
+          "start": 53706,
+          "end": 53842,
+          "confidence": 0.99971,
+          "speaker": "B"
+        },
+        {
+          "text": "with.",
+          "start": 53866,
+          "end": 54430,
+          "confidence": 0.99594,
+          "speaker": "B"
+        }
+      ]
+    },
+    {
+      "speaker": "A",
+      "text": "That sounds delicious. We've had a strong response in the us Specialty retail, wellness spaces and natural grocers. I'd love to explore a collaboration. We could help open up our US route to market for you.",
+      "confidence": 0.9612514,
+      "start": 57790,
+      "end": 69650,
+      "words": [
+        {
+          "text": "That",
+          "start": 57790,
+          "end": 58150,
+          "confidence": 0.995,
+          "speaker": "A"
+        },
+        {
+          "text": "sounds",
+          "start": 58190,
+          "end": 58438,
+          "confidence": 0.99807,
+          "speaker": "A"
+        },
+        {
+          "text": "delicious.",
+          "start": 58454,
+          "end": 59126,
+          "confidence": 0.99933,
+          "speaker": "A"
+        },
+        {
+          "text": "We've",
+          "start": 59238,
+          "end": 59478,
+          "confidence": 0.96651,
+          "speaker": "A"
+        },
+        {
+          "text": "had",
+          "start": 59494,
+          "end": 59622,
+          "confidence": 0.99883,
+          "speaker": "A"
+        },
+        {
+          "text": "a",
+          "start": 59646,
+          "end": 59782,
+          "confidence": 0.99838,
+          "speaker": "A"
+        },
+        {
+          "text": "strong",
+          "start": 59806,
+          "end": 59990,
+          "confidence": 0.99935,
+          "speaker": "A"
+        },
+        {
+          "text": "response",
+          "start": 60030,
+          "end": 60326,
+          "confidence": 0.99831,
+          "speaker": "A"
+        },
+        {
+          "text": "in",
+          "start": 60358,
+          "end": 60454,
+          "confidence": 0.99657,
+          "speaker": "A"
+        },
+        {
+          "text": "the",
+          "start": 60462,
+          "end": 60582,
+          "confidence": 0.99703,
+          "speaker": "A"
+        },
+        {
+          "text": "us",
+          "start": 60606,
+          "end": 61126,
+          "confidence": 0.94577,
+          "speaker": "A"
+        },
+        {
+          "text": "Specialty",
+          "start": 61278,
+          "end": 61846,
+          "confidence": 0.98686,
+          "speaker": "A"
+        },
+        {
+          "text": "retail,",
+          "start": 61878,
+          "end": 62358,
+          "confidence": 0.99977,
+          "speaker": "A"
+        },
+        {
+          "text": "wellness",
+          "start": 62454,
+          "end": 62950,
+          "confidence": 0.77199,
+          "speaker": "A"
+        },
+        {
+          "text": "spaces",
+          "start": 63030,
+          "end": 63494,
+          "confidence": 0.98804,
+          "speaker": "A"
+        },
+        {
+          "text": "and",
+          "start": 63542,
+          "end": 63702,
+          "confidence": 0.99638,
+          "speaker": "A"
+        },
+        {
+          "text": "natural",
+          "start": 63726,
+          "end": 64054,
+          "confidence": 0.9273,
+          "speaker": "A"
+        },
+        {
+          "text": "grocers.",
+          "start": 64102,
+          "end": 64726,
+          "confidence": 0.85871,
+          "speaker": "A"
+        },
+        {
+          "text": "I'd",
+          "start": 64838,
+          "end": 65126,
+          "confidence": 0.6005,
+          "speaker": "A"
+        },
+        {
+          "text": "love",
+          "start": 65158,
+          "end": 65302,
+          "confidence": 0.99963,
+          "speaker": "A"
+        },
+        {
+          "text": "to",
+          "start": 65326,
+          "end": 65414,
+          "confidence": 0.99958,
+          "speaker": "A"
+        },
+        {
+          "text": "explore",
+          "start": 65422,
+          "end": 65654,
+          "confidence": 0.81699,
+          "speaker": "A"
+        },
+        {
+          "text": "a",
+          "start": 65702,
+          "end": 65814,
+          "confidence": 0.89793,
+          "speaker": "A"
+        },
+        {
+          "text": "collaboration.",
+          "start": 65822,
+          "end": 66518,
+          "confidence": 0.99923,
+          "speaker": "A"
+        },
+        {
+          "text": "We",
+          "start": 66614,
+          "end": 66822,
+          "confidence": 0.99755,
+          "speaker": "A"
+        },
+        {
+          "text": "could",
+          "start": 66846,
+          "end": 67030,
+          "confidence": 0.96204,
+          "speaker": "A"
+        },
+        {
+          "text": "help",
+          "start": 67070,
+          "end": 67270,
+          "confidence": 0.99412,
+          "speaker": "A"
+        },
+        {
+          "text": "open",
+          "start": 67310,
+          "end": 67510,
+          "confidence": 0.99968,
+          "speaker": "A"
+        },
+        {
+          "text": "up",
+          "start": 67550,
+          "end": 67750,
+          "confidence": 0.97573,
+          "speaker": "A"
+        },
+        {
+          "text": "our",
+          "start": 67790,
+          "end": 67990,
+          "confidence": 0.99444,
+          "speaker": "A"
+        },
+        {
+          "text": "US",
+          "start": 68030,
+          "end": 68278,
+          "confidence": 0.96469,
+          "speaker": "A"
+        },
+        {
+          "text": "route",
+          "start": 68334,
+          "end": 68518,
+          "confidence": 0.98769,
+          "speaker": "A"
+        },
+        {
+          "text": "to",
+          "start": 68534,
+          "end": 68662,
+          "confidence": 0.99726,
+          "speaker": "A"
+        },
+        {
+          "text": "market",
+          "start": 68686,
+          "end": 68918,
+          "confidence": 0.99938,
+          "speaker": "A"
+        },
+        {
+          "text": "for",
+          "start": 68974,
+          "end": 69094,
+          "confidence": 0.99793,
+          "speaker": "A"
+        },
+        {
+          "text": "you.",
+          "start": 69102,
+          "end": 69650,
+          "confidence": 0.99848,
+          "speaker": "A"
+        }
+      ]
+    },
+    {
+      "speaker": "B",
+      "text": "That's really exciting. We've been eyeing the US for a while and in return, we'd be happy to help you navigate Portugal. The market's hungry for functional wellness forward beverages, and from here, the EU is just a short step.",
+      "confidence": 0.9649717,
+      "start": 73790,
+      "end": 88200,
+      "words": [
+        {
+          "text": "That's",
+          "start": 73790,
+          "end": 74246,
+          "confidence": 0.9967,
+          "speaker": "B"
+        },
+        {
+          "text": "really",
+          "start": 74278,
+          "end": 74470,
+          "confidence": 0.9986,
+          "speaker": "B"
+        },
+        {
+          "text": "exciting.",
+          "start": 74510,
+          "end": 75238,
+          "confidence": 0.99955,
+          "speaker": "B"
+        },
+        {
+          "text": "We've",
+          "start": 75414,
+          "end": 75718,
+          "confidence": 0.99363,
+          "speaker": "B"
+        },
+        {
+          "text": "been",
+          "start": 75734,
+          "end": 75910,
+          "confidence": 0.99955,
+          "speaker": "B"
+        },
+        {
+          "text": "eyeing",
+          "start": 75950,
+          "end": 76214,
+          "confidence": 0.68586,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 76262,
+          "end": 76422,
+          "confidence": 0.99942,
+          "speaker": "B"
+        },
+        {
+          "text": "US",
+          "start": 76446,
+          "end": 76726,
+          "confidence": 0.98656,
+          "speaker": "B"
+        },
+        {
+          "text": "for",
+          "start": 76798,
+          "end": 76982,
+          "confidence": 0.99943,
+          "speaker": "B"
+        },
+        {
+          "text": "a",
+          "start": 77006,
+          "end": 77142,
+          "confidence": 0.98436,
+          "speaker": "B"
+        },
+        {
+          "text": "while",
+          "start": 77166,
+          "end": 77542,
+          "confidence": 0.99992,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 77646,
+          "end": 77958,
+          "confidence": 0.81747,
+          "speaker": "B"
+        },
+        {
+          "text": "in",
+          "start": 78014,
+          "end": 78230,
+          "confidence": 0.99937,
+          "speaker": "B"
+        },
+        {
+          "text": "return,",
+          "start": 78270,
+          "end": 78614,
+          "confidence": 0.99828,
+          "speaker": "B"
+        },
+        {
+          "text": "we'd",
+          "start": 78702,
+          "end": 78918,
+          "confidence": 0.98969,
+          "speaker": "B"
+        },
+        {
+          "text": "be",
+          "start": 78934,
+          "end": 79062,
+          "confidence": 0.99897,
+          "speaker": "B"
+        },
+        {
+          "text": "happy",
+          "start": 79086,
+          "end": 79318,
+          "confidence": 0.99972,
+          "speaker": "B"
+        },
+        {
+          "text": "to",
+          "start": 79334,
+          "end": 79462,
+          "confidence": 0.99949,
+          "speaker": "B"
+        },
+        {
+          "text": "help",
+          "start": 79486,
+          "end": 79670,
+          "confidence": 0.99945,
+          "speaker": "B"
+        },
+        {
+          "text": "you",
+          "start": 79710,
+          "end": 79862,
+          "confidence": 0.99807,
+          "speaker": "B"
+        },
+        {
+          "text": "navigate",
+          "start": 79886,
+          "end": 80294,
+          "confidence": 0.99588,
+          "speaker": "B"
+        },
+        {
+          "text": "Portugal.",
+          "start": 80342,
+          "end": 81040,
+          "confidence": 0.99898,
+          "speaker": "B"
+        },
+        {
+          "text": "The",
+          "start": 81150,
+          "end": 81372,
+          "confidence": 0.98875,
+          "speaker": "B"
+        },
+        {
+          "text": "market's",
+          "start": 81396,
+          "end": 81756,
+          "confidence": 0.61124,
+          "speaker": "B"
+        },
+        {
+          "text": "hungry",
+          "start": 81788,
+          "end": 82124,
+          "confidence": 0.99982,
+          "speaker": "B"
+        },
+        {
+          "text": "for",
+          "start": 82172,
+          "end": 82380,
+          "confidence": 0.99965,
+          "speaker": "B"
+        },
+        {
+          "text": "functional",
+          "start": 82420,
+          "end": 82860,
+          "confidence": 0.5911,
+          "speaker": "B"
+        },
+        {
+          "text": "wellness",
+          "start": 82940,
+          "end": 83452,
+          "confidence": 0.99925,
+          "speaker": "B"
+        },
+        {
+          "text": "forward",
+          "start": 83516,
+          "end": 83836,
+          "confidence": 0.99886,
+          "speaker": "B"
+        },
+        {
+          "text": "beverages,",
+          "start": 83908,
+          "end": 84652,
+          "confidence": 0.99933,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 84796,
+          "end": 85100,
+          "confidence": 0.98211,
+          "speaker": "B"
+        },
+        {
+          "text": "from",
+          "start": 85140,
+          "end": 85340,
+          "confidence": 0.99948,
+          "speaker": "B"
+        },
+        {
+          "text": "here,",
+          "start": 85380,
+          "end": 85724,
+          "confidence": 0.99881,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 85812,
+          "end": 86108,
+          "confidence": 0.99859,
+          "speaker": "B"
+        },
+        {
+          "text": "EU",
+          "start": 86164,
+          "end": 86524,
+          "confidence": 0.99926,
+          "speaker": "B"
+        },
+        {
+          "text": "is",
+          "start": 86612,
+          "end": 86860,
+          "confidence": 0.99937,
+          "speaker": "B"
+        },
+        {
+          "text": "just",
+          "start": 86900,
+          "end": 87052,
+          "confidence": 0.99825,
+          "speaker": "B"
+        },
+        {
+          "text": "a",
+          "start": 87076,
+          "end": 87212,
+          "confidence": 0.99917,
+          "speaker": "B"
+        },
+        {
+          "text": "short",
+          "start": 87236,
+          "end": 87516,
+          "confidence": 0.99967,
+          "speaker": "B"
+        },
+        {
+          "text": "step.",
+          "start": 87588,
+          "end": 88200,
+          "confidence": 0.99721,
+          "speaker": "B"
+        }
+      ]
+    },
+    {
+      "speaker": "A",
+      "text": "That's exactly what we're looking for. We're building momentum and ready to plunge into the right partners. Rooibos isn't well known in Europe yet. Could be a fresh addition.",
+      "confidence": 0.9505535,
+      "start": 92500,
+      "end": 102200,
+      "words": [
+        {
+          "text": "That's",
+          "start": 92500,
+          "end": 92876,
+          "confidence": 0.87402,
+          "speaker": "A"
+        },
+        {
+          "text": "exactly",
+          "start": 92908,
+          "end": 93276,
+          "confidence": 0.72985,
+          "speaker": "A"
+        },
+        {
+          "text": "what",
+          "start": 93308,
+          "end": 93404,
+          "confidence": 0.99971,
+          "speaker": "A"
+        },
+        {
+          "text": "we're",
+          "start": 93412,
+          "end": 93596,
+          "confidence": 0.58835,
+          "speaker": "A"
+        },
+        {
+          "text": "looking",
+          "start": 93628,
+          "end": 93820,
+          "confidence": 0.99924,
+          "speaker": "A"
+        },
+        {
+          "text": "for.",
+          "start": 93860,
+          "end": 94252,
+          "confidence": 0.98517,
+          "speaker": "A"
+        },
+        {
+          "text": "We're",
+          "start": 94356,
+          "end": 94636,
+          "confidence": 0.87228,
+          "speaker": "A"
+        },
+        {
+          "text": "building",
+          "start": 94668,
+          "end": 94908,
+          "confidence": 0.99893,
+          "speaker": "A"
+        },
+        {
+          "text": "momentum",
+          "start": 94964,
+          "end": 95404,
+          "confidence": 0.99976,
+          "speaker": "A"
+        },
+        {
+          "text": "and",
+          "start": 95452,
+          "end": 95660,
+          "confidence": 0.99705,
+          "speaker": "A"
+        },
+        {
+          "text": "ready",
+          "start": 95700,
+          "end": 95868,
+          "confidence": 0.99794,
+          "speaker": "A"
+        },
+        {
+          "text": "to",
+          "start": 95884,
+          "end": 96012,
+          "confidence": 0.99954,
+          "speaker": "A"
+        },
+        {
+          "text": "plunge",
+          "start": 96036,
+          "end": 96364,
+          "confidence": 0.99822,
+          "speaker": "A"
+        },
+        {
+          "text": "into",
+          "start": 96412,
+          "end": 96620,
+          "confidence": 0.99866,
+          "speaker": "A"
+        },
+        {
+          "text": "the",
+          "start": 96660,
+          "end": 96812,
+          "confidence": 0.99808,
+          "speaker": "A"
+        },
+        {
+          "text": "right",
+          "start": 96836,
+          "end": 97068,
+          "confidence": 0.99965,
+          "speaker": "A"
+        },
+        {
+          "text": "partners.",
+          "start": 97124,
+          "end": 97916,
+          "confidence": 0.79764,
+          "speaker": "A"
+        },
+        {
+          "text": "Rooibos",
+          "start": 98108,
+          "end": 98892,
+          "confidence": 0.81569,
+          "speaker": "A"
+        },
+        {
+          "text": "isn't",
+          "start": 98956,
+          "end": 99196,
+          "confidence": 0.99217,
+          "speaker": "A"
+        },
+        {
+          "text": "well",
+          "start": 99228,
+          "end": 99372,
+          "confidence": 0.99935,
+          "speaker": "A"
+        },
+        {
+          "text": "known",
+          "start": 99396,
+          "end": 99532,
+          "confidence": 0.99902,
+          "speaker": "A"
+        },
+        {
+          "text": "in",
+          "start": 99556,
+          "end": 99692,
+          "confidence": 0.99903,
+          "speaker": "A"
+        },
+        {
+          "text": "Europe",
+          "start": 99716,
+          "end": 99948,
+          "confidence": 0.99982,
+          "speaker": "A"
+        },
+        {
+          "text": "yet.",
+          "start": 100004,
+          "end": 100460,
+          "confidence": 0.99061,
+          "speaker": "A"
+        },
+        {
+          "text": "Could",
+          "start": 100580,
+          "end": 100860,
+          "confidence": 0.99947,
+          "speaker": "A"
+        },
+        {
+          "text": "be",
+          "start": 100900,
+          "end": 101100,
+          "confidence": 0.99931,
+          "speaker": "A"
+        },
+        {
+          "text": "a",
+          "start": 101140,
+          "end": 101292,
+          "confidence": 0.99818,
+          "speaker": "A"
+        },
+        {
+          "text": "fresh",
+          "start": 101316,
+          "end": 101564,
+          "confidence": 0.99929,
+          "speaker": "A"
+        },
+        {
+          "text": "addition.",
+          "start": 101612,
+          "end": 102200,
+          "confidence": 0.94002,
+          "speaker": "A"
+        }
+      ]
+    },
+    {
+      "speaker": "B",
+      "text": "Agreed. Rooibos has great potential here, especially with the herbal wellness crowd. And we've already got distribution conversations going with some of the larger chains.",
+      "confidence": 0.9863432,
+      "start": 104900,
+      "end": 114740,
+      "words": [
+        {
+          "text": "Agreed.",
+          "start": 104900,
+          "end": 105676,
+          "confidence": 0.9762,
+          "speaker": "B"
+        },
+        {
+          "text": "Rooibos",
+          "start": 105788,
+          "end": 106492,
+          "confidence": 0.84068,
+          "speaker": "B"
+        },
+        {
+          "text": "has",
+          "start": 106556,
+          "end": 106732,
+          "confidence": 0.99848,
+          "speaker": "B"
+        },
+        {
+          "text": "great",
+          "start": 106756,
+          "end": 106940,
+          "confidence": 0.99946,
+          "speaker": "B"
+        },
+        {
+          "text": "potential",
+          "start": 106980,
+          "end": 107372,
+          "confidence": 0.99988,
+          "speaker": "B"
+        },
+        {
+          "text": "here,",
+          "start": 107436,
+          "end": 107864,
+          "confidence": 0.99133,
+          "speaker": "B"
+        },
+        {
+          "text": "especially",
+          "start": 107972,
+          "end": 108336,
+          "confidence": 0.99708,
+          "speaker": "B"
+        },
+        {
+          "text": "with",
+          "start": 108408,
+          "end": 108592,
+          "confidence": 0.99886,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 108616,
+          "end": 108752,
+          "confidence": 0.99874,
+          "speaker": "B"
+        },
+        {
+          "text": "herbal",
+          "start": 108776,
+          "end": 109056,
+          "confidence": 0.99405,
+          "speaker": "B"
+        },
+        {
+          "text": "wellness",
+          "start": 109088,
+          "end": 109504,
+          "confidence": 0.99952,
+          "speaker": "B"
+        },
+        {
+          "text": "crowd.",
+          "start": 109552,
+          "end": 110144,
+          "confidence": 0.88664,
+          "speaker": "B"
+        },
+        {
+          "text": "And",
+          "start": 110272,
+          "end": 110512,
+          "confidence": 0.99087,
+          "speaker": "B"
+        },
+        {
+          "text": "we've",
+          "start": 110536,
+          "end": 110768,
+          "confidence": 0.9961,
+          "speaker": "B"
+        },
+        {
+          "text": "already",
+          "start": 110784,
+          "end": 111008,
+          "confidence": 0.99956,
+          "speaker": "B"
+        },
+        {
+          "text": "got",
+          "start": 111064,
+          "end": 111280,
+          "confidence": 0.9993,
+          "speaker": "B"
+        },
+        {
+          "text": "distribution",
+          "start": 111320,
+          "end": 111920,
+          "confidence": 0.99962,
+          "speaker": "B"
+        },
+        {
+          "text": "conversations",
+          "start": 112000,
+          "end": 112640,
+          "confidence": 0.99805,
+          "speaker": "B"
+        },
+        {
+          "text": "going",
+          "start": 112720,
+          "end": 112960,
+          "confidence": 0.99934,
+          "speaker": "B"
+        },
+        {
+          "text": "with",
+          "start": 113000,
+          "end": 113200,
+          "confidence": 0.99919,
+          "speaker": "B"
+        },
+        {
+          "text": "some",
+          "start": 113240,
+          "end": 113392,
+          "confidence": 0.99932,
+          "speaker": "B"
+        },
+        {
+          "text": "of",
+          "start": 113416,
+          "end": 113504,
+          "confidence": 0.999,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 113512,
+          "end": 113632,
+          "confidence": 0.99921,
+          "speaker": "B"
+        },
+        {
+          "text": "larger",
+          "start": 113656,
+          "end": 114016,
+          "confidence": 0.99968,
+          "speaker": "B"
+        },
+        {
+          "text": "chains.",
+          "start": 114048,
+          "end": 114740,
+          "confidence": 0.99842,
+          "speaker": "B"
+        }
+      ]
+    },
+    {
+      "speaker": "A",
+      "text": "Let's set up a follow up. I'll get you samples and maybe we can put together a joint tasting for your buyers in Lisbon. I'll also send you our company profile.",
+      "confidence": 0.96888095,
+      "start": 116040,
+      "end": 125060,
+      "words": [
+        {
+          "text": "Let's",
+          "start": 116040,
+          "end": 116368,
+          "confidence": 0.98981,
+          "speaker": "A"
+        },
+        {
+          "text": "set",
+          "start": 116384,
+          "end": 116512,
+          "confidence": 0.99802,
+          "speaker": "A"
+        },
+        {
+          "text": "up",
+          "start": 116536,
+          "end": 116624,
+          "confidence": 0.99487,
+          "speaker": "A"
+        },
+        {
+          "text": "a",
+          "start": 116632,
+          "end": 116752,
+          "confidence": 0.9988,
+          "speaker": "A"
+        },
+        {
+          "text": "follow",
+          "start": 116776,
+          "end": 116912,
+          "confidence": 0.98643,
+          "speaker": "A"
+        },
+        {
+          "text": "up.",
+          "start": 116936,
+          "end": 117312,
+          "confidence": 0.66549,
+          "speaker": "A"
+        },
+        {
+          "text": "I'll",
+          "start": 117416,
+          "end": 117696,
+          "confidence": 0.9139,
+          "speaker": "A"
+        },
+        {
+          "text": "get",
+          "start": 117728,
+          "end": 117872,
+          "confidence": 0.99786,
+          "speaker": "A"
+        },
+        {
+          "text": "you",
+          "start": 117896,
+          "end": 118080,
+          "confidence": 0.9891,
+          "speaker": "A"
+        },
+        {
+          "text": "samples",
+          "start": 118120,
+          "end": 118608,
+          "confidence": 0.9982,
+          "speaker": "A"
+        },
+        {
+          "text": "and",
+          "start": 118704,
+          "end": 118912,
+          "confidence": 0.9911,
+          "speaker": "A"
+        },
+        {
+          "text": "maybe",
+          "start": 118936,
+          "end": 119136,
+          "confidence": 0.99919,
+          "speaker": "A"
+        },
+        {
+          "text": "we",
+          "start": 119168,
+          "end": 119312,
+          "confidence": 0.99831,
+          "speaker": "A"
+        },
+        {
+          "text": "can",
+          "start": 119336,
+          "end": 119472,
+          "confidence": 0.99825,
+          "speaker": "A"
+        },
+        {
+          "text": "put",
+          "start": 119496,
+          "end": 119632,
+          "confidence": 0.99954,
+          "speaker": "A"
+        },
+        {
+          "text": "together",
+          "start": 119656,
+          "end": 119888,
+          "confidence": 0.99921,
+          "speaker": "A"
+        },
+        {
+          "text": "a",
+          "start": 119944,
+          "end": 120112,
+          "confidence": 0.99903,
+          "speaker": "A"
+        },
+        {
+          "text": "joint",
+          "start": 120136,
+          "end": 120384,
+          "confidence": 0.97888,
+          "speaker": "A"
+        },
+        {
+          "text": "tasting",
+          "start": 120432,
+          "end": 120784,
+          "confidence": 0.67816,
+          "speaker": "A"
+        },
+        {
+          "text": "for",
+          "start": 120832,
+          "end": 120992,
+          "confidence": 0.99865,
+          "speaker": "A"
+        },
+        {
+          "text": "your",
+          "start": 121016,
+          "end": 121152,
+          "confidence": 0.97196,
+          "speaker": "A"
+        },
+        {
+          "text": "buyers",
+          "start": 121176,
+          "end": 121456,
+          "confidence": 0.95485,
+          "speaker": "A"
+        },
+        {
+          "text": "in",
+          "start": 121488,
+          "end": 121584,
+          "confidence": 0.98385,
+          "speaker": "A"
+        },
+        {
+          "text": "Lisbon.",
+          "start": 121592,
+          "end": 122304,
+          "confidence": 0.99696,
+          "speaker": "A"
+        },
+        {
+          "text": "I'll",
+          "start": 122432,
+          "end": 122736,
+          "confidence": 0.96517,
+          "speaker": "A"
+        },
+        {
+          "text": "also",
+          "start": 122768,
+          "end": 123056,
+          "confidence": 0.99902,
+          "speaker": "A"
+        },
+        {
+          "text": "send",
+          "start": 123128,
+          "end": 123376,
+          "confidence": 0.99951,
+          "speaker": "A"
+        },
+        {
+          "text": "you",
+          "start": 123408,
+          "end": 123600,
+          "confidence": 0.99619,
+          "speaker": "A"
+        },
+        {
+          "text": "our",
+          "start": 123640,
+          "end": 123888,
+          "confidence": 0.99601,
+          "speaker": "A"
+        },
+        {
+          "text": "company",
+          "start": 123944,
+          "end": 124256,
+          "confidence": 0.99969,
+          "speaker": "A"
+        },
+        {
+          "text": "profile.",
+          "start": 124328,
+          "end": 125060,
+          "confidence": 0.9993,
+          "speaker": "A"
+        }
+      ]
+    },
+    {
+      "speaker": "B",
+      "text": "Love it. I'll loop in my commercial director and we'll get it moving. Great meeting you, Chefo. Let's make something happen.",
+      "confidence": 0.95293474,
+      "start": 128520,
+      "end": 134520,
+      "words": [
+        {
+          "text": "Love",
+          "start": 128520,
+          "end": 128880,
+          "confidence": 0.98849,
+          "speaker": "B"
+        },
+        {
+          "text": "it.",
+          "start": 128920,
+          "end": 129120,
+          "confidence": 0.99946,
+          "speaker": "B"
+        },
+        {
+          "text": "I'll",
+          "start": 129160,
+          "end": 129376,
+          "confidence": 0.97158,
+          "speaker": "B"
+        },
+        {
+          "text": "loop",
+          "start": 129408,
+          "end": 129616,
+          "confidence": 0.98599,
+          "speaker": "B"
+        },
+        {
+          "text": "in",
+          "start": 129648,
+          "end": 129744,
+          "confidence": 0.99215,
+          "speaker": "B"
+        },
+        {
+          "text": "my",
+          "start": 129752,
+          "end": 129872,
+          "confidence": 0.99849,
+          "speaker": "B"
+        },
+        {
+          "text": "commercial",
+          "start": 129896,
+          "end": 130304,
+          "confidence": 0.99857,
+          "speaker": "B"
+        },
+        {
+          "text": "director",
+          "start": 130352,
+          "end": 130656,
+          "confidence": 0.99919,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 130728,
+          "end": 130912,
+          "confidence": 0.998,
+          "speaker": "B"
+        },
+        {
+          "text": "we'll",
+          "start": 130936,
+          "end": 131136,
+          "confidence": 0.98845,
+          "speaker": "B"
+        },
+        {
+          "text": "get",
+          "start": 131168,
+          "end": 131264,
+          "confidence": 0.99982,
+          "speaker": "B"
+        },
+        {
+          "text": "it",
+          "start": 131272,
+          "end": 131392,
+          "confidence": 0.99789,
+          "speaker": "B"
+        },
+        {
+          "text": "moving.",
+          "start": 131416,
+          "end": 131904,
+          "confidence": 0.99891,
+          "speaker": "B"
+        },
+        {
+          "text": "Great",
+          "start": 132032,
+          "end": 132320,
+          "confidence": 0.99815,
+          "speaker": "B"
+        },
+        {
+          "text": "meeting",
+          "start": 132360,
+          "end": 132560,
+          "confidence": 0.99974,
+          "speaker": "B"
+        },
+        {
+          "text": "you,",
+          "start": 132600,
+          "end": 132800,
+          "confidence": 0.99638,
+          "speaker": "B"
+        },
+        {
+          "text": "Chefo.",
+          "start": 132840,
+          "end": 133488,
+          "confidence": 0.10629,
+          "speaker": "B"
+        },
+        {
+          "text": "Let's",
+          "start": 133584,
+          "end": 133888,
+          "confidence": 0.9963,
+          "speaker": "B"
+        },
+        {
+          "text": "make",
+          "start": 133904,
+          "end": 134080,
+          "confidence": 0.99962,
+          "speaker": "B"
+        },
+        {
+          "text": "something",
+          "start": 134120,
+          "end": 134368,
+          "confidence": 0.99939,
+          "speaker": "B"
+        },
+        {
+          "text": "happen.",
+          "start": 134424,
+          "end": 134520,
+          "confidence": 0.99877,
+          "speaker": "B"
+        }
+      ]
+    }
+  ],
+  "confidence": 0.95263934,
+  "audio_duration": 136,
+  "punctuate": true,
+  "format_text": true,
+  "dual_channel": false,
+  "webhook_url": null,
+  "webhook_status_code": null,
+  "webhook_auth": false,
+  "webhook_auth_header_name": null,
+  "speed_boost": false,
+  "auto_highlights_result": null,
+  "auto_highlights": false,
+  "audio_start_from": null,
+  "audio_end_at": null,
+  "word_boost": [],
+  "boost_param": null,
+  "filter_profanity": false,
+  "redact_pii": false,
+  "redact_pii_audio": false,
+  "redact_pii_audio_quality": null,
+  "redact_pii_policies": null,
+  "redact_pii_sub": null,
+  "speaker_labels": true,
+  "content_safety": false,
+  "iab_categories": false,
+  "content_safety_labels": {
+    "status": "unavailable",
+    "results": [],
+    "summary": {}
+  },
+  "iab_categories_result": {
+    "status": "unavailable",
+    "results": [],
+    "summary": {}
+  },
+  "language_detection": false,
+  "language_confidence_threshold": null,
+  "language_confidence": null,
+  "custom_spelling": null,
+  "throttled": false,
+  "auto_chapters": false,
+  "summarization": false,
+  "summary_type": null,
+  "summary_model": null,
+  "custom_topics": false,
+  "topics": [],
+  "speech_threshold": null,
+  "speech_model": null,
+  "chapters": null,
+  "disfluencies": false,
+  "entity_detection": false,
+  "sentiment_analysis": false,
+  "sentiment_analysis_results": null,
+  "entities": null,
+  "speakers_expected": null,
+  "summary": null,
+  "custom_topics_results": null,
+  "is_deleted": null,
+  "multichannel": null,
+  "project_id": 322982,
+  "token_id": 514472,
+  "session_id": "bro",
+  "_id": "829fa7d4-d829-40b3-8fe5-ad44d4e5afb8",
+  "created_at": "2025-04-06T13:57:37.987400",
+  "updated_at": "2025-04-06T13:57:37.987400"
+}
