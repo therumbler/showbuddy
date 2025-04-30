@@ -1,11 +1,18 @@
-FROM python:3.13.3
+FROM python:3.13.3-alpine AS builder
 
 WORKDIR /app
-EXPOSE 8000
-RUN python3 -m pip install --upgrade pip
-RUN python3 -m pip install uv
-COPY uv.lock /app/uv.lock
-COPY  pyproject.toml /app/pyproject.toml
+
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m pip install uv
+
+COPY uv.lock pyproject.toml ./
 RUN uv sync
+
+FROM python:3.13.3-alpine AS runtime
+
+EXPOSE 8000
+WORKDIR /app
+COPY --from=builder /app/.venv /app/.venv
+ENV PATH="/app/.venv/bin:$PATH"
 COPY . .
 ENTRYPOINT [ "./entrypoint.sh" ]
